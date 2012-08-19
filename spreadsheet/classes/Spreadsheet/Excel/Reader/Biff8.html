@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Excel::Reader::Biff8</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Spreadsheet::Excel::Reader::Biff8 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/spreadsheet/lib/spreadsheet/excel/reader/biff8_rb.html">spreadsheet/lib/spreadsheet/excel/reader/biff8.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>This Module collects reader methods such as <a
+href="Biff8.html#method-i-read_string">#read_string</a> that are specific
+to <a href="Biff8.html">Biff8</a>.  This Module is likely to be expanded as
+Support for older Versions of <a href="../../Excel.html">Excel</a> grows
+and methods get moved here for disambiguation.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-continue_sst">continue_sst</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-continue_string">continue_string</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-continue_string_header">continue_string_header</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-read_extsst">read_extsst</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-read_sst">read_sst</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-read_string">read_string</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-read_string_body">read_string_body</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-read_string_header">read_string_header</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-wide">wide</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../Internals.html">
+              Spreadsheet::Excel::Internals
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-continue_sst">
+            
+              <a name="method-i-continue_sst"></a><b>continue_sst</b>(work, oppos, len)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Read more data into the Shared String Table. (see also: <a
+href="Biff8.html#method-i-read_sst">read_sst</a>) This method only
+evaluates the header, the actual work is done in #_read_sst</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-continue_sst_source')" id="l_method-i-continue_sst_source">show</a>
+                
+              </p>
+              <div id="method-i-continue_sst_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/reader/biff8.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">continue_sst</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">oppos</span>, <span class="ruby-identifier">len</span>
+  <span class="ruby-identifier">pos</span> = <span class="ruby-number">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@incomplete_sst</span>
+    <span class="ruby-identifier">pos</span> = <span class="ruby-identifier">continue_string_header</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">oppos</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@incomplete_skip</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">pos</span> =  <span class="ruby-ivar">@incomplete_skip</span>
+    <span class="ruby-ivar">@incomplete_skip</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@sst_offset</span>[<span class="ruby-number">1</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">len</span>
+  <span class="ruby-identifier">_read_sst</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">oppos</span>, <span class="ruby-identifier">pos</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-continue_string">
+            
+              <a name="method-i-continue_string"></a><b>continue_string</b>(work, incomplete_string=@incomplete_string)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>When a String is too long for one Opcode, it is continued in a Continue
+Opcode. <a href="../../Excel.html">Excel</a> may reconsider compressing the
+remainder of the string. This method appends the available remainder
+(decompressed if necessary) to the incomplete string.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-continue_string_source')" id="l_method-i-continue_string_source">show</a>
+                
+              </p>
+              <div id="method-i-continue_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/reader/biff8.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">continue_string</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">incomplete_string</span>=<span class="ruby-ivar">@incomplete_string</span>
+  <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">work</span>.<span class="ruby-identifier">unpack</span> <span class="ruby-string">'C'</span>
+  <span class="ruby-identifier">wide</span> = <span class="ruby-identifier">opts</span> &amp; <span class="ruby-number">1</span>
+  <span class="ruby-identifier">head</span>, <span class="ruby-identifier">chars</span> = <span class="ruby-identifier">incomplete_string</span>
+  <span class="ruby-identifier">owing</span> = <span class="ruby-identifier">chars</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">head</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-number">2</span>
+  <span class="ruby-identifier">size</span> = <span class="ruby-identifier">owing</span> * (<span class="ruby-identifier">wide</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+  <span class="ruby-identifier">string</span> = <span class="ruby-identifier">work</span>[<span class="ruby-number">1</span>, <span class="ruby-identifier">size</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">wide</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+    <span class="ruby-identifier">string</span> = <span class="ruby-identifier">wide</span> <span class="ruby-identifier">string</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">head</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">string</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">head</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">chars</span> * <span class="ruby-number">2</span>
+    <span class="ruby-ivar">@incomplete_string</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-continue_string_header">
+            
+              <a name="method-i-continue_string_header"></a><b>continue_string_header</b>(work, oppos)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>When a String is too long for one Opcode, it is continued in a Continue
+Opcode. <a href="../../Excel.html">Excel</a> may reconsider compressing the
+remainder of the string. This method only evaluates the header and
+registers the address of the continuation with the previous <a
+href="../SstEntry.html">SstEntry</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-continue_string_header_source')" id="l_method-i-continue_string_header_source">show</a>
+                
+              </p>
+              <div id="method-i-continue_string_header_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/reader/biff8.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">continue_string_header</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">oppos</span>
+  <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">work</span>.<span class="ruby-identifier">unpack</span> <span class="ruby-string">'C'</span>
+  <span class="ruby-identifier">wide</span> = <span class="ruby-identifier">opts</span> &amp; <span class="ruby-number">1</span>
+  <span class="ruby-identifier">owing</span> = <span class="ruby-ivar">@incomplete_sst</span>.<span class="ruby-identifier">continued_chars</span>
+  <span class="ruby-identifier">size</span> = [<span class="ruby-identifier">work</span>.<span class="ruby-identifier">size</span>, <span class="ruby-identifier">owing</span> * (<span class="ruby-number">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">wide</span>) <span class="ruby-operator">+</span> <span class="ruby-number">1</span>].<span class="ruby-identifier">min</span>
+  <span class="ruby-identifier">chars</span> = (<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>) <span class="ruby-operator">/</span> (<span class="ruby-number">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">wide</span>)
+  <span class="ruby-identifier">skip</span> = <span class="ruby-identifier">size</span>
+  <span class="ruby-ivar">@incomplete_sst</span>.<span class="ruby-identifier">continue</span> <span class="ruby-identifier">oppos</span> <span class="ruby-operator">+</span> <span class="ruby-constant">OPCODE_SIZE</span>, <span class="ruby-identifier">size</span>, <span class="ruby-identifier">chars</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@incomplete_sst</span>.<span class="ruby-identifier">continued?</span>
+    <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">add_shared_string</span> <span class="ruby-ivar">@incomplete_sst</span>
+    <span class="ruby-identifier">skip</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@incomplete_skip</span>
+    <span class="ruby-ivar">@incomplete_sst</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@incomplete_skip</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">skip</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-read_extsst">
+            
+              <a name="method-i-read_extsst"></a><b>read_extsst</b>(work, pos, len)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Store the offset of extsst, so we can write a new extsst when the sst has
+changed</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-read_extsst_source')" id="l_method-i-read_extsst_source">show</a>
+                
+              </p>
+              <div id="method-i-read_extsst_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/reader/biff8.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">read_extsst</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>
+  <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">store</span> <span class="ruby-value">:extsst</span>, [<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-read_sst">
+            
+              <a name="method-i-read_sst"></a><b>read_sst</b>(work, pos, len)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Read the Shared String Table present in all <a href="Biff8.html">Biff8</a>
+Files. This method only evaluates the header, the actual work is done in
+#_read_sst</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-read_sst_source')" id="l_method-i-read_sst_source">show</a>
+                
+              </p>
+              <div id="method-i-read_sst_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/reader/biff8.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">read_sst</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>
+  <span class="ruby-comment"># Offset  Size  Contents</span>
+  <span class="ruby-comment">#      0     4  Total number of strings in the workbook (see below)</span>
+  <span class="ruby-comment">#      4     4  Number of following strings (nm)</span>
+  <span class="ruby-comment">#      8  var.  List of nm Unicode strings, 16-bit string length (➜ 3.4)</span>
+  <span class="ruby-identifier">total</span>, <span class="ruby-ivar">@sst_size</span> = <span class="ruby-identifier">work</span>.<span class="ruby-identifier">unpack</span> <span class="ruby-string">'V2'</span>
+  <span class="ruby-ivar">@sst_offset</span> = [<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>]
+  <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">store</span> <span class="ruby-value">:sst</span>, <span class="ruby-ivar">@sst_offset</span>
+  <span class="ruby-identifier">_read_sst</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">pos</span>, <span class="ruby-number">8</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-read_string">
+            
+              <a name="method-i-read_string"></a><b>read_string</b>(work, count_length=1)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Read a string from the <a href="../../../Spreadsheet.html">Spreadsheet</a>,
+such as a Worksheet- or Font-Name, or a Number-<a
+href="../../Format.html">Format</a>. See also <a
+href="Biff8.html#method-i-read_string_header">read_string_header</a> and <a
+href="Biff8.html#method-i-read_string_body">read_string_body</a></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-read_string_source')" id="l_method-i-read_string_source">show</a>
+                
+              </p>
+              <div id="method-i-read_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/reader/biff8.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">read_string</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">count_length</span>=<span class="ruby-number">1</span>
+  <span class="ruby-comment">#   Offset    Size  Contents</span>
+  <span class="ruby-comment">#        0  1 or 2  Length of the string (character count, ln)</span>
+  <span class="ruby-comment">#   1 or 2       1  Option flags:</span>
+  <span class="ruby-comment">#                   Bit  Mask  Contents</span>
+  <span class="ruby-comment">#                     0  0x01  Character compression (ccompr):</span>
+  <span class="ruby-comment">#                              0 = Compressed (8-bit characters)</span>
+  <span class="ruby-comment">#                              1 = Uncompressed (16-bit characters)</span>
+  <span class="ruby-comment">#                     2  0x04  Asian phonetic settings (phonetic):</span>
+  <span class="ruby-comment">#                              0 = Does not contain Asian phonetic settings</span>
+  <span class="ruby-comment">#                              1 = Contains Asian phonetic settings</span>
+  <span class="ruby-comment">#                     3  0x08  Rich-Text settings (richtext):</span>
+  <span class="ruby-comment">#                              0 = Does not contain Rich-Text settings</span>
+  <span class="ruby-comment">#                              1 = Contains Rich-Text settings</span>
+  <span class="ruby-comment"># [2 or 3]       2  (optional, only if richtext=1)</span>
+  <span class="ruby-comment">#                   Number of Rich-Text formatting runs (rt)</span>
+  <span class="ruby-comment">#   [var.]       4  (optional, only if phonetic=1)</span>
+  <span class="ruby-comment">#                   Size of Asian phonetic settings block (in bytes, sz)</span>
+  <span class="ruby-comment">#     var.      ln  Character array (8-bit characters</span>
+  <span class="ruby-comment">#          or 2∙ln               or 16-bit characters, dependent on ccompr)</span>
+  <span class="ruby-comment">#   [var.]    4∙rt  (optional, only if richtext=1)</span>
+  <span class="ruby-comment">#                   List of rt formatting runs (➜ 3.2)</span>
+  <span class="ruby-comment">#   [var.]      sz  (optional, only if phonetic=1)</span>
+  <span class="ruby-comment">#                   Asian Phonetic Settings Block (➜ 3.4.2)</span>
+  <span class="ruby-identifier">chars</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">wide</span>, <span class="ruby-identifier">phonetic</span>, <span class="ruby-identifier">richtext</span>, <span class="ruby-identifier">available</span>, <span class="ruby-identifier">owing</span>, <span class="ruby-identifier">skip</span>        = <span class="ruby-identifier">read_string_header</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">count_length</span>
+  <span class="ruby-identifier">string</span>, <span class="ruby-identifier">data</span> = <span class="ruby-identifier">read_string_body</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">available</span>, <span class="ruby-identifier">wide</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">owing</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+    <span class="ruby-ivar">@incomplete_string</span> = [<span class="ruby-identifier">string</span>, <span class="ruby-identifier">chars</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-read_string_body">
+            
+              <a name="method-i-read_string_body"></a><b>read_string_body</b>(work, offset, available, wide)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Read the body of a string. Returns the String (decompressed if necessary)
+and the available data (unchanged).</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-read_string_body_source')" id="l_method-i-read_string_body_source">show</a>
+                
+              </p>
+              <div id="method-i-read_string_body_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/reader/biff8.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">read_string_body</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">available</span>, <span class="ruby-identifier">wide</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">work</span>[<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">available</span>]
+  <span class="ruby-identifier">string</span> = <span class="ruby-identifier">wide</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">data</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">wide</span>(<span class="ruby-identifier">data</span>)
+  [<span class="ruby-identifier">string</span>, <span class="ruby-identifier">data</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-read_string_header">
+            
+              <a name="method-i-read_string_header"></a><b>read_string_header</b>(work, count_length=1, offset=0)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Read the header of a string. Returns the following information in an Array:</p>
+<ul><li>
+<p>The total number of characters in the string</p>
+</li><li>
+<p>The offset of the actual string data (= the length of this header in bytes)</p>
+</li><li>
+<p>Whether or not the string was compressed (0/1)</p>
+</li><li>
+<p>Whether or not the string contains asian phonetic settings (0/1)</p>
+</li><li>
+<p>Whether or not the string contains richtext formatting (0/1)</p>
+</li><li>
+<p>The number of bytes containing characters in this chunk of data</p>
+</li><li>
+<p>The number of characters missing from this chunk of data and expected to
+follow in a Continue Opcode</p>
+</li></ul>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-read_string_header_source')" id="l_method-i-read_string_header_source">show</a>
+                
+              </p>
+              <div id="method-i-read_string_header_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/reader/biff8.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">read_string_header</span> <span class="ruby-identifier">work</span>, <span class="ruby-identifier">count_length</span>=<span class="ruby-number">1</span>, <span class="ruby-identifier">offset</span>=<span class="ruby-number">0</span>
+  <span class="ruby-identifier">fmt</span> = <span class="ruby-identifier">count_length</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span> <span class="ruby-operator">?</span> <span class="ruby-string">'C2'</span> <span class="ruby-operator">:</span> <span class="ruby-string">'vC'</span>
+  <span class="ruby-identifier">chars</span>, <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">work</span>[<span class="ruby-identifier">offset</span>, <span class="ruby-number">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">count_length</span>].<span class="ruby-identifier">unpack</span> <span class="ruby-identifier">fmt</span>
+  <span class="ruby-identifier">wide</span>      = <span class="ruby-identifier">opts</span> &amp; <span class="ruby-number">1</span>
+  <span class="ruby-identifier">phonetic</span>  = (<span class="ruby-identifier">opts</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-number">2</span>) &amp; <span class="ruby-number">1</span>
+  <span class="ruby-identifier">richtext</span>  = (<span class="ruby-identifier">opts</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-number">3</span>) &amp; <span class="ruby-number">1</span>
+  <span class="ruby-identifier">size</span>      = <span class="ruby-identifier">chars</span> * (<span class="ruby-identifier">wide</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+  <span class="ruby-identifier">skip</span> = <span class="ruby-number">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">richtext</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+    <span class="ruby-identifier">runs</span>, = <span class="ruby-identifier">work</span>[<span class="ruby-identifier">offset</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">count_length</span>, <span class="ruby-number">2</span>].<span class="ruby-identifier">unpack</span> <span class="ruby-string">'v'</span>
+    <span class="ruby-identifier">skip</span> = <span class="ruby-number">4</span> * <span class="ruby-identifier">runs</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">phonetic</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+    <span class="ruby-identifier">psize</span>, = <span class="ruby-identifier">work</span>[<span class="ruby-identifier">offset</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">count_length</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">richtext</span> * <span class="ruby-number">2</span>, <span class="ruby-number">4</span>].<span class="ruby-identifier">unpack</span> <span class="ruby-string">'V'</span>
+    <span class="ruby-identifier">skip</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">psize</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">flagsize</span>  = <span class="ruby-number">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">count_length</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">richtext</span> * <span class="ruby-number">2</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">phonetic</span> * <span class="ruby-number">4</span>
+  <span class="ruby-identifier">avbl</span>      = [<span class="ruby-identifier">work</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">flagsize</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">size</span>].<span class="ruby-identifier">min</span>
+  <span class="ruby-identifier">have_chrs</span> = (<span class="ruby-identifier">avbl</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">flagsize</span>) <span class="ruby-operator">/</span> (<span class="ruby-number">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">wide</span>)
+  <span class="ruby-identifier">owing</span>     = <span class="ruby-identifier">chars</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">have_chrs</span>
+  [<span class="ruby-identifier">chars</span>, <span class="ruby-identifier">flagsize</span>, <span class="ruby-identifier">wide</span>, <span class="ruby-identifier">phonetic</span>, <span class="ruby-identifier">richtext</span>, <span class="ruby-identifier">avbl</span>, <span class="ruby-identifier">owing</span>, <span class="ruby-identifier">skip</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-wide">
+            
+              <a name="method-i-wide"></a><b>wide</b>(string)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Insert null-characters into a compressed UTF-16 string</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-wide_source')" id="l_method-i-wide_source">show</a>
+                
+              </p>
+              <div id="method-i-wide_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/reader/biff8.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">wide</span> <span class="ruby-identifier">string</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-string">''</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">each_byte</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">byte</span><span class="ruby-operator">|</span> <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">byte</span>.<span class="ruby-identifier">chr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-number">0</span>.<span class="ruby-identifier">chr</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

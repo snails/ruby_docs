@@ -1,0 +1,2500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Excel::Writer::Worksheet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Spreadsheet::Excel::Writer::Worksheet 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/spreadsheet/lib/spreadsheet/excel/writer/worksheet_rb.html">spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="../Writer.html">Writer</a> class for <a
+href="../../Excel.html">Excel</a> Worksheets. Most write_* method
+correspond to an Excel-Record/Opcode. You should not need to call any of
+its methods directly. If you think you do, look at write_worksheet</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-boundsheet_size">boundsheet_size</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-data">data</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-encode_date">encode_date</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-encode_rk">encode_rk</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-name">name</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-need_number-3F">need_number?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-row_blocks">row_blocks</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-size">size</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-strings">strings</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-write_blank">write_blank</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_bof">write_bof</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_boolerr">write_boolerr</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_calccount">write_calccount</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_cell">write_cell</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_cellblocks">write_cellblocks</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_changes">write_changes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_colinfo">write_colinfo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_colinfos">write_colinfos</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_defaultrowheight">write_defaultrowheight</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_defcolwidth">write_defcolwidth</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_dimensions">write_dimensions</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_eof">write_eof</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_formula">write_formula</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_from_scratch">write_from_scratch</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_hlink">write_hlink</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_hyperlink_table">write_hyperlink_table</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_iteration">write_iteration</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_labelsst">write_labelsst</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_mulblank">write_mulblank</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_mulrk">write_mulrk</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_multiples">write_multiples</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_number">write_number</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_op">write_op</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_refmode">write_refmode</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_rk">write_rk</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_row">write_row</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_rowblock">write_rowblock</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_rows">write_rows</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_saverecalc">write_saverecalc</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_window2">write_window2</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_wsbool">write_wsbool</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Biff8.html">
+              Spreadsheet::Excel::Writer::Biff8
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../Internals.html">
+              Spreadsheet::Excel::Internals
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../Internals/Biff8.html">
+              Spreadsheet::Excel::Internals::Biff8
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>worksheet</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <a name="method-c-new"></a><b>new</b>(workbook, worksheet)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">worksheet</span>
+  <span class="ruby-ivar">@workbook</span> = <span class="ruby-identifier">workbook</span>
+  <span class="ruby-ivar">@worksheet</span> = <span class="ruby-identifier">worksheet</span>
+  <span class="ruby-ivar">@io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">''</span>
+  <span class="ruby-ivar">@biff_version</span> = <span class="ruby-number">0x0600</span>
+  <span class="ruby-ivar">@bof</span> = <span class="ruby-number">0x0809</span>
+  <span class="ruby-ivar">@build_id</span> = <span class="ruby-number">3515</span>
+  <span class="ruby-ivar">@build_year</span> = <span class="ruby-number">1996</span>
+  <span class="ruby-ivar">@bof_types</span> = {
+    <span class="ruby-value">:globals</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0005</span>,
+    <span class="ruby-value">:visual_basic</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0006</span>,
+    <span class="ruby-value">:worksheet</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0010</span>,
+    <span class="ruby-value">:chart</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0020</span>,
+    <span class="ruby-value">:macro_sheet</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0040</span>,
+    <span class="ruby-value">:workspace</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0100</span>,
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-boundsheet_size">
+            
+              <a name="method-i-boundsheet_size"></a><b>boundsheet_size</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The number of bytes needed to write a Boundsheet record for this <a
+href="Worksheet.html">Worksheet</a> Used by <a
+href="Worksheet.html">Writer::Worksheet</a> to calculate various offsets.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-boundsheet_size_source')" id="l_method-i-boundsheet_size_source">show</a>
+                
+              </p>
+              <div id="method-i-boundsheet_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">boundsheet_size</span>
+  <span class="ruby-identifier">name</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-number">10</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-data">
+            
+              <a name="method-i-data"></a><b>data</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-data_source')" id="l_method-i-data_source">show</a>
+                
+              </p>
+              <div id="method-i-data_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">data</span>
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">rewind</span>
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">read</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-encode_date">
+            
+              <a name="method-i-encode_date"></a><b>encode_date</b>(date)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-encode_date_source')" id="l_method-i-encode_date_source">show</a>
+                
+              </p>
+              <div id="method-i-encode_date_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">encode_date</span> <span class="ruby-identifier">date</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">date</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Numeric</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Time</span>
+    <span class="ruby-identifier">date</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span>, <span class="ruby-identifier">date</span>.<span class="ruby-identifier">month</span>, <span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span>,
+                        <span class="ruby-identifier">date</span>.<span class="ruby-identifier">hour</span>, <span class="ruby-identifier">date</span>.<span class="ruby-identifier">min</span>, <span class="ruby-identifier">date</span>.<span class="ruby-identifier">sec</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">base</span> = <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">date_base</span>
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">date</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">base</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">LEAP_ERROR</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">base</span>
+    <span class="ruby-identifier">value</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-encode_rk">
+            
+              <a name="method-i-encode_rk"></a><b>encode_rk</b>(value)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-encode_rk_source')" id="l_method-i-encode_rk_source">show</a>
+                
+              </p>
+              <div id="method-i-encode_rk_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">encode_rk</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-comment">#  Bit  Mask        Contents</span>
+  <span class="ruby-comment">#    0  0x00000001  0 = Value not changed 1 = Value is multiplied by 100</span>
+  <span class="ruby-comment">#    1  0x00000002  0 = Floating-point value 1 = Signed integer value</span>
+  <span class="ruby-comment"># 31-2  0xFFFFFFFC  Encoded value</span>
+  <span class="ruby-identifier">cent</span> = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">int</span> = <span class="ruby-number">2</span>
+  <span class="ruby-identifier">higher</span> = <span class="ruby-identifier">value</span> * <span class="ruby-number">100</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">higher</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Float</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">higher</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">0xfffffffc</span>
+    <span class="ruby-identifier">cent</span> = <span class="ruby-number">1</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">higher</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">higher</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-identifier">higher</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-identifier">higher</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+    <span class="ruby-comment">## although not documented as signed, 'V' appears to correctly pack</span>
+    <span class="ruby-comment">#  negative numbers.</span>
+    <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;&lt;=</span> <span class="ruby-number">2</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># FIXME: precision of small numbers</span>
+    <span class="ruby-identifier">int</span> = <span class="ruby-number">0</span>
+    <span class="ruby-identifier">value</span>, = [<span class="ruby-identifier">value</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-constant">EIGHT_BYTE_DOUBLE</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-string">'x4V'</span>)
+    <span class="ruby-identifier">value</span> <span class="ruby-operator">&amp;=</span> <span class="ruby-number">0xfffffffc</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">value</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">cent</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">int</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-name">
+            
+              <a name="method-i-name"></a><b>name</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-name_source')" id="l_method-i-name_source">show</a>
+                
+              </p>
+              <div id="method-i-name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">name</span>
+  <span class="ruby-identifier">unicode_string</span> <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-need_number-3F">
+            
+              <a name="method-i-need_number-3F"></a><b>need_number?</b>(cell)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-need_number-3F_source')" id="l_method-i-need_number-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-need_number-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">need_number?</span> <span class="ruby-identifier">cell</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0x1fffffff</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Float</span>)
+    <span class="ruby-identifier">higher</span> = <span class="ruby-identifier">cell</span> * <span class="ruby-number">100</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">higher</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">higher</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">need_number?</span> <span class="ruby-identifier">higher</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">test1</span>, <span class="ruby-identifier">test2</span> = [<span class="ruby-identifier">cell</span> * <span class="ruby-number">100</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-constant">EIGHT_BYTE_DOUBLE</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-string">'V2'</span>)
+      <span class="ruby-identifier">test1</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">need_number?</span>(<span class="ruby-identifier">test2</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row_blocks">
+            
+              <a name="method-i-row_blocks"></a><b>row_blocks</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_blocks_source')" id="l_method-i-row_blocks_source">show</a>
+                
+              </p>
+              <div id="method-i-row_blocks_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row_blocks</span>
+  <span class="ruby-comment"># All cells in an Excel document are divided into blocks of 32 consecutive</span>
+  <span class="ruby-comment"># rows, called Row Blocks. The first Row Block starts with the first used</span>
+  <span class="ruby-comment"># row in that sheet. Inside each Row Block there will occur ROW records</span>
+  <span class="ruby-comment"># describing the properties of the rows, and cell records with all the cell</span>
+  <span class="ruby-comment"># contents in this Row Block.</span>
+  <span class="ruby-identifier">blocks</span> = []
+  <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">end</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">blocks</span> <span class="ruby-operator">&lt;&lt;</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">%</span> <span class="ruby-number">32</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+    <span class="ruby-identifier">blocks</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">row</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">blocks</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-size">
+            
+              <a name="method-i-size"></a><b>size</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-size_source')" id="l_method-i-size_source">show</a>
+                
+              </p>
+              <div id="method-i-size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">size</span>
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-strings">
+            
+              <a name="method-i-strings"></a><b>strings</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-strings_source')" id="l_method-i-strings_source">show</a>
+                
+              </p>
+              <div id="method-i-strings_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">strings</span>
+  <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">inject</span> [] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">strings</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">cell</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">memo</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">strings</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_blank">
+            
+              <a name="method-i-write_blank"></a><b>write_blank</b>(row, idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write a blank cell</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_blank_source')" id="l_method-i-write_blank_source">show</a>
+                
+              </p>
+              <div id="method-i-write_blank_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_blank</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">write_cell</span> <span class="ruby-value">:blank</span>, <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_bof">
+            
+              <a name="method-i-write_bof"></a><b>write_bof</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_bof_source')" id="l_method-i-write_bof_source">show</a>
+                
+              </p>
+              <div id="method-i-write_bof_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_bof</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-ivar">@biff_version</span>, <span class="ruby-comment"># BIFF version (always 0x0600 for BIFF8)</span>
+    <span class="ruby-number">0x0010</span>,        <span class="ruby-comment"># Type of the following data:</span>
+                   <span class="ruby-comment"># 0x0005 = Workbook globals</span>
+                   <span class="ruby-comment"># 0x0006 = Visual Basic module</span>
+                   <span class="ruby-comment"># 0x0010 = Worksheet</span>
+                   <span class="ruby-comment"># 0x0020 = Chart</span>
+                   <span class="ruby-comment"># 0x0040 = Macro sheet</span>
+                   <span class="ruby-comment"># 0x0100 = Workspace file</span>
+    <span class="ruby-ivar">@build_id</span>,     <span class="ruby-comment"># Build identifier</span>
+    <span class="ruby-ivar">@build_year</span>,   <span class="ruby-comment"># Build year</span>
+    <span class="ruby-number">0x000</span>,         <span class="ruby-comment"># File history flags</span>
+    <span class="ruby-number">0x006</span>,         <span class="ruby-comment"># Lowest Excel version that can read</span>
+                   <span class="ruby-comment"># all records in this file</span>
+  ]
+  <span class="ruby-identifier">write_op</span> <span class="ruby-ivar">@bof</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;v4V2&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_boolerr">
+            
+              <a name="method-i-write_boolerr"></a><b>write_boolerr</b>(row, idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write a cell with a Boolean or <a href="../Error.html">Error</a> value</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_boolerr_source')" id="l_method-i-write_boolerr_source">show</a>
+                
+              </p>
+              <div id="method-i-write_boolerr_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_boolerr</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">row</span>[<span class="ruby-identifier">idx</span>]
+  <span class="ruby-identifier">type</span> = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">numval</span> = <span class="ruby-number">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Error</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-number">1</span>
+    <span class="ruby-identifier">numval</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">code</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">numval</span> = <span class="ruby-number">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-identifier">numval</span>, <span class="ruby-comment"># Boolean or error value (type depends on the following byte)</span>
+    <span class="ruby-identifier">type</span>    <span class="ruby-comment"># 0 = Boolean value; 1 = Error code</span>
+  ]
+  <span class="ruby-identifier">write_cell</span> <span class="ruby-value">:boolerr</span>, <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, *<span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_calccount">
+            
+              <a name="method-i-write_calccount"></a><b>write_calccount</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_calccount_source')" id="l_method-i-write_calccount_source">show</a>
+                
+              </p>
+              <div id="method-i-write_calccount_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_calccount</span>
+  <span class="ruby-identifier">count</span> = <span class="ruby-number">100</span> <span class="ruby-comment"># Maximum number of iterations allowed in circular references</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-number">0x000c</span>, [<span class="ruby-identifier">count</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_cell">
+            
+              <a name="method-i-write_cell"></a><b>write_cell</b>(type, row, idx, *args)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_cell_source')" id="l_method-i-write_cell_source">show</a>
+                
+              </p>
+              <div id="method-i-write_cell_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_cell</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, *<span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">xf_idx</span> = <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">xf_index</span> <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">row</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">idx</span>, <span class="ruby-comment"># Index to row</span>
+    <span class="ruby-identifier">idx</span>,     <span class="ruby-comment"># Index to column</span>
+    <span class="ruby-identifier">xf_idx</span>,  <span class="ruby-comment"># Index to XF record (➜ 6.115)</span>
+  ].<span class="ruby-identifier">concat</span> <span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">opcode</span>(<span class="ruby-identifier">type</span>), <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-identifier">binfmt</span>(<span class="ruby-identifier">type</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_cellblocks">
+            
+              <a name="method-i-write_cellblocks"></a><b>write_cellblocks</b>(row)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_cellblocks_source')" id="l_method-i-write_cellblocks_source">show</a>
+                
+              </p>
+              <div id="method-i-write_cellblocks_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_cellblocks</span> <span class="ruby-identifier">row</span>
+  <span class="ruby-comment"># BLANK ➜ 6.7</span>
+  <span class="ruby-comment"># BOOLERR ➜ 6.10</span>
+  <span class="ruby-comment"># INTEGER ➜ 6.56 (BIFF2 only)</span>
+  <span class="ruby-comment"># LABEL ➜ 6.59 (BIFF2-BIFF7)</span>
+  <span class="ruby-comment"># LABELSST ➜ 6.61 (BIFF8 only)</span>
+  <span class="ruby-comment"># MULBLANK ➜ 6.64 (BIFF5-BIFF8)</span>
+  <span class="ruby-comment"># MULRK ➜ 6.65 (BIFF5-BIFF8)</span>
+  <span class="ruby-comment"># NUMBER ➜ 6.68</span>
+  <span class="ruby-comment"># RK ➜ 6.82 (BIFF3-BIFF8)</span>
+  <span class="ruby-comment"># RSTRING ➜ 6.84 (BIFF5/BIFF7)</span>
+  <span class="ruby-identifier">multiples</span>, <span class="ruby-identifier">first_idx</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">row</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">formatted</span>
+  <span class="ruby-identifier">row</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cell</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell</span> <span class="ruby-operator">==</span> <span class="ruby-string">''</span>
+    <span class="ruby-comment">## it appears that there are limitations to RK precision, both for</span>
+    <span class="ruby-comment">#  Integers and Floats, that lie well below 2^30 significant bits, or</span>
+    <span class="ruby-comment">#  Ruby's Bignum threshold. In that case we'll just write a Number</span>
+    <span class="ruby-comment">#  record</span>
+    <span class="ruby-identifier">need_number</span> = <span class="ruby-identifier">need_number?</span> <span class="ruby-identifier">cell</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">multiples</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">multiples</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">class</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">need_number</span>)
+      <span class="ruby-identifier">write_multiples</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">first_idx</span>, <span class="ruby-identifier">multiples</span>
+      <span class="ruby-identifier">multiples</span>, <span class="ruby-identifier">first_idx</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">nxt</span> = <span class="ruby-identifier">idx</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">cell</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">NilClass</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">multiples</span>
+        <span class="ruby-identifier">multiples</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">cell</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">nxt</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">row</span>[<span class="ruby-identifier">nxt</span>].<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">multiples</span> = [<span class="ruby-identifier">cell</span>]
+        <span class="ruby-identifier">first_idx</span> = <span class="ruby-identifier">idx</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">write_blank</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">TrueClass</span>, <span class="ruby-constant">FalseClass</span>, <span class="ruby-constant">Error</span>
+      <span class="ruby-identifier">write_boolerr</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+      <span class="ruby-identifier">write_labelsst</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Numeric</span>
+      <span class="ruby-comment">## RK encodes Floats with 30 significant bits, which is a bit more than</span>
+      <span class="ruby-comment">#  10^9. Not sure what is a good rule of thumb here, but it seems that</span>
+      <span class="ruby-comment">#  Decimal Numbers with more than 4 significant digits are not represented</span>
+      <span class="ruby-comment">#  with sufficient precision by RK</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">need_number</span>
+        <span class="ruby-identifier">write_number</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">multiples</span>
+        <span class="ruby-identifier">multiples</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">cell</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">nxt</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">row</span>[<span class="ruby-identifier">nxt</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+        <span class="ruby-identifier">multiples</span> = [<span class="ruby-identifier">cell</span>]
+        <span class="ruby-identifier">first_idx</span> = <span class="ruby-identifier">idx</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">write_rk</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Formula</span>
+      <span class="ruby-identifier">write_formula</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Date</span>, <span class="ruby-constant">Time</span>
+      <span class="ruby-identifier">write_number</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">write_multiples</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">first_idx</span>, <span class="ruby-identifier">multiples</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">multiples</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_changes">
+            
+              <a name="method-i-write_changes"></a><b>write_changes</b>(reader, endpos, sst_status)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_changes_source')" id="l_method-i-write_changes_source">show</a>
+                
+              </p>
+              <div id="method-i-write_changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 242</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_changes</span> <span class="ruby-identifier">reader</span>, <span class="ruby-identifier">endpos</span>, <span class="ruby-identifier">sst_status</span>
+    <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">seek</span> <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">offset</span>
+    <span class="ruby-identifier">blocks</span> = <span class="ruby-identifier">row_blocks</span>
+    <span class="ruby-identifier">lastpos</span> = <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">pos</span>
+    <span class="ruby-identifier">offsets</span> = {}
+    <span class="ruby-identifier">row_offsets</span> = []
+    <span class="ruby-identifier">changes</span> = <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">changes</span>
+    <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">pair</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)          <span class="ruby-operator">||</span> (<span class="ruby-identifier">sst_status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:complete_update</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>))
+        <span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">pair</span>, <span class="ruby-identifier">key</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">## FIXME it may be smarter to simply write all rowblocks, instead of doing a</span>
+    <span class="ruby-comment">#        song-and-dance routine for every row...</span>
+    <span class="ruby-identifier">work</span> = <span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">invert</span>
+    <span class="ruby-identifier">work</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, (<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>)<span class="ruby-operator">|</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>
+        <span class="ruby-identifier">row_offsets</span>.<span class="ruby-identifier">push</span> [<span class="ruby-identifier">key</span>, [<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>]]
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:dimensions</span>
+        <span class="ruby-identifier">row_offsets</span>.<span class="ruby-identifier">push</span> [<span class="ruby-number">-1</span>, [<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>]]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">row_offsets</span>.<span class="ruby-identifier">sort!</span>
+    <span class="ruby-identifier">row_offsets</span>.<span class="ruby-identifier">reverse!</span>
+    <span class="ruby-identifier">control</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">idx</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">work</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+        <span class="ruby-identifier">row</span>, <span class="ruby-identifier">pair</span> = <span class="ruby-identifier">row_offsets</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">idx</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">work</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">pair</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">control</span>
+      <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Your Worksheet was modified while it was being written. This should not happen.
+Please contact the author (hannes dot wyss at gmail dot com) with a sample file
+and minimal code that generates this warning. Thanks!
+&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">work</span> = <span class="ruby-identifier">work</span>.<span class="ruby-identifier">sort_by</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, (<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>)<span class="ruby-operator">|</span>
+      [<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">:</span> <span class="ruby-number">-1</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">work</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, (<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>)<span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">pos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">lastpos</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">pos</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lastpos</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span> = <span class="ruby-identifier">blocks</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rows</span><span class="ruby-operator">|</span> <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">idx</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">end</span> <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">write_rowblock</span> <span class="ruby-identifier">block</span>
+          <span class="ruby-identifier">blocks</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">block</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">send</span> <span class="ruby-node">&quot;write_#{key}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">lastpos</span> = <span class="ruby-identifier">pos</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">len</span>
+      <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">seek</span> <span class="ruby-identifier">lastpos</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">endpos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">lastpos</span>)
+  <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_colinfo">
+            
+              <a name="method-i-write_colinfo"></a><b>write_colinfo</b>(bunch)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_colinfo_source')" id="l_method-i-write_colinfo_source">show</a>
+                
+              </p>
+              <div id="method-i-write_colinfo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_colinfo</span> <span class="ruby-identifier">bunch</span>
+  <span class="ruby-identifier">col</span> = <span class="ruby-identifier">bunch</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">width</span> = <span class="ruby-identifier">col</span>.<span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span> * <span class="ruby-number">256</span>
+  <span class="ruby-identifier">xf_idx</span> = <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">xf_index</span> <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">col</span>.<span class="ruby-identifier">default_format</span>
+  <span class="ruby-identifier">opts</span> =  <span class="ruby-number">0</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x0001</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">col</span>.<span class="ruby-identifier">hidden?</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-identifier">col</span>.<span class="ruby-identifier">outline_level</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-number">8</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x1000</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">col</span>.<span class="ruby-identifier">collapsed?</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-identifier">col</span>.<span class="ruby-identifier">idx</span>,        <span class="ruby-comment"># Index to first column in the range</span>
+    <span class="ruby-identifier">bunch</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">idx</span>, <span class="ruby-comment"># Index to last column in the range</span>
+    <span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_i</span>,     <span class="ruby-comment"># Width of the columns in 1/256 of the width of the zero</span>
+                    <span class="ruby-comment"># character, using default font (first FONT record in the</span>
+                    <span class="ruby-comment"># file)</span>
+    <span class="ruby-identifier">xf_idx</span>.<span class="ruby-identifier">to_i</span>,    <span class="ruby-comment"># Index to XF record (➜ 6.115) for default column formatting</span>
+    <span class="ruby-identifier">opts</span>,           <span class="ruby-comment"># Option flags:</span>
+                    <span class="ruby-comment"># Bits  Mask    Contents</span>
+                    <span class="ruby-comment">#    0  0x0001  1 = Columns are hidden</span>
+                    <span class="ruby-comment"># 10-8  0x0700  Outline level of the columns</span>
+                    <span class="ruby-comment">#               (0 = no outline)</span>
+                    <span class="ruby-comment">#   12  0x1000  1 = Columns are collapsed</span>
+  ]
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:colinfo</span>), <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-identifier">binfmt</span>(<span class="ruby-value">:colinfo</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_colinfos">
+            
+              <a name="method-i-write_colinfos"></a><b>write_colinfos</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_colinfos_source')" id="l_method-i-write_colinfos_source">show</a>
+                
+              </p>
+              <div id="method-i-write_colinfos_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 325</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_colinfos</span>
+  <span class="ruby-identifier">cols</span> = <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">columns</span>
+  <span class="ruby-identifier">bunch</span> = []
+  <span class="ruby-identifier">cols</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">column</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">column</span>
+      <span class="ruby-identifier">bunch</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">column</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">cols</span>[<span class="ruby-identifier">idx</span>.<span class="ruby-identifier">next</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">column</span>
+        <span class="ruby-identifier">write_colinfo</span> <span class="ruby-identifier">bunch</span>
+        <span class="ruby-identifier">bunch</span>.<span class="ruby-identifier">clear</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_defaultrowheight">
+            
+              <a name="method-i-write_defaultrowheight"></a><b>write_defaultrowheight</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_defaultrowheight_source')" id="l_method-i-write_defaultrowheight_source">show</a>
+                
+              </p>
+              <div id="method-i-write_defaultrowheight_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 338</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_defaultrowheight</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-number">0x00</span>, <span class="ruby-comment"># Option flags:</span>
+          <span class="ruby-comment"># Bit  Mask  Contents</span>
+          <span class="ruby-comment">#   0  0x01  1 = Row height and default font height do not match</span>
+          <span class="ruby-comment">#   1  0x02  1 = Row is hidden</span>
+          <span class="ruby-comment">#   2  0x04  1 = Additional space above the row</span>
+          <span class="ruby-comment">#   3  0x08  1 = Additional space below the row</span>
+    <span class="ruby-number">0xf2</span>, <span class="ruby-comment">#   Default height for unused rows, in twips = 1/20 of a point</span>
+  ]
+  <span class="ruby-identifier">write_op</span> <span class="ruby-number">0x0225</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v2'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_defcolwidth">
+            
+              <a name="method-i-write_defcolwidth"></a><b>write_defcolwidth</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_defcolwidth_source')" id="l_method-i-write_defcolwidth_source">show</a>
+                
+              </p>
+              <div id="method-i-write_defcolwidth_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_defcolwidth</span>
+  <span class="ruby-comment"># Offset  Size  Contents</span>
+  <span class="ruby-comment">#      0     2  Column width in characters, using the width of the zero</span>
+  <span class="ruby-comment">#               character from default font (first FONT record in the</span>
+  <span class="ruby-comment">#               file). Excel adds some extra space to the default width,</span>
+  <span class="ruby-comment">#               depending on the default font and default font size. The</span>
+  <span class="ruby-comment">#               algorithm how to exactly calculate the resulting column</span>
+  <span class="ruby-comment">#               width is not known.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#               Example: The default width of 8 set in this record results</span>
+  <span class="ruby-comment">#               in a column width of 8.43 using Arial font with a size of</span>
+  <span class="ruby-comment">#               10 points.</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-number">0x0055</span>, [<span class="ruby-number">8</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_dimensions">
+            
+              <a name="method-i-write_dimensions"></a><b>write_dimensions</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_dimensions_source')" id="l_method-i-write_dimensions_source">show</a>
+                
+              </p>
+              <div id="method-i-write_dimensions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_dimensions</span>
+  <span class="ruby-comment"># Offset  Size  Contents</span>
+  <span class="ruby-comment">#      0     4  Index to first used row</span>
+  <span class="ruby-comment">#      4     4  Index to last used row, increased by 1</span>
+  <span class="ruby-comment">#      8     2  Index to first used column</span>
+  <span class="ruby-comment">#     10     2  Index to last used column, increased by 1</span>
+  <span class="ruby-comment">#     12     2  Not used</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-number">0x0200</span>, <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">dimensions</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-identifier">binfmt</span>(<span class="ruby-value">:dimensions</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_eof">
+            
+              <a name="method-i-write_eof"></a><b>write_eof</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_eof_source')" id="l_method-i-write_eof_source">show</a>
+                
+              </p>
+              <div id="method-i-write_eof_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 373</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_eof</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-number">0x000a</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_formula">
+            
+              <a name="method-i-write_formula"></a><b>write_formula</b>(row, idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write a cell with a <a href="../../Formula.html">Formula</a>. May write an
+additional String record depending on the stored result of the <a
+href="../../Formula.html">Formula</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_formula_source')" id="l_method-i-write_formula_source">show</a>
+                
+              </p>
+              <div id="method-i-write_formula_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_formula</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">xf_idx</span> = <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">xf_index</span> <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">row</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-identifier">cell</span> = <span class="ruby-identifier">row</span>[<span class="ruby-identifier">idx</span>]
+  <span class="ruby-identifier">data1</span> = [
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">idx</span>,      <span class="ruby-comment"># Index to row</span>
+    <span class="ruby-identifier">idx</span>,          <span class="ruby-comment"># Index to column</span>
+    <span class="ruby-identifier">xf_idx</span>,       <span class="ruby-comment"># Index to XF record (➜ 6.115)</span>
+  ].<span class="ruby-identifier">pack</span> <span class="ruby-string">'v3'</span>
+  <span class="ruby-identifier">data2</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span> = <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Numeric</span>    <span class="ruby-comment"># IEEE 754 floating-point value (64-bit double precision)</span>
+    <span class="ruby-identifier">data2</span> = [<span class="ruby-identifier">value</span>].<span class="ruby-identifier">pack</span> <span class="ruby-constant">EIGHT_BYTE_DOUBLE</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-identifier">data2</span> = [
+      <span class="ruby-number">0x00</span>,       <span class="ruby-comment"># (identifier for a string value)</span>
+      <span class="ruby-number">0xffff</span>,     <span class="ruby-comment">#</span>
+    ].<span class="ruby-identifier">pack</span> <span class="ruby-string">'Cx5v'</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>, <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span> <span class="ruby-operator">?</span> <span class="ruby-number">1</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>
+    <span class="ruby-identifier">data2</span> = [
+      <span class="ruby-number">0x01</span>,     <span class="ruby-comment"># (identifier for a Boolean value)</span>
+      <span class="ruby-identifier">value</span>,    <span class="ruby-comment"># 0 = FALSE, 1 = TRUE</span>
+      <span class="ruby-number">0xffff</span>,   <span class="ruby-comment">#</span>
+    ].<span class="ruby-identifier">pack</span> <span class="ruby-string">'CxCx3v'</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Error</span>
+    <span class="ruby-identifier">data2</span> = [
+      <span class="ruby-number">0x02</span>,       <span class="ruby-comment"># (identifier for an error value)</span>
+      <span class="ruby-identifier">value</span>.<span class="ruby-identifier">code</span>, <span class="ruby-comment"># Error code</span>
+      <span class="ruby-number">0xffff</span>,     <span class="ruby-comment">#</span>
+    ].<span class="ruby-identifier">pack</span> <span class="ruby-string">'CxCx3v'</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">data2</span> = [
+      <span class="ruby-number">0x03</span>,       <span class="ruby-comment"># (identifier for an empty cell)</span>
+      <span class="ruby-number">0xffff</span>,     <span class="ruby-comment">#</span>
+    ].<span class="ruby-identifier">pack</span> <span class="ruby-string">'Cx5v'</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">data2</span> = [
+      <span class="ruby-number">0x02</span>,       <span class="ruby-comment"># (identifier for an error value)</span>
+      <span class="ruby-number">0x2a</span>,       <span class="ruby-comment"># Error code: #N/A! Argument or function not available</span>
+      <span class="ruby-number">0xffff</span>,     <span class="ruby-comment">#</span>
+    ].<span class="ruby-identifier">pack</span> <span class="ruby-string">'CxCx3v'</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">opts</span> = <span class="ruby-number">0x03</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x08</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">shared</span>
+  <span class="ruby-identifier">data3</span> = [
+    <span class="ruby-identifier">opts</span>        <span class="ruby-comment"># Option flags:</span>
+                <span class="ruby-comment"># Bit  Mask    Contents</span>
+                <span class="ruby-comment">#   0  0x0001  1 = Recalculate always</span>
+                <span class="ruby-comment">#   1  0x0002  1 = Calculate on open</span>
+                <span class="ruby-comment">#   3  0x0008  1 = Part of a shared formula</span>
+  ].<span class="ruby-identifier">pack</span> <span class="ruby-string">'vx4'</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:formula</span>), <span class="ruby-identifier">data1</span>, <span class="ruby-identifier">data2</span>, <span class="ruby-identifier">data3</span>, <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:string</span>), <span class="ruby-identifier">unicode_string</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">value</span>, <span class="ruby-number">2</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_from_scratch">
+            
+              <a name="method-i-write_from_scratch"></a><b>write_from_scratch</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write a new <a href="Worksheet.html">Worksheet</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_from_scratch_source')" id="l_method-i-write_from_scratch_source">show</a>
+                
+              </p>
+              <div id="method-i-write_from_scratch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 437</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_from_scratch</span>
+  <span class="ruby-comment"># ●  BOF Type = worksheet (➜ 5.8)</span>
+  <span class="ruby-identifier">write_bof</span>
+  <span class="ruby-comment"># ○  UNCALCED ➜ 5.105</span>
+  <span class="ruby-comment"># ○  INDEX ➜ 4.7 (Row Blocks), ➜ 5.59</span>
+  <span class="ruby-comment"># ○  Calculation Settings Block ➜ 4.3</span>
+  <span class="ruby-identifier">write_calccount</span>
+  <span class="ruby-identifier">write_refmode</span>
+  <span class="ruby-identifier">write_iteration</span>
+  <span class="ruby-identifier">write_saverecalc</span>
+  <span class="ruby-comment"># ○  PRINTHEADERS ➜ 5.81</span>
+  <span class="ruby-comment"># ○  PRINTGRIDLINES ➜ 5.80</span>
+  <span class="ruby-comment"># ○  GRIDSET ➜ 5.52</span>
+  <span class="ruby-comment"># ○  GUTS ➜ 5.53</span>
+  <span class="ruby-comment"># ○  DEFAULTROWHEIGHT ➜ 5.31</span>
+  <span class="ruby-identifier">write_defaultrowheight</span>
+  <span class="ruby-comment"># ○  WSBOOL ➜ 5.113</span>
+  <span class="ruby-identifier">write_wsbool</span>
+  <span class="ruby-comment"># ○  Page Settings Block ➜ 4.4</span>
+  <span class="ruby-comment"># ○  Worksheet Protection Block ➜ 4.18</span>
+  <span class="ruby-comment"># ○  DEFCOLWIDTH ➜ 5.32</span>
+  <span class="ruby-identifier">write_defcolwidth</span>
+  <span class="ruby-comment"># ○○ COLINFO ➜ 5.18</span>
+  <span class="ruby-identifier">write_colinfos</span>
+  <span class="ruby-comment"># ○  SORT ➜ 5.99</span>
+  <span class="ruby-comment"># ●  DIMENSIONS ➜ 5.35</span>
+  <span class="ruby-identifier">write_dimensions</span>
+  <span class="ruby-comment"># ○○ Row Blocks ➜ 4.7</span>
+  <span class="ruby-identifier">write_rows</span>
+  <span class="ruby-comment"># ●  Worksheet View Settings Block ➜ 4.5</span>
+  <span class="ruby-comment"># ●  WINDOW2 ➜ 5.110</span>
+  <span class="ruby-identifier">write_window2</span>
+  <span class="ruby-comment"># ○  SCL ➜ 5.92 (BIFF4-BIFF8 only)</span>
+  <span class="ruby-comment"># ○  PANE ➜ 5.75</span>
+  <span class="ruby-comment"># ○○ SELECTION ➜ 5.93</span>
+  <span class="ruby-comment"># ○  STANDARDWIDTH ➜ 5.101</span>
+  <span class="ruby-comment"># ○○ MERGEDCELLS ➜ 5.67</span>
+  <span class="ruby-comment"># ○  LABELRANGES ➜ 5.64</span>
+  <span class="ruby-comment"># ○  PHONETIC ➜ 5.77</span>
+  <span class="ruby-comment"># ○  Conditional Formatting Table ➜ 4.12</span>
+  <span class="ruby-comment"># ○  Hyperlink Table ➜ 4.13</span>
+  <span class="ruby-identifier">write_hyperlink_table</span>
+  <span class="ruby-comment"># ○  Data Validity Table ➜ 4.14</span>
+  <span class="ruby-comment"># ○  SHEETLAYOUT ➜ 5.96 (BIFF8X only)</span>
+  <span class="ruby-comment"># ○  SHEETPROTECTION Additional protection, ➜ 5.98 (BIFF8X only)</span>
+  <span class="ruby-comment"># ○  RANGEPROTECTION Additional protection, ➜ 5.84 (BIFF8X only)</span>
+  <span class="ruby-comment"># ●  EOF ➜ 5.36</span>
+  <span class="ruby-identifier">write_eof</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_hlink">
+            
+              <a name="method-i-write_hlink"></a><b>write_hlink</b>(row, col, link)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_hlink_source')" id="l_method-i-write_hlink_source">show</a>
+                
+              </p>
+              <div id="method-i-write_hlink_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 486</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_hlink</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">link</span>
+  <span class="ruby-comment"># FIXME: only Hyperlinks are supported at present.</span>
+  <span class="ruby-identifier">cell_range</span> = [
+    <span class="ruby-identifier">row</span>, <span class="ruby-identifier">row</span>, <span class="ruby-comment"># Cell range address of all cells containing this hyperlink</span>
+    <span class="ruby-identifier">col</span>, <span class="ruby-identifier">col</span>, <span class="ruby-comment"># (➜ 3.13.1)</span>
+  ].<span class="ruby-identifier">pack</span> <span class="ruby-string">'v4'</span>
+  <span class="ruby-identifier">guid</span> = [
+    <span class="ruby-comment"># GUID of StdLink:</span>
+    <span class="ruby-comment"># D0 C9 EA 79 F9 BA CE 11 8C 82 00 AA 00 4B A9 0B</span>
+    <span class="ruby-comment"># (79EAC9D0-BAF9-11CE-8C82-00AA004BA90B)</span>
+    <span class="ruby-string">&quot;d0c9ea79f9bace118c8200aa004ba90b&quot;</span>,
+  ].<span class="ruby-identifier">pack</span> <span class="ruby-string">'H32'</span>
+  <span class="ruby-identifier">opts</span>  = <span class="ruby-number">0x01</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x02</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x14</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">link</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">url</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x08</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">fragment</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x80</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">target_frame</span>
+  <span class="ruby-comment"># TODO: UNC support</span>
+  <span class="ruby-identifier">options</span> = [
+    <span class="ruby-number">2</span>,        <span class="ruby-comment"># Unknown value: 0x00000002</span>
+    <span class="ruby-identifier">opts</span>,     <span class="ruby-comment"># Option flags</span>
+              <span class="ruby-comment">#     Bit  Mask        Contents</span>
+              <span class="ruby-comment">#       0  0x00000001  0 = No link extant</span>
+              <span class="ruby-comment">#                      1 = File link or URL</span>
+              <span class="ruby-comment">#       1  0x00000002  0 = Relative file path</span>
+              <span class="ruby-comment">#                      1 = Absolute path or URL</span>
+              <span class="ruby-comment"># 2 and 4  0x00000014  0 = No description</span>
+              <span class="ruby-comment">#                      1 (both bits) = Description</span>
+              <span class="ruby-comment">#       3  0x00000008  0 = No text mark</span>
+              <span class="ruby-comment">#                      1 = Text mark</span>
+              <span class="ruby-comment">#       7  0x00000080  0 = No target frame</span>
+              <span class="ruby-comment">#                      1 = Target frame</span>
+              <span class="ruby-comment">#       8  0x00000100  0 = File link or URL</span>
+              <span class="ruby-comment">#                      1 = UNC path (incl. server name)</span>
+
+  ].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'V2'</span>)
+  <span class="ruby-identifier">tail</span> = []
+  <span class="ruby-comment">## call internal to get the correct internal encoding in Ruby 1.9</span>
+  <span class="ruby-identifier">nullstr</span> = <span class="ruby-identifier">internal</span> <span class="ruby-string">&quot;\0000&quot;</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">link</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">url</span>
+    <span class="ruby-identifier">desc</span> = <span class="ruby-identifier">internal</span>(<span class="ruby-identifier">link</span>).<span class="ruby-identifier">dup</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">nullstr</span>
+    <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">push</span> [<span class="ruby-identifier">desc</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-number">2</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'V'</span>), <span class="ruby-identifier">desc</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">target_frame</span>
+    <span class="ruby-identifier">frme</span> = <span class="ruby-identifier">internal</span>(<span class="ruby-identifier">link</span>.<span class="ruby-identifier">target_frame</span>).<span class="ruby-identifier">dup</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">nullstr</span>
+    <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">push</span> [<span class="ruby-identifier">frme</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-number">2</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'V'</span>), <span class="ruby-identifier">frme</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">internal</span>(<span class="ruby-identifier">link</span>.<span class="ruby-identifier">url</span>).<span class="ruby-identifier">dup</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">nullstr</span>
+  <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">push</span> [
+    <span class="ruby-comment"># 6.53.2 Hyperlink containing a URL (Uniform Resource Locator)</span>
+    <span class="ruby-comment"># These data fields occur for links which are not local files or files</span>
+    <span class="ruby-comment"># in the local network (for instance HTTP and FTP links and e-mail</span>
+    <span class="ruby-comment"># addresses). The lower 9 bits of the option flags field must be</span>
+    <span class="ruby-comment"># 0.x00x.xx112 (x means optional, depending on hyperlink content). The</span>
+    <span class="ruby-comment"># GUID could be used to distinguish a URL from a file link.</span>
+    <span class="ruby-comment"># GUID of URL Moniker:</span>
+    <span class="ruby-comment"># E0 C9 EA 79 F9 BA CE 11 8C 82 00 AA 00 4B A9 0B</span>
+    <span class="ruby-comment"># (79EAC9E0-BAF9-11CE-8C82-00AA004BA90B)</span>
+    <span class="ruby-string">'e0c9ea79f9bace118c8200aa004ba90b'</span>,
+    <span class="ruby-identifier">url</span>.<span class="ruby-identifier">size</span>  <span class="ruby-comment"># Size of character array of the URL, including trailing zero</span>
+              <span class="ruby-comment"># word (us). There are us/2-1 characters in the following</span>
+              <span class="ruby-comment"># string.</span>
+  ].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'H32V'</span>), <span class="ruby-identifier">url</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">fragment</span>
+    <span class="ruby-identifier">frag</span> = <span class="ruby-identifier">internal</span>(<span class="ruby-identifier">link</span>.<span class="ruby-identifier">fragment</span>).<span class="ruby-identifier">dup</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">nullstr</span>
+    <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">push</span> [<span class="ruby-identifier">frag</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-number">2</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'V'</span>), <span class="ruby-identifier">frag</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:hlink</span>), <span class="ruby-identifier">cell_range</span>, <span class="ruby-identifier">guid</span>, <span class="ruby-identifier">options</span>, *<span class="ruby-identifier">tail</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_hyperlink_table">
+            
+              <a name="method-i-write_hyperlink_table"></a><b>write_hyperlink_table</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_hyperlink_table_source')" id="l_method-i-write_hyperlink_table_source">show</a>
+                
+              </p>
+              <div id="method-i-write_hyperlink_table_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 555</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_hyperlink_table</span>
+  <span class="ruby-comment"># TODO: theoretically it's possible to write fewer records by combining</span>
+  <span class="ruby-comment">#       identical neighboring links in cell-ranges</span>
+  <span class="ruby-identifier">links</span> = []
+  <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Link</span>
+        <span class="ruby-identifier">write_hlink</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">idx</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">cell</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_iteration">
+            
+              <a name="method-i-write_iteration"></a><b>write_iteration</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_iteration_source')" id="l_method-i-write_iteration_source">show</a>
+                
+              </p>
+              <div id="method-i-write_iteration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 567</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_iteration</span>
+  <span class="ruby-identifier">its</span> = <span class="ruby-number">0</span> <span class="ruby-comment"># 0 = Iterations off; 1 = Iterations on</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-number">0x0011</span>, [<span class="ruby-identifier">its</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_labelsst">
+            
+              <a name="method-i-write_labelsst"></a><b>write_labelsst</b>(row, idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write a cell with a String value. The String must have been stored in the
+Shared String Table.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_labelsst_source')" id="l_method-i-write_labelsst_source">show</a>
+                
+              </p>
+              <div id="method-i-write_labelsst_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 574</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_labelsst</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">write_cell</span> <span class="ruby-value">:labelsst</span>, <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">sst_index</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">row</span>[<span class="ruby-identifier">idx</span>])
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_mulblank">
+            
+              <a name="method-i-write_mulblank"></a><b>write_mulblank</b>(row, idx, multiples)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write multiple consecutive blank cells.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_mulblank_source')" id="l_method-i-write_mulblank_source">show</a>
+                
+              </p>
+              <div id="method-i-write_mulblank_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 579</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_mulblank</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">multiples</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">idx</span>, <span class="ruby-comment"># Index to row</span>
+    <span class="ruby-identifier">idx</span>, <span class="ruby-comment"># Index to first column (fc)</span>
+  ]
+  <span class="ruby-comment"># List of nc=lc-fc+1 16-bit indexes to XF records (➜ 6.115)</span>
+  <span class="ruby-identifier">multiples</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">blank</span>, <span class="ruby-identifier">cell_idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">xf_idx</span> = <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">xf_index</span> <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">row</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">idx</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cell_idx</span>)
+    <span class="ruby-identifier">data</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">xf_idx</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># Index to last column (lc)</span>
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">multiples</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:mulblank</span>), <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v*'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_mulrk">
+            
+              <a name="method-i-write_mulrk"></a><b>write_mulrk</b>(row, idx, multiples)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write multiple consecutive cells with RK values (see <a
+href="Worksheet.html#method-i-write_rk">write_rk</a>)</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_mulrk_source')" id="l_method-i-write_mulrk_source">show</a>
+                
+              </p>
+              <div id="method-i-write_mulrk_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 595</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_mulrk</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">multiples</span>
+  <span class="ruby-identifier">fmt</span> = <span class="ruby-string">'v2'</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">idx</span>, <span class="ruby-comment"># Index to row</span>
+    <span class="ruby-identifier">idx</span>, <span class="ruby-comment"># Index to first column (fc)</span>
+  ]
+  <span class="ruby-comment"># List of nc=lc-fc+1 16-bit indexes to XF records (➜ 6.115)</span>
+  <span class="ruby-identifier">multiples</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span>, <span class="ruby-identifier">cell_idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">xf_idx</span> = <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">xf_index</span> <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">row</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">idx</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cell_idx</span>)
+    <span class="ruby-identifier">data</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">xf_idx</span>, <span class="ruby-identifier">encode_rk</span>(<span class="ruby-identifier">cell</span>)
+    <span class="ruby-identifier">fmt</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'vV'</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># Index to last column (lc)</span>
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">multiples</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:mulrk</span>), <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-identifier">fmt</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_multiples">
+            
+              <a name="method-i-write_multiples"></a><b>write_multiples</b>(row, idx, multiples)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_multiples_source')" id="l_method-i-write_multiples_source">show</a>
+                
+              </p>
+              <div id="method-i-write_multiples_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 611</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_multiples</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">multiples</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">multiples</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">NilClass</span>
+    <span class="ruby-identifier">write_mulblank</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">multiples</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Numeric</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">multiples</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">1</span>
+      <span class="ruby-identifier">write_mulrk</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">multiples</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">write_rk</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_number">
+            
+              <a name="method-i-write_number"></a><b>write_number</b>(row, idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write a cell with a 64-bit double precision Float value</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_number_source')" id="l_method-i-write_number_source">show</a>
+                
+              </p>
+              <div id="method-i-write_number_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 625</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_number</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+  <span class="ruby-comment"># Offset Size Contents</span>
+  <span class="ruby-comment"># 0 2 Index to row</span>
+  <span class="ruby-comment"># 2 2 Index to column</span>
+  <span class="ruby-comment"># 4 2 Index to XF record (➜ 6.115)</span>
+  <span class="ruby-comment"># 6 8 IEEE 754 floating-point value (64-bit double precision)</span>
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">row</span>[<span class="ruby-identifier">idx</span>]
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Date</span>, <span class="ruby-constant">Time</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">encode_date</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">write_cell</span> <span class="ruby-value">:number</span>, <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_op">
+            
+              <a name="method-i-write_op"></a><b>write_op</b>(op, *args)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_op_source')" id="l_method-i-write_op_source">show</a>
+                
+              </p>
+              <div id="method-i-write_op_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 638</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_op</span> <span class="ruby-identifier">op</span>, *<span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">join</span>
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">write</span> [<span class="ruby-identifier">op</span>,<span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;v2&quot;</span>)
+  <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_refmode">
+            
+              <a name="method-i-write_refmode"></a><b>write_refmode</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_refmode_source')" id="l_method-i-write_refmode_source">show</a>
+                
+              </p>
+              <div id="method-i-write_refmode_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 643</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_refmode</span>
+  <span class="ruby-comment"># • The “RC” mode uses numeric indexes for rows and columns, for example</span>
+  <span class="ruby-comment">#   “R(1)C(-1)”, or “R1C1:R2C2”.</span>
+  <span class="ruby-comment"># • The “A1” mode uses characters for columns and numbers for rows, for</span>
+  <span class="ruby-comment">#   example “B1”, or “$A$1:$B$2”.</span>
+  <span class="ruby-identifier">mode</span> = <span class="ruby-number">1</span> <span class="ruby-comment"># 0 = RC mode; 1 = A1 mode</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-number">0x000f</span>, [<span class="ruby-identifier">mode</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_rk">
+            
+              <a name="method-i-write_rk"></a><b>write_rk</b>(row, idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write a cell with a Numeric or Date value.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_rk_source')" id="l_method-i-write_rk_source">show</a>
+                
+              </p>
+              <div id="method-i-write_rk_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 653</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_rk</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">write_cell</span> <span class="ruby-value">:rk</span>, <span class="ruby-identifier">row</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">encode_rk</span>(<span class="ruby-identifier">row</span>[<span class="ruby-identifier">idx</span>])
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_row">
+            
+              <a name="method-i-write_row"></a><b>write_row</b>(row)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_row_source')" id="l_method-i-write_row_source">show</a>
+                
+              </p>
+              <div id="method-i-write_row_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 656</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_row</span> <span class="ruby-identifier">row</span>
+  <span class="ruby-comment"># Offset  Size  Contents</span>
+  <span class="ruby-comment">#      0     2  Index of this row</span>
+  <span class="ruby-comment">#      2     2  Index to column of the first cell which</span>
+  <span class="ruby-comment">#               is described by a cell record</span>
+  <span class="ruby-comment">#      4     2  Index to column of the last cell which is</span>
+  <span class="ruby-comment">#               described by a cell record, increased by 1</span>
+  <span class="ruby-comment">#      6     2  Bit   Mask    Contents</span>
+  <span class="ruby-comment">#               14-0  0x7fff  Height of the row, in twips = 1/20 of a point</span>
+  <span class="ruby-comment">#                 15  0x8000  0 = Row has custom height;</span>
+  <span class="ruby-comment">#                             1 = Row has default height</span>
+  <span class="ruby-comment">#      8     2  Not used</span>
+  <span class="ruby-comment">#     10     2  In BIFF3-BIFF4 this field contains a relative offset to</span>
+  <span class="ruby-comment">#               calculate stream position of the first cell record for this</span>
+  <span class="ruby-comment">#               row (➜ 5.7.1). In BIFF5-BIFF8 this field is not used</span>
+  <span class="ruby-comment">#               anymore, but the DBCELL record (➜ 6.26) instead.</span>
+  <span class="ruby-comment">#     12     4  Option flags and default row formatting:</span>
+  <span class="ruby-comment">#                  Bit  Mask        Contents</span>
+  <span class="ruby-comment">#                  2-0  0x00000007  Outline level of the row</span>
+  <span class="ruby-comment">#                    4  0x00000010  1 = Outline group starts or ends here</span>
+  <span class="ruby-comment">#                                       (depending on where the outline</span>
+  <span class="ruby-comment">#                                       buttons are located, see WSBOOL</span>
+  <span class="ruby-comment">#                                       record, ➜ 6.113), and is collapsed</span>
+  <span class="ruby-comment">#                    5  0x00000020  1 = Row is hidden (manually, or by a</span>
+  <span class="ruby-comment">#                                       filter or outline group)</span>
+  <span class="ruby-comment">#                    6  0x00000040  1 = Row height and default font height</span>
+  <span class="ruby-comment">#                                       do not match</span>
+  <span class="ruby-comment">#                    7  0x00000080  1 = Row has explicit default format (fl)</span>
+  <span class="ruby-comment">#                    8  0x00000100  Always 1</span>
+  <span class="ruby-comment">#                27-16  0x0fff0000  If fl = 1: Index to default XF record</span>
+  <span class="ruby-comment">#                                              (➜ 6.115)</span>
+  <span class="ruby-comment">#                   28  0x10000000  1 = Additional space above the row.</span>
+  <span class="ruby-comment">#                                       This flag is set, if the upper</span>
+  <span class="ruby-comment">#                                       border of at least one cell in this</span>
+  <span class="ruby-comment">#                                       row or if the lower border of at</span>
+  <span class="ruby-comment">#                                       least one cell in the row above is</span>
+  <span class="ruby-comment">#                                       formatted with a thick line style.</span>
+  <span class="ruby-comment">#                                       Thin and medium line styles are not</span>
+  <span class="ruby-comment">#                                       taken into account.</span>
+  <span class="ruby-comment">#                   29  0x20000000  1 = Additional space below the row.</span>
+  <span class="ruby-comment">#                                       This flag is set, if the lower</span>
+  <span class="ruby-comment">#                                       border of at least one cell in this</span>
+  <span class="ruby-comment">#                                       row or if the upper border of at</span>
+  <span class="ruby-comment">#                                       least one cell in the row below is</span>
+  <span class="ruby-comment">#                                       formatted with a medium or thick</span>
+  <span class="ruby-comment">#                                       line style. Thin line styles are</span>
+  <span class="ruby-comment">#                                       not taken into account.</span>
+  <span class="ruby-identifier">height</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">||</span> <span class="ruby-constant">ROW_HEIGHT</span>
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">outline_level</span> &amp; <span class="ruby-number">0x00000007</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x00000010</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">collapsed?</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x00000020</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">hidden?</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x00000040</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">height</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">ROW_HEIGHT</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">fmt</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">default_format</span>
+    <span class="ruby-identifier">xf_idx</span> = <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">xf_index</span> <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">fmt</span>
+    <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x00000080</span>
+    <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-identifier">xf_idx</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-number">16</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x00000100</span>
+  <span class="ruby-identifier">height</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">height</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ROW_HEIGHT</span>
+             (<span class="ruby-identifier">height</span> * <span class="ruby-constant">TWIPS</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">|</span> <span class="ruby-number">0x8000</span>
+           <span class="ruby-keyword">else</span>
+             <span class="ruby-identifier">height</span> * <span class="ruby-constant">TWIPS</span>
+           <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># TODO: Row spacing</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">idx</span>,
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">first_used</span>,
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">first_unused</span>,
+    <span class="ruby-identifier">height</span>,
+    <span class="ruby-identifier">opts</span>,
+  ].<span class="ruby-identifier">pack</span> <span class="ruby-identifier">binfmt</span>(<span class="ruby-value">:row</span>)
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:row</span>), <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_rowblock">
+            
+              <a name="method-i-write_rowblock"></a><b>write_rowblock</b>(block)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_rowblock_source')" id="l_method-i-write_rowblock_source">show</a>
+                
+              </p>
+              <div id="method-i-write_rowblock_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 729</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_rowblock</span> <span class="ruby-identifier">block</span>
+  <span class="ruby-comment"># ●● ROW Properties of the used rows</span>
+  <span class="ruby-comment"># ○○ Cell Block(s) Cell records for all used cells</span>
+  <span class="ruby-comment"># ○  DBCELL Stream offsets to the cell records of each row</span>
+  <span class="ruby-identifier">block</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">write_row</span> <span class="ruby-identifier">row</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">block</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">write_cellblocks</span> <span class="ruby-identifier">row</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_rows">
+            
+              <a name="method-i-write_rows"></a><b>write_rows</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_rows_source')" id="l_method-i-write_rows_source">show</a>
+                
+              </p>
+              <div id="method-i-write_rows_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 740</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_rows</span>
+  <span class="ruby-identifier">row_blocks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">write_rowblock</span> <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_saverecalc">
+            
+              <a name="method-i-write_saverecalc"></a><b>write_saverecalc</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_saverecalc_source')" id="l_method-i-write_saverecalc_source">show</a>
+                
+              </p>
+              <div id="method-i-write_saverecalc_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 745</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_saverecalc</span>
+  <span class="ruby-comment"># 0 = Do not recalculate; 1 = Recalculate before saving the document</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-number">0x005f</span>, [<span class="ruby-number">1</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_window2">
+            
+              <a name="method-i-write_window2"></a><b>write_window2</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_window2_source')" id="l_method-i-write_window2_source">show</a>
+                
+              </p>
+              <div id="method-i-write_window2_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 749</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_window2</span>
+  <span class="ruby-comment"># This record contains additional settings for the document window</span>
+  <span class="ruby-comment"># (BIFF2-BIFF4) or for the window of a specific worksheet (BIFF5-BIFF8).</span>
+  <span class="ruby-comment"># It is part of the Sheet View Settings Block (➜ 4.5).</span>
+  <span class="ruby-comment"># Offset  Size  Contents</span>
+  <span class="ruby-comment">#      0     2  Option flags:</span>
+  <span class="ruby-comment">#               Bits  Mask    Contents</span>
+  <span class="ruby-comment">#                  0  0x0001  0 = Show formula results</span>
+  <span class="ruby-comment">#                             1 = Show formulas</span>
+  <span class="ruby-comment">#                  1  0x0002  0 = Do not show grid lines</span>
+  <span class="ruby-comment">#                             1 = Show grid lines</span>
+  <span class="ruby-comment">#                  2  0x0004  0 = Do not show sheet headers</span>
+  <span class="ruby-comment">#                             1 = Show sheet headers</span>
+  <span class="ruby-comment">#                  3  0x0008  0 = Panes are not frozen</span>
+  <span class="ruby-comment">#                             1 = Panes are frozen (freeze)</span>
+  <span class="ruby-comment">#                  4  0x0010  0 = Show zero values as empty cells</span>
+  <span class="ruby-comment">#                             1 = Show zero values</span>
+  <span class="ruby-comment">#                  5  0x0020  0 = Manual grid line colour</span>
+  <span class="ruby-comment">#                             1 = Automatic grid line colour</span>
+  <span class="ruby-comment">#                  6  0x0040  0 = Columns from left to right</span>
+  <span class="ruby-comment">#                             1 = Columns from right to left</span>
+  <span class="ruby-comment">#                  7  0x0080  0 = Do not show outline symbols</span>
+  <span class="ruby-comment">#                             1 = Show outline symbols</span>
+  <span class="ruby-comment">#                  8  0x0100  0 = Keep splits if pane freeze is removed</span>
+  <span class="ruby-comment">#                             1 = Remove splits if pane freeze is removed</span>
+  <span class="ruby-comment">#                  9  0x0200  0 = Sheet not selected</span>
+  <span class="ruby-comment">#                             1 = Sheet selected (BIFF5-BIFF8)</span>
+  <span class="ruby-comment">#                 10  0x0400  0 = Sheet not active</span>
+  <span class="ruby-comment">#                             1 = Sheet active (BIFF5-BIFF8)</span>
+  <span class="ruby-comment">#                 11  0x0800  0 = Show in normal view</span>
+  <span class="ruby-comment">#                             1 = Show in page break preview (BIFF8)</span>
+  <span class="ruby-comment">#      2     2  Index to first visible row</span>
+  <span class="ruby-comment">#      4     2  Index to first visible column</span>
+  <span class="ruby-comment">#      6     2  Colour index of grid line colour (➜ 5.74).</span>
+  <span class="ruby-comment">#               Note that in BIFF2-BIFF5 an RGB colour is written instead.</span>
+  <span class="ruby-comment">#      8     2  Not used</span>
+  <span class="ruby-comment">#     10     2  Cached magnification factor in page break preview (in percent)</span>
+  <span class="ruby-comment">#               0 = Default (60%)</span>
+  <span class="ruby-comment">#     12     2  Cached magnification factor in normal view (in percent)</span>
+  <span class="ruby-comment">#               0 = Default (100%)</span>
+  <span class="ruby-comment">#     14     4  Not used</span>
+  <span class="ruby-identifier">flags</span> = <span class="ruby-number">0x0536</span>  <span class="ruby-comment"># Show grid lines, sheet headers, zero values. Automatic</span>
+                  <span class="ruby-comment"># grid line colour, Remove slits if pane freeze is removed,</span>
+                  <span class="ruby-comment"># Sheet is active.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@worksheet</span>.<span class="ruby-identifier">selected</span>
+    <span class="ruby-identifier">flags</span> <span class="ruby-operator">|=</span> <span class="ruby-number">0x0200</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">data</span> = [ <span class="ruby-identifier">flags</span>, <span class="ruby-number">0</span>, <span class="ruby-number">0</span>, <span class="ruby-number">0</span>, <span class="ruby-number">0</span>, <span class="ruby-number">0</span> ].<span class="ruby-identifier">pack</span> <span class="ruby-identifier">binfmt</span>(<span class="ruby-value">:window2</span>)
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:window2</span>), <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_wsbool">
+            
+              <a name="method-i-write_wsbool"></a><b>write_wsbool</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_wsbool_source')" id="l_method-i-write_wsbool_source">show</a>
+                
+              </p>
+              <div id="method-i-write_wsbool_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/worksheet.rb, line 799</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_wsbool</span>
+  <span class="ruby-identifier">bits</span> = [
+       <span class="ruby-comment">#   Bit  Mask    Contents</span>
+    <span class="ruby-number">1</span>, <span class="ruby-comment">#     0  0x0001  0 = Do not show automatic page breaks</span>
+       <span class="ruby-comment">#                1 = Show automatic page breaks</span>
+    <span class="ruby-number">0</span>, <span class="ruby-comment">#     4  0x0010  0 = Standard sheet</span>
+       <span class="ruby-comment">#                1 = Dialogue sheet (BIFF5-BIFF8)</span>
+    <span class="ruby-number">0</span>, <span class="ruby-comment">#     5  0x0020  0 = No automatic styles in outlines</span>
+       <span class="ruby-comment">#                1 = Apply automatic styles to outlines</span>
+    <span class="ruby-number">1</span>, <span class="ruby-comment">#     6  0x0040  0 = Outline buttons above outline group</span>
+       <span class="ruby-comment">#                1 = Outline buttons below outline group</span>
+    <span class="ruby-number">1</span>, <span class="ruby-comment">#     7  0x0080  0 = Outline buttons left of outline group</span>
+       <span class="ruby-comment">#                1 = Outline buttons right of outline group</span>
+    <span class="ruby-number">0</span>, <span class="ruby-comment">#     8  0x0100  0 = Scale printout in percent (➜ 6.89)</span>
+       <span class="ruby-comment">#                1 = Fit printout to number of pages (➜ 6.89)</span>
+    <span class="ruby-number">0</span>, <span class="ruby-comment">#     9  0x0200  0 = Save external linked values</span>
+       <span class="ruby-comment">#                    (BIFF3-BIFF4 only, ➜ 5.10)</span>
+       <span class="ruby-comment">#                1 = Do not save external linked values</span>
+       <span class="ruby-comment">#                    (BIFF3-BIFF4 only, ➜ 5.10)</span>
+    <span class="ruby-number">1</span>, <span class="ruby-comment">#    10  0x0400  0 = Do not show row outline symbols</span>
+       <span class="ruby-comment">#                1 = Show row outline symbols</span>
+    <span class="ruby-number">0</span>, <span class="ruby-comment">#    11  0x0800  0 = Do not show column outline symbols</span>
+       <span class="ruby-comment">#                1 = Show column outline symbols</span>
+    <span class="ruby-number">0</span>, <span class="ruby-comment"># 13-12  0x3000  These flags specify the arrangement of windows.</span>
+       <span class="ruby-comment">#                They are stored in BIFF4 only.</span>
+       <span class="ruby-comment">#                00 = Arrange windows tiled</span>
+       <span class="ruby-comment">#                01 = Arrange windows horizontal</span>
+    <span class="ruby-number">0</span>, <span class="ruby-comment">#                10 = Arrange windows vertical</span>
+       <span class="ruby-comment">#                11 = Arrange windows cascaded</span>
+       <span class="ruby-comment"># The following flags are valid for BIFF4-BIFF8 only:</span>
+    <span class="ruby-number">0</span>, <span class="ruby-comment">#    14  0x4000  0 = Standard expression evaluation</span>
+       <span class="ruby-comment">#                1 = Alternative expression evaluation</span>
+    <span class="ruby-number">0</span>, <span class="ruby-comment">#    15  0x8000  0 = Standard formula entries</span>
+       <span class="ruby-comment">#                1 = Alternative formula entries</span>
+  ]
+  <span class="ruby-identifier">weights</span> = [<span class="ruby-number">4</span>,<span class="ruby-number">5</span>,<span class="ruby-number">6</span>,<span class="ruby-number">7</span>,<span class="ruby-number">8</span>,<span class="ruby-number">9</span>,<span class="ruby-number">10</span>,<span class="ruby-number">11</span>,<span class="ruby-number">12</span>,<span class="ruby-number">13</span>,<span class="ruby-number">14</span>,<span class="ruby-number">15</span>]
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">bits</span>.<span class="ruby-identifier">inject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">|</span> (<span class="ruby-identifier">b</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">weights</span>.<span class="ruby-identifier">shift</span>) <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-number">0x0081</span>, [<span class="ruby-identifier">value</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

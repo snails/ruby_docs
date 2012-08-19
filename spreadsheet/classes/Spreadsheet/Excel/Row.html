@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Excel::Row</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Spreadsheet::Excel::Row 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Row.html">Spreadsheet::Row</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/spreadsheet/lib/spreadsheet/excel/row_rb.html">spreadsheet/lib/spreadsheet/excel/row.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Excel-specific <a href="Row.html">Row</a> methods</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-5B-5D">[]</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-date">date</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-datetime">datetime</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-each">each</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">LEAP_ERROR</td>
+            <td>=</td>
+            <td class="attr-value">Date.new 1900, 2, 28</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>The <a href="../Excel.html">Excel</a> date calculation erroneously assumes
+that 1900 is a leap-year. All Dates after 28.2.1900 are off by one.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-5B-5D">
+            
+              <a name="method-i-5B-5D"></a><b>[]</b>(idx, len=nil)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Access data in this <a href="Row.html">Row</a> like you would in an <a
+href="../../Array.html">Array</a>. If a cell is formatted as a Date or
+DateTime, the decoded Date or DateTime value is returned.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-5B-5D_source')" id="l_method-i-5B-5D_source">show</a>
+                
+              </p>
+              <div id="method-i-5B-5D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/row.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span> <span class="ruby-keyword ruby-title">idx</span>, <span class="ruby-identifier">len</span>=<span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span>
+    <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">idx</span><span class="ruby-operator">...</span>(<span class="ruby-identifier">idx</span><span class="ruby-operator">+</span><span class="ruby-identifier">len</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Range</span>
+    <span class="ruby-identifier">data</span> = []
+    <span class="ruby-identifier">idx</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">data</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">enriched_data</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">at</span>(<span class="ruby-identifier">i</span>))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enriched_data</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">at</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-date">
+            
+              <a name="method-i-date"></a><b>date</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Force convert the cell at <em>idx</em> to a Date</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-date_source')" id="l_method-i-date_source">show</a>
+                
+              </p>
+              <div id="method-i-date_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/row.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">date</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">_date</span> <span class="ruby-identifier">at</span>(<span class="ruby-identifier">idx</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-datetime">
+            
+              <a name="method-i-datetime"></a><b>datetime</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Force convert the cell at <em>idx</em> to a DateTime</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-datetime_source')" id="l_method-i-datetime_source">show</a>
+                
+              </p>
+              <div id="method-i-datetime_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/row.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">datetime</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">_datetime</span> <span class="ruby-identifier">at</span>(<span class="ruby-identifier">idx</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-each">
+            
+              <a name="method-i-each"></a><b>each</b>(&amp;block)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-each_source')" id="l_method-i-each_source">show</a>
+                
+              </p>
+              <div id="method-i-each_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/row.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">each</span> &amp;<span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">idx</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

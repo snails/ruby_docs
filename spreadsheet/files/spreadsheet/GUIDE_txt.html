@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>GUIDE.txt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            GUIDE.txt
+        </h1>
+        <ul class="files">
+            <li>spreadsheet/GUIDE.txt</li>
+            <li>Last modified: 2012-08-19 13:19:38 +0800</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h1 id="label-Getting+Started+with+Spreadsheet">Getting Started with <a href="../../classes/Spreadsheet.html">Spreadsheet</a></h1>
+
+<p>This guide is meant to get you started using <a
+href="../../classes/Spreadsheet.html">Spreadsheet</a>. By the end of it,
+you should be able to read and write Spreadsheets.</p>
+
+<h2 id="label-Reading+is+easy%21">Reading is easy!</h2>
+
+<p>First, make sure all that code is loaded:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'spreadsheet'</span>
+</pre>
+
+<p>Worksheets come in various Encodings. You need to tell <a
+href="../../classes/Spreadsheet.html">Spreadsheet</a> which Encoding you
+want to deal with. The Default is UTF-8</p>
+
+<pre>Spreadsheet.client_encoding = 'UTF-8'</pre>
+
+<p>Let’s open a workbook:</p>
+
+<pre>book = Spreadsheet.open '/path/to/an/excel-file.xls'</pre>
+
+<p>We can either access all the Worksheets in a Workbook…</p>
+
+<pre>book.worksheets</pre>
+
+<p>…or access them by index or name (encoded in your client_encoding)</p>
+
+<pre>sheet1 = book.worksheet 0
+sheet2 = Book.worksheet 'Sheet1'</pre>
+
+<p>Now you can either iterate over all rows that contain some data. A call to
+Worksheet.each without argument will omit empty rows at the beginning of
+the Worksheet:</p>
+
+<pre class="ruby"><span class="ruby-identifier">sheet1</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># do something interesting with a row</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Or you can tell Worksheet how many rows should be omitted at the beginning.
+The following starts at the 3rd row, regardless of whether or not it or the
+preceding rows contain any data:</p>
+
+<pre class="ruby"><span class="ruby-identifier">sheet2</span>.<span class="ruby-identifier">each</span> <span class="ruby-value">2</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># do something interesting with a row</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Or you can access rows directly, by their index (0-based):</p>
+
+<pre>row = sheet1.row(3)</pre>
+
+<p>To access the values stored in a Row, treat the Row like an <a
+href="../../classes/Array.html">Array</a>.</p>
+
+<pre>row[0]</pre>
+
+<p>-&gt; this will return a String, a Float, an Integer, a Formula, a Link or
+a Date or DateTime object - or nil if the cell is empty.</p>
+
+<p>More information about the formatting of a cell can be found in the Format
+with the equivalent index</p>
+
+<pre>row.format 2</pre>
+
+<h2 id="label-Writing+is+easy">Writing is easy</h2>
+
+<p>As before, make sure you have <a
+href="../../classes/Spreadsheet.html">Spreadsheet</a> required and the
+client_encoding set. Then make a new Workbook:</p>
+
+<pre>book = Spreadsheet::Workbook.new</pre>
+
+<p>Add a Worksheet and you’re good to go:</p>
+
+<pre>sheet1 = book.create_worksheet</pre>
+
+<p>This will create a Worksheet with the Name “Worksheet1”. If you prefer
+another name, you may do either of the following:</p>
+
+<pre class="ruby"><span class="ruby-identifier">sheet2</span> = <span class="ruby-identifier">book</span>.<span class="ruby-identifier">create_worksheet</span> :<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'My Second Worksheet'</span>
+<span class="ruby-identifier">sheet1</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">'My First Worksheet'</span>
+</pre>
+
+<p>Now, add data to the Worksheet, using either Worksheet#[]=,
+Worksheet#update_row, or work directly on Row using any of the
+Array-Methods that modify an <a href="../../classes/Array.html">Array</a>
+in place:</p>
+
+<pre>sheet1.row(0).concat %w{Name Country Acknowlegement}
+sheet1[1,0] = 'Japan'
+row = sheet1.row(1)
+row.push 'Creator of Ruby'
+row.unshift 'Yukihiro Matsumoto'
+sheet1.row(2).replace [ 'Daniel J. Berger', 'U.S.A.',
+                        'Author of original code for Spreadsheet::Excel' ]
+sheet1.row(3).push 'Charles Lowe', 'Author of the ruby-ole Library'
+sheet1.row(3).insert 1, 'Unknown'
+sheet1.update_row 4, 'Hannes Wyss', 'Switzerland', 'Author'</pre>
+
+<p>Add some Formatting for flavour:</p>
+
+<pre class="ruby"><span class="ruby-identifier">sheet1</span>.<span class="ruby-identifier">row</span>(<span class="ruby-value">0</span>).<span class="ruby-identifier">height</span> = <span class="ruby-value">18</span>
+
+<span class="ruby-identifier">format</span> = <span class="ruby-constant">Spreadsheet</span><span class="ruby-operator">::</span><span class="ruby-constant">Format</span>.<span class="ruby-identifier">new</span> :<span class="ruby-identifier">color</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">blue</span>,
+                                 :<span class="ruby-identifier">weight</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">bold</span>,
+                                 :<span class="ruby-identifier">size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">18</span>
+<span class="ruby-identifier">sheet1</span>.<span class="ruby-identifier">row</span>(<span class="ruby-value">0</span>).<span class="ruby-identifier">default_format</span> = <span class="ruby-identifier">format</span>
+
+<span class="ruby-identifier">bold</span> = <span class="ruby-constant">Spreadsheet</span><span class="ruby-operator">::</span><span class="ruby-constant">Format</span>.<span class="ruby-identifier">new</span> :<span class="ruby-identifier">weight</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">bold</span>
+<span class="ruby-value">4</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sheet1</span>.<span class="ruby-identifier">row</span>(<span class="ruby-identifier">x</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">set_format</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">bold</span>) <span class="ruby-keyword">end</span>
+</pre>
+
+<p>And finally, write the Excel File:</p>
+
+<pre>book.write '/path/to/output/excel-file.xls'</pre>
+
+<h2 id="label-Modifying+an+existing+Document">Modifying an existing Document</h2>
+
+<p><a href="../../classes/Spreadsheet.html">Spreadsheet</a> has some limited
+support for modifying an existing Document. This is done by copying
+verbatim those parts of an Excel-document which <a
+href="../../classes/Spreadsheet.html">Spreadsheet</a> can't modify (yet),
+recalculating relevant offsets, and writing the data that can be changed.
+Here's what should work:</p>
+<ul><li>
+<p>Adding, changing and deleting cells.</p>
+</li><li>
+<p>You should be able to fill in Data to be evaluated by predefined Formulas</p>
+</li></ul>
+
+<p>Limitations:</p>
+<ul><li>
+<p><a href="../../classes/Spreadsheet.html">Spreadsheet</a> can only write
+BIFF8 (Excel97 and higher). The results of modifying an earlier version of
+Excel are undefined.</p>
+</li><li>
+<p><a href="../../classes/Spreadsheet.html">Spreadsheet</a> does not modify
+Formatting at present. That means in particular that if you set the Value
+of a Cell to a Date, it can only be read as a Date if its Format was set
+correctly prior to the change.</p>
+</li><li>
+<p>Although it is theoretically possible, it is not recommended to write the
+resulting Document back to the same File/IO that it was read from.</p>
+</li></ul>
+
+<p>And here’s how it works:</p>
+
+<pre class="ruby"><span class="ruby-identifier">book</span> = <span class="ruby-constant">Spreadsheet</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">'/path/to/an/excel-file.xls'</span>
+<span class="ruby-identifier">sheet</span> = <span class="ruby-identifier">book</span>.<span class="ruby-identifier">worksheet</span> <span class="ruby-value">0</span>
+<span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">*=</span> <span class="ruby-value">2</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">book</span>.<span class="ruby-identifier">write</span> <span class="ruby-string">'/path/to/output/excel-file.xls'</span>
+</pre>
+
+<h2 id="label-Date+and+DateTime">Date and DateTime</h2>
+
+<p>Excel does not know a separate Datatype for Dates. Instead it encodes Dates
+into standard floating-point numbers and recognizes a Date-Cell by its
+formatting-string:</p>
+
+<pre>row.format(3).number_format</pre>
+
+<p>Whenever a Cell’s Format describes a Date or Time, <a
+href="../../classes/Spreadsheet.html">Spreadsheet</a> will give you the
+decoded Date or DateTime value. Should you need to access the underlying
+Float, you may do the following:</p>
+
+<pre>row.at(3)</pre>
+
+<p>If for some reason the Date-recognition fails, you may force Date-decoding:</p>
+
+<pre>row.date(3)
+row.datetime(3)</pre>
+
+<p>When you set the value of a Cell to a Date, Time or DateTime, <a
+href="../../classes/Spreadsheet.html">Spreadsheet</a> will try to set the
+cell’s number-format to a corresponding value (one of Excel’s builtin
+formats). If you have already defined a Date- or DateTime-format, <a
+href="../../classes/Spreadsheet.html">Spreadsheet</a> will use that
+instead. If a format has already been applied to a particular Cell, <a
+href="../../classes/Spreadsheet.html">Spreadsheet</a> will leave it
+untouched:</p>
+
+<pre class="ruby"><span class="ruby-identifier">row</span>[<span class="ruby-value">4</span>] = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">1975</span>, <span class="ruby-value">8</span>, <span class="ruby-value">21</span>
+<span class="ruby-comment"># -&gt; assigns the builtin Date-Format: 'M/D/YY'</span>
+<span class="ruby-identifier">book</span>.<span class="ruby-identifier">add_format</span> <span class="ruby-constant">Format</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">number_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'DD.MM.YYYY hh:mm:ss'</span>)
+<span class="ruby-identifier">row</span>[<span class="ruby-value">5</span>] = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">2008</span>, <span class="ruby-value">10</span>, <span class="ruby-value">12</span>, <span class="ruby-value">11</span>, <span class="ruby-value">59</span>
+<span class="ruby-comment"># -&gt; assigns the added DateTime-Format: 'DD.MM.YYYY hh:mm:ss'</span>
+<span class="ruby-identifier">row</span>.<span class="ruby-identifier">set_format</span> <span class="ruby-value">6</span>, <span class="ruby-constant">Format</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">number_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'D-MMM-YYYY'</span>)
+<span class="ruby-identifier">row</span>[<span class="ruby-value">6</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">2008</span>, <span class="ruby-value">10</span>, <span class="ruby-value">12</span>
+<span class="ruby-comment"># -&gt; the Format of cell 6 is left unchanged.</span>
+</pre>
+
+<h2 id="label-More+about+Encodings">More about Encodings</h2>
+
+<p><a href="../../classes/Spreadsheet.html">Spreadsheet</a> assumes it's
+running on Ruby 1.8 with Iconv-support. It is your responsibility to handle
+Conversion Errors, or to prevent them e.g. by using the Iconv
+Transliteration and Ignore flags: <a
+href="../../classes/Spreadsheet.html#attribute-c-client_encoding">Spreadsheet.client_encoding</a>
+= 'LATIN1//TRANSLIT//IGNORE'</p>
+
+<h2 id="label-Backward+Compatibility">Backward Compatibility</h2>
+
+<p><a href="../../classes/Spreadsheet.html">Spreadsheet</a> is designed to be
+a drop-in replacement for both ParseExcel and <a
+href="../../classes/Spreadsheet/Excel.html">Spreadsheet::Excel</a>. It
+provides a number of require-paths for backward compatibility with its
+predecessors. If you have been working with ParseExcel, you have probably
+used one or more of the following:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'parseexcel'</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">'parseexcel/parseexcel'</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">'parseexcel/parser'</span>
+</pre>
+
+<p>Either of the above will define the ParseExcel.parse method as a facade to
+<a
+href="../../classes/Spreadsheet.html#method-c-open">Spreadsheet.open</a>.
+Additionally, this will alter Spreadsheets behavior to define the
+ParseExcel::Worksheet::Cell class and fill each parsed Row with instances
+thereof, which in turn provide ParseExcel’s Cell#to_s(encoding) and
+Cell#date methods. You will have to manually uninstall the parseexcel
+library.</p>
+
+<p>If you are upgrading from <a
+href="../../classes/Spreadsheet/Excel.html">Spreadsheet::Excel</a>, you
+were probably using Workbook#add_worksheet and Worksheet#write, write_row
+or write_column. Use the following to load the code which provides them:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'spreadsheet/excel'</span>
+</pre>
+
+<p>Again, you will have to manually uninstall the spreadsheet-excel library.</p>
+
+<p>If you perform fancy formatting, you may run into trouble as the Format
+implementation has changed considerably. If that is the case, please drop
+me a line at gmail at hannes.wyss.com and I will try to help you. Don’t
+forget to include the offending code-snippet!</p>
+
+<p>All compatibility code is deprecated and will be removed in version 1.0.0</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+    </div>
+  </body>
+</html>

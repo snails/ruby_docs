@@ -1,0 +1,1566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Worksheet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Spreadsheet::Worksheet 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/spreadsheet/lib/spreadsheet/excel_rb.html">spreadsheet/lib/spreadsheet/excel.rb</a></li>
+            
+            <li><a href="../../files/spreadsheet/lib/spreadsheet/worksheet_rb.html">spreadsheet/lib/spreadsheet/worksheet.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>The <a href="Worksheet.html">Worksheet</a> class. Contains most of the <a
+href="../Spreadsheet.html">Spreadsheet</a> data in Rows.</p>
+
+<p>Interesting Attributes</p>
+<dl class="rdoc-list note-list"><dt><a href="Worksheet.html#attribute-i-name">name</a>          
+<dd>
+<p>The Name of this <a href="Worksheet.html">Worksheet</a>.</p>
+</dd><dt><a href="Worksheet.html#method-i-default_format">default_format</a>
+<dd>
+<p>The default format used for all cells in this Workhseet that have no format
+set explicitly or in <a
+href="Row.html#attribute-i-default_format">Spreadsheet::Row#default_format</a>.</p>
+</dd><dt><a href="Worksheet.html#attribute-i-rows">rows</a>          
+<dd>
+<p>The Rows in this <a href="Worksheet.html">Worksheet</a>. It is not
+recommended to Manipulate this <a href="../Array.html">Array</a> directly.
+If you do, call <a
+href="Worksheet.html#method-i-updated_from">updated_from</a> with the
+smallest modified index.</p>
+</dd><dt><a href="Worksheet.html#attribute-i-columns">columns</a>       
+<dd>
+<p>The <a href="Column.html">Column</a> formatting in this <a
+href="Worksheet.html">Worksheet</a>. <a href="Column.html">Column</a>
+instances may appear at more than one position in <a
+href="Worksheet.html#attribute-i-columns">columns</a>. If you modify a <a
+href="Column.html">Column</a> directly, your changes will be reflected in
+all those positions.</p>
+</dd><dt><a href="Worksheet.html#attribute-i-selected">selected</a>      
+<dd>
+<p>When a user chooses to print a <a href="Workbook.html">Workbook</a>, <a
+href="Excel.html">Excel</a> will include all selected Worksheets. If no <a
+href="Worksheet.html">Worksheet</a> is selected at <a
+href="Workbook.html#method-i-write">Spreadsheet::Workbook#write</a>, then
+the first <a href="Worksheet.html">Worksheet</a> is selected by default.</p>
+</dd></dl>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-5B-5D">[]</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-5B-5D-3D">[]=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_format">add_format</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cell">cell</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-column">column</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-column_count">column_count</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-column_updated">column_updated</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-default_format">default_format</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-default_format-3D">default_format=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-delete_row">delete_row</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-dimensions">dimensions</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-each">each</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-format_column">format_column</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-format_dates-21">format_dates!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-insert_row">insert_row</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-last_row">last_row</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-last_row_index">last_row_index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-new_format_column">new_format_column</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-replace_row">replace_row</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-row">row</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-row_count">row_count</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-row_updated">row_updated</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-update_row">update_row</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-updated_from">updated_from</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-write">write</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_column">write_column</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_row">write_row</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_url">write_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Encodings.html">
+              Spreadsheet::Encodings
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            Enumerable
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>columns</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>name</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>rows</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>selected</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>workbook</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <a name="method-c-new"></a><b>new</b>(opts={})
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span> <span class="ruby-identifier">opts</span>={}
+  <span class="ruby-ivar">@default_format</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@selected</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:selected</span>]
+  <span class="ruby-ivar">@dimensions</span> = [<span class="ruby-number">0</span>,<span class="ruby-number">0</span>,<span class="ruby-number">0</span>,<span class="ruby-number">0</span>]
+  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:name</span>] <span class="ruby-operator">||</span> <span class="ruby-string">'Worksheet'</span>
+  <span class="ruby-ivar">@workbook</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:workbook</span>]
+  <span class="ruby-ivar">@rows</span> = []
+  <span class="ruby-ivar">@columns</span> = []
+  <span class="ruby-ivar">@links</span> = {}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-5B-5D">
+            
+              <a name="method-i-5B-5D"></a><b>[]</b>(row, column)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Get the enriched value of the Cell at <em>row</em>, <em>column</em>. See
+also <a href="Worksheet.html#method-i-cell">#cell</a>, Row#[].</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-5B-5D_source')" id="l_method-i-5B-5D_source">show</a>
+                
+              </p>
+              <div id="method-i-5B-5D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span> <span class="ruby-keyword ruby-title">row</span>, <span class="ruby-identifier">column</span>
+  <span class="ruby-identifier">row</span>(<span class="ruby-identifier">row</span>)[<span class="ruby-identifier">column</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-5B-5D-3D">
+            
+              <a name="method-i-5B-5D-3D"></a><b>[]=</b>(row, column, value)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Set the value of the Cell at <em>row</em>, <em>column</em> to
+<em>value</em>. See also Row#[]=.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-5B-5D-3D_source')" id="l_method-i-5B-5D-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-5B-5D-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span> <span class="ruby-keyword ruby-title">row</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">value</span>
+  <span class="ruby-identifier">row</span>(<span class="ruby-identifier">row</span>)[<span class="ruby-identifier">column</span>] = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_format">
+            
+              <a name="method-i-add_format"></a><b>add_format</b>(fmt)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Add a <a href="Format.html">Format</a> to the <a
+href="Workbook.html">Workbook</a>. If you use <a
+href="Row.html#method-i-set_format">Spreadsheet::Row#set_format</a>, you
+should not need to use this Method.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_format_source')" id="l_method-i-add_format_source">show</a>
+                
+              </p>
+              <div id="method-i-add_format_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_format</span> <span class="ruby-identifier">fmt</span>
+  <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">add_format</span> <span class="ruby-identifier">fmt</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">fmt</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cell">
+            
+              <a name="method-i-cell"></a><b>cell</b>(row, column)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Get the enriched value of the Cell at <em>row</em>, <em>column</em>. See
+also Worksheet#[], Row#[].</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cell_source')" id="l_method-i-cell_source">show</a>
+                
+              </p>
+              <div id="method-i-cell_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cell</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">column</span>
+  <span class="ruby-identifier">row</span>(<span class="ruby-identifier">row</span>)[<span class="ruby-identifier">column</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column">
+            
+              <a name="method-i-column"></a><b>column</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the <a href="Column.html">Column</a> at <em>idx</em>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_source')" id="l_method-i-column_source">show</a>
+                
+              </p>
+              <div id="method-i-column_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-ivar">@columns</span>[<span class="ruby-identifier">idx</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Column</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">idx</span>, <span class="ruby-identifier">default_format</span>, <span class="ruby-value">:worksheet</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column_count">
+            
+              <a name="method-i-column_count"></a><b>column_count</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The number of columns in this <a href="Worksheet.html">Worksheet</a> which
+contain data.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_count_source')" id="l_method-i-column_count_source">show</a>
+                
+              </p>
+              <div id="method-i-column_count_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column_count</span>
+  <span class="ruby-identifier">dimensions</span>[<span class="ruby-number">3</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">dimensions</span>[<span class="ruby-number">2</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column_updated">
+            
+              <a name="method-i-column_updated"></a><b>column_updated</b>(idx, column)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_updated_source')" id="l_method-i-column_updated_source">show</a>
+                
+              </p>
+              <div id="method-i-column_updated_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column_updated</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">column</span>
+  <span class="ruby-ivar">@columns</span>[<span class="ruby-identifier">idx</span>] = <span class="ruby-identifier">column</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-default_format">
+            
+              <a name="method-i-default_format"></a><b>default_format</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The default <a href="Format.html">Format</a> of this <a
+href="Worksheet.html">Worksheet</a>, if you have set one. Returns the
+Workbook’s default <a href="Format.html">Format</a> otherwise.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-default_format_source')" id="l_method-i-default_format_source">show</a>
+                
+              </p>
+              <div id="method-i-default_format_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">default_format</span>
+  <span class="ruby-ivar">@default_format</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">default_format</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-default_format-3D">
+            
+              <a name="method-i-default_format-3D"></a><b>default_format=</b>(format)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Set the default <a href="Format.html">Format</a> of this <a
+href="Worksheet.html">Worksheet</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-default_format-3D_source')" id="l_method-i-default_format-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-default_format-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">default_format=</span> <span class="ruby-identifier">format</span>
+  <span class="ruby-ivar">@default_format</span> = <span class="ruby-identifier">format</span>
+  <span class="ruby-identifier">add_format</span> <span class="ruby-identifier">format</span>
+  <span class="ruby-identifier">format</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_row">
+            
+              <a name="method-i-delete_row"></a><b>delete_row</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Delete the <a href="Row.html">Row</a> at <em>idx</em> (0-based) from this
+<a href="Worksheet.html">Worksheet</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_row_source')" id="l_method-i-delete_row_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_row_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete_row</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">res</span> = <span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">delete_at</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">updated_from</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dimensions">
+            
+              <a name="method-i-dimensions"></a><b>dimensions</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <dl class="rdoc-list note-list"><dt>Dimensions
+<dd>
+<p>[ first used row, first unused row, first used column, first unused column
+] ( First used means that all rows or columns before that are empty. First
+unused means that this and all following rows or columns are empty. )</p>
+</dd></dl>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-dimensions_source')" id="l_method-i-dimensions_source">show</a>
+                
+              </p>
+              <div id="method-i-dimensions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dimensions</span>
+  <span class="ruby-ivar">@dimensions</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">recalculate_dimensions</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-each">
+            
+              <a name="method-i-each"></a><b>each</b>(skip=dimensions[0], &amp;block)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>If no argument is given, <a href="Worksheet.html#method-i-each">each</a>
+iterates over all used Rows (from the first used <a href="Row.html">Row</a>
+until but omitting the first unused <a href="Row.html">Row</a>, see also <a
+href="Worksheet.html#method-i-dimensions">dimensions</a>).</p>
+
+<p>If the argument skip is given, <a
+href="Worksheet.html#method-i-each">each</a> iterates from that row until
+but omitting the first unused <a href="Row.html">Row</a>, effectively
+skipping the first <em>skip</em> Rows from the top of the <a
+href="Worksheet.html">Worksheet</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-each_source')" id="l_method-i-each_source">show</a>
+                
+              </p>
+              <div id="method-i-each_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">each</span> <span class="ruby-identifier">skip</span>=<span class="ruby-identifier">dimensions</span>[<span class="ruby-number">0</span>], &amp;<span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">skip</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">dimensions</span>[<span class="ruby-number">1</span>] <span class="ruby-operator">-</span> <span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">row</span>(<span class="ruby-identifier">idx</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format_column">
+            
+              <a name="method-i-format_column"></a><b>format_column</b>(column, width=nil, format=nil)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Worksheet.html#method-i-new_format_column">new_format_column</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_column_source')" id="l_method-i-format_column_source">show</a>
+                
+              </p>
+              <div id="method-i-format_column_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_column</span> <span class="ruby-identifier">column</span>, <span class="ruby-identifier">width</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">format</span>=<span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">width</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Format</span>
+    <span class="ruby-identifier">new_format_column</span> <span class="ruby-identifier">column</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">new_format_column</span> <span class="ruby-identifier">column</span>, <span class="ruby-identifier">format</span>, <span class="ruby-value">:width</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">width</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format_dates-21">
+            
+              <a name="method-i-format_dates-21"></a><b>format_dates!</b>(format=nil)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Formats all Date, DateTime and Time cells with <em>format</em> or the
+default formats:</p>
+<ul><li>
+<p>‘DD.MM.YYYY’ for Date</p>
+</li><li>
+<p>‘DD.MM.YYYY hh:mm:ss’ for DateTime and Time</p>
+</li></ul>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_dates-21_source')" id="l_method-i-format_dates-21_source">show</a>
+                
+              </p>
+              <div id="method-i-format_dates-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_dates!</span> <span class="ruby-identifier">format</span>=<span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">formats</span>[<span class="ruby-identifier">idx</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">idx</span>).<span class="ruby-identifier">date_or_time?</span>
+        <span class="ruby-identifier">numfmt</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span>
+                 <span class="ruby-keyword">when</span> <span class="ruby-constant">DateTime</span>, <span class="ruby-constant">Time</span>
+                   <span class="ruby-identifier">format</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">client</span>(<span class="ruby-string">'DD.MM.YYYY hh:mm:ss'</span>, <span class="ruby-string">'UTF-8'</span>)
+                 <span class="ruby-keyword">when</span> <span class="ruby-constant">Date</span>
+                   <span class="ruby-identifier">format</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">client</span>(<span class="ruby-string">'DD.MM.YYYY'</span>, <span class="ruby-string">'UTF-8'</span>)
+                 <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">numfmt</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-constant">Format</span>
+          <span class="ruby-identifier">row</span>.<span class="ruby-identifier">set_format</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">numfmt</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+          <span class="ruby-identifier">fmt</span> = <span class="ruby-identifier">row</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">idx</span>).<span class="ruby-identifier">dup</span>
+          <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">number_format</span> = <span class="ruby-identifier">numfmt</span>
+          <span class="ruby-identifier">row</span>.<span class="ruby-identifier">set_format</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">fmt</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-insert_row">
+            
+              <a name="method-i-insert_row"></a><b>insert_row</b>(idx, cells=[])
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Insert a <a href="Row.html">Row</a> at <em>idx</em> (0-based) containing
+<em>cells</em></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-insert_row_source')" id="l_method-i-insert_row_source">show</a>
+                
+              </p>
+              <div id="method-i-insert_row_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">insert_row</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">cells</span>=[]
+  <span class="ruby-identifier">res</span> = <span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">idx</span>, <span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">cells</span>)
+  <span class="ruby-identifier">updated_from</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <a name="method-i-inspect"></a><b>inspect</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">inspect</span>
+  <span class="ruby-identifier">names</span> = <span class="ruby-identifier">instance_variables</span>
+  <span class="ruby-identifier">names</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">'@rows'</span>
+  <span class="ruby-identifier">variables</span> = <span class="ruby-identifier">names</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-string">&quot;%s=%s&quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">name</span>, <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">name</span>)]
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>)
+  <span class="ruby-identifier">sprintf</span> <span class="ruby-node">&quot;#&lt;%s:0x%014x %s @rows[%i]&gt;&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">object_id</span>,
+                                        <span class="ruby-identifier">variables</span>, <span class="ruby-identifier">row_count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-last_row">
+            
+              <a name="method-i-last_row"></a><b>last_row</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The last <a href="Row.html">Row</a> containing any data</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-last_row_source')" id="l_method-i-last_row_source">show</a>
+                
+              </p>
+              <div id="method-i-last_row_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">last_row</span>
+  <span class="ruby-identifier">row</span>(<span class="ruby-identifier">last_row_index</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-last_row_index">
+            
+              <a name="method-i-last_row_index"></a><b>last_row_index</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The index of the last <a href="Row.html">Row</a> containing any data</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-last_row_index_source')" id="l_method-i-last_row_index_source">show</a>
+                
+              </p>
+              <div id="method-i-last_row_index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">last_row_index</span>
+  [<span class="ruby-identifier">dimensions</span>[<span class="ruby-number">1</span>] <span class="ruby-operator">-</span> <span class="ruby-number">1</span>, <span class="ruby-number">0</span>].<span class="ruby-identifier">max</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-new_format_column">
+            
+              <a name="method-i-new_format_column"></a><b>new_format_column</b>(column, width=nil, format=nil)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-replace_row">
+            
+              <a name="method-i-replace_row"></a><b>replace_row</b>(idx, *cells)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Replace the <a href="Row.html">Row</a> at <em>idx</em> with the following
+arguments. Like <a
+href="Worksheet.html#method-i-update_row">update_row</a>, but truncates the
+<a href="Row.html">Row</a> if there are fewer arguments than Cells in the
+<a href="Row.html">Row</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-replace_row_source')" id="l_method-i-replace_row_source">show</a>
+                
+              </p>
+              <div id="method-i-replace_row_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">replace_row</span> <span class="ruby-identifier">idx</span>, *<span class="ruby-identifier">cells</span>
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">row</span> = <span class="ruby-ivar">@rows</span>[<span class="ruby-identifier">idx</span>]) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">cells</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">cells</span>.<span class="ruby-identifier">concat</span> <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">cells</span>.<span class="ruby-identifier">size</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">update_row</span> <span class="ruby-identifier">idx</span>, *<span class="ruby-identifier">cells</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row">
+            
+              <a name="method-i-row"></a><b>row</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The <a href="Row.html">Row</a> at <em>idx</em> or a new <a
+href="Row.html">Row</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_source')" id="l_method-i-row_source">show</a>
+                
+              </p>
+              <div id="method-i-row_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-ivar">@rows</span>[<span class="ruby-identifier">idx</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">idx</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row_count">
+            
+              <a name="method-i-row_count"></a><b>row_count</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The number of Rows in this <a href="Worksheet.html">Worksheet</a> which
+contain data.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_count_source')" id="l_method-i-row_count_source">show</a>
+                
+              </p>
+              <div id="method-i-row_count_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row_count</span>
+  <span class="ruby-identifier">dimensions</span>[<span class="ruby-number">1</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">dimensions</span>[<span class="ruby-number">0</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row_updated">
+            
+              <a name="method-i-row_updated"></a><b>row_updated</b>(idx, row)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Tell <a href="Worksheet.html">Worksheet</a> that the <a
+href="Row.html">Row</a> at <em>idx</em> has been updated and the <a
+href="Worksheet.html#method-i-dimensions">dimensions</a> need to be
+recalculated. You should not need to call this directly.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_updated_source')" id="l_method-i-row_updated_source">show</a>
+                
+              </p>
+              <div id="method-i-row_updated_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row_updated</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">row</span>
+  <span class="ruby-ivar">@dimensions</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@rows</span>[<span class="ruby-identifier">idx</span>] = <span class="ruby-identifier">row</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-update_row">
+            
+              <a name="method-i-update_row"></a><b>update_row</b>(idx, *cells)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Updates the <a href="Row.html">Row</a> at <em>idx</em> with the following
+arguments.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-update_row_source')" id="l_method-i-update_row_source">show</a>
+                
+              </p>
+              <div id="method-i-update_row_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">update_row</span> <span class="ruby-identifier">idx</span>, *<span class="ruby-identifier">cells</span>
+  <span class="ruby-identifier">res</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">row</span> = <span class="ruby-ivar">@rows</span>[<span class="ruby-identifier">idx</span>]
+          <span class="ruby-identifier">row</span>[<span class="ruby-number">0</span>, <span class="ruby-identifier">cells</span>.<span class="ruby-identifier">size</span>] = <span class="ruby-identifier">cells</span>
+          <span class="ruby-identifier">row</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">cells</span>
+        <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">row_updated</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">res</span>
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-updated_from">
+            
+              <a name="method-i-updated_from"></a><b>updated_from</b>(index)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Renumbers all Rows starting at <em>idx</em> and calls <a
+href="Worksheet.html#method-i-row_updated">row_updated</a> for each of
+them.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-updated_from_source')" id="l_method-i-updated_from_source">show</a>
+                
+              </p>
+              <div id="method-i-updated_from_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/worksheet.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">updated_from</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-identifier">index</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@rows</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">row</span> = <span class="ruby-identifier">row</span>(<span class="ruby-identifier">idx</span>)
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">idx</span> = <span class="ruby-identifier">idx</span>
+    <span class="ruby-identifier">row_updated</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">row</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write">
+            
+              <a name="method-i-write"></a><b>write</b>(row, col, data=nil, format=nil)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_source')" id="l_method-i-write_source">show</a>
+                
+              </p>
+              <div id="method-i-write_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">data</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">format</span>=<span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-identifier">write_row</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">row</span> = <span class="ruby-identifier">row</span>(<span class="ruby-identifier">row</span>)
+    <span class="ruby-identifier">row</span>[<span class="ruby-identifier">col</span>] = <span class="ruby-identifier">data</span>
+    <span class="ruby-identifier">row</span>.<span class="ruby-identifier">set_format</span> <span class="ruby-identifier">col</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_column">
+            
+              <a name="method-i-write_column"></a><b>write_column</b>(row, col, data=nil, format=nil)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_column_source')" id="l_method-i-write_column_source">show</a>
+                
+              </p>
+              <div id="method-i-write_column_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_column</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">data</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">format</span>=<span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">token</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">token</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+        <span class="ruby-identifier">write_row</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">format</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">write</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">format</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">write</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_row">
+            
+              <a name="method-i-write_row"></a><b>write_row</b>(row, col, data=nil, format=nil)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_row_source')" id="l_method-i-write_row_source">show</a>
+                
+              </p>
+              <div id="method-i-write_row_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_row</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">data</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">format</span>=<span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">token</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">token</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+        <span class="ruby-identifier">write_column</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">format</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">write</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">format</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">col</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">write</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_url">
+            
+              <a name="method-i-write_url"></a><b>write_url</b>(row, col, url, string=url, format=nil)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_url_source')" id="l_method-i-write_url_source">show</a>
+                
+              </p>
+              <div id="method-i-write_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_url</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">string</span>=<span class="ruby-identifier">url</span>, <span class="ruby-identifier">format</span>=<span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">row</span>(<span class="ruby-identifier">row</span>)[<span class="ruby-identifier">col</span>] = <span class="ruby-constant">Link</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Encodings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Spreadsheet::Encodings 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/spreadsheet/lib/spreadsheet/encodings_rb.html">spreadsheet/lib/spreadsheet/encodings.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Methods for Encoding-conversions. You should not need to use any of these.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-client">client</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-internal">internal</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-utf8">utf8</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-client">
+            
+              <a name="method-i-client"></a><b>client</b>(string, internal='UTF-16LE')
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-client_source')" id="l_method-i-client_source">show</a>
+                
+              </p>
+              <div id="method-i-client_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/encodings.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">client</span> <span class="ruby-identifier">string</span>, <span class="ruby-identifier">internal</span>=<span class="ruby-string">'UTF-16LE'</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">force_encoding</span> <span class="ruby-identifier">internal</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">encode</span> <span class="ruby-constant">Spreadsheet</span>.<span class="ruby-identifier">client_encoding</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-internal">
+            
+              <a name="method-i-internal"></a><b>internal</b>(string, client=Spreadsheet.client_encoding)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-internal_source')" id="l_method-i-internal_source">show</a>
+                
+              </p>
+              <div id="method-i-internal_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/encodings.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">internal</span> <span class="ruby-identifier">string</span>, <span class="ruby-identifier">client</span>=<span class="ruby-constant">Spreadsheet</span>.<span class="ruby-identifier">client_encoding</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">force_encoding</span> <span class="ruby-identifier">client</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">'UTF-16LE'</span>).<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">'ASCII-8BIT'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-utf8">
+            
+              <a name="method-i-utf8"></a><b>utf8</b>(string, client=Spreadsheet.client_encoding)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-utf8_source')" id="l_method-i-utf8_source">show</a>
+                
+              </p>
+              <div id="method-i-utf8_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/encodings.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">utf8</span> <span class="ruby-identifier">string</span>, <span class="ruby-identifier">client</span>=<span class="ruby-constant">Spreadsheet</span>.<span class="ruby-identifier">client_encoding</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">force_encoding</span> <span class="ruby-identifier">client</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">'UTF-8'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

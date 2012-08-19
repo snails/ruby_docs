@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Workbook</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Spreadsheet::Workbook 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/spreadsheet/lib/spreadsheet/workbook_rb.html">spreadsheet/lib/spreadsheet/workbook.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>The <a href="Workbook.html">Workbook</a> class represents a
+Spreadsheet-Document and is the entry point for all <a
+href="../Spreadsheet.html">Spreadsheet</a> manipulation.</p>
+
+<p>Interesting Attributes:</p>
+<dl class="rdoc-list note-list"><dt><a href="Workbook.html#attribute-i-default_format">default_format</a>
+<dd>
+<p>The default format used for all cells in this <a
+href="Workbook.html">Workbook</a>. that have no format set explicitly or in
+<a
+href="Row.html#attribute-i-default_format">Spreadsheet::Row#default_format</a>
+or <a
+href="Worksheet.html#method-i-default_format">Spreadsheet::Worksheet#default_format</a>.</p>
+</dd></dl>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_font">add_font</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_format">add_format</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_worksheet">add_worksheet</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create_worksheet">create_worksheet</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-font">font</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-format">format</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-worksheet">worksheet</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write">write</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-writer">writer</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Encodings.html">
+              Spreadsheet::Encodings
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>active_worksheet</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>default_format</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>encoding</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>fonts</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>formats</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>io</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>version</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>worksheets</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <a name="method-c-new"></a><b>new</b>(io = nil, opts={:default_format =&gt; Format.new})
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span> <span class="ruby-identifier">io</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={<span class="ruby-value">:default_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Format</span>.<span class="ruby-identifier">new</span>}
+  <span class="ruby-ivar">@worksheets</span> = []
+  <span class="ruby-ivar">@io</span> = <span class="ruby-identifier">io</span>
+  <span class="ruby-ivar">@fonts</span> = []
+  <span class="ruby-ivar">@formats</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@default_format</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:default_format</span>]
+    <span class="ruby-ivar">@formats</span>.<span class="ruby-identifier">push</span> <span class="ruby-ivar">@default_format</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_font">
+            
+              <a name="method-i-add_font"></a><b>add_font</b>(font)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Add a <a href="Font.html">Font</a> to the <a
+href="Workbook.html">Workbook</a>. Used by the parser. You should not need
+to use this Method.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_font_source')" id="l_method-i-add_font_source">show</a>
+                
+              </p>
+              <div id="method-i-add_font_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_font</span> <span class="ruby-identifier">font</span>
+  <span class="ruby-ivar">@fonts</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">font</span>).<span class="ruby-identifier">uniq!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">font</span>
+  <span class="ruby-identifier">font</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_format">
+            
+              <a name="method-i-add_format"></a><b>add_format</b>(format)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Add a <a href="Format.html">Format</a> to the <a
+href="Workbook.html">Workbook</a>. If you use <a
+href="Row.html#method-i-set_format">Spreadsheet::Row#set_format</a>, you
+should not need to use this Method.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_format_source')" id="l_method-i-add_format_source">show</a>
+                
+              </p>
+              <div id="method-i-add_format_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_format</span> <span class="ruby-identifier">format</span>
+  <span class="ruby-ivar">@formats</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">format</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@formats</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-identifier">format</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_worksheet">
+            
+              <a name="method-i-add_worksheet"></a><b>add_worksheet</b>(worksheet)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Add a <a href="Worksheet.html">Worksheet</a> to the <a
+href="Workbook.html">Workbook</a>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_worksheet_source')" id="l_method-i-add_worksheet_source">show</a>
+                
+              </p>
+              <div id="method-i-add_worksheet_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_worksheet</span> <span class="ruby-identifier">worksheet</span>
+  <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">workbook</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-ivar">@worksheets</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">worksheet</span>
+  <span class="ruby-identifier">worksheet</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_worksheet">
+            
+              <a name="method-i-create_worksheet"></a><b>create_worksheet</b>(opts = {})
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Create a new <a href="Worksheet.html">Worksheet</a> in this <a
+href="Workbook.html">Workbook</a>. Used without options this creates a <a
+href="Worksheet.html">Worksheet</a> with the name ‘WorksheetN’ where the
+new <a href="Worksheet.html">Worksheet</a> is the Nth <a
+href="Worksheet.html">Worksheet</a> in this <a
+href="Workbook.html">Workbook</a>.</p>
+
+<p>Use the option <em>:name =&gt; ‘My pretty Name’</em> to override this
+behavior.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_worksheet_source')" id="l_method-i-create_worksheet_source">show</a>
+                
+              </p>
+              <div id="method-i-create_worksheet_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_worksheet</span> <span class="ruby-identifier">opts</span> = {}
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:name</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">client</span>(<span class="ruby-node">&quot;Worksheet#{@worksheets.size.next}&quot;</span>, <span class="ruby-string">'UTF-8'</span>)
+  <span class="ruby-identifier">add_worksheet</span> <span class="ruby-constant">Worksheet</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-font">
+            
+              <a name="method-i-font"></a><b>font</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The <a href="Font.html">Font</a> at <em>idx</em></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-font_source')" id="l_method-i-font_source">show</a>
+                
+              </p>
+              <div id="method-i-font_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">font</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-ivar">@fonts</span>[<span class="ruby-identifier">idx</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format">
+            
+              <a name="method-i-format"></a><b>format</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The <a href="Format.html">Format</a> at <em>idx</em>, or - if <em>idx</em>
+is a String - the <a href="Format.html">Format</a> with name ==
+<em>idx</em></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-format_source')" id="l_method-i-format_source">show</a>
+                
+              </p>
+              <div id="method-i-format_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>
+    <span class="ruby-ivar">@formats</span>[<span class="ruby-identifier">idx</span>] <span class="ruby-operator">||</span> <span class="ruby-ivar">@default_format</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-ivar">@formats</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fmt</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">idx</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <a name="method-i-inspect"></a><b>inspect</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">inspect</span>
+  <span class="ruby-identifier">variables</span> = (<span class="ruby-identifier">instance_variables</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">uninspect_variables</span>).<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-string">&quot;%s=%s&quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">name</span>, <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">name</span>)]
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>)
+  <span class="ruby-identifier">uninspect</span> = <span class="ruby-identifier">uninspect_variables</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">var</span> = <span class="ruby-identifier">instance_variable_get</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-string">&quot;%s=%s[%i]&quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">name</span>, <span class="ruby-identifier">var</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">var</span>.<span class="ruby-identifier">size</span>]
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' '</span>)
+  <span class="ruby-identifier">sprintf</span> <span class="ruby-node">&quot;#&lt;%s:0x%014x %s %s&gt;&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">object_id</span>,
+                                 <span class="ruby-identifier">variables</span>, <span class="ruby-identifier">uninspect</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-worksheet">
+            
+              <a name="method-i-worksheet"></a><b>worksheet</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The <a href="Worksheet.html">Worksheet</a> at <em>idx</em>, or - if
+<em>idx</em> is a String - the <a href="Worksheet.html">Worksheet</a> with
+name == <em>idx</em></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-worksheet_source')" id="l_method-i-worksheet_source">show</a>
+                
+              </p>
+              <div id="method-i-worksheet_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">worksheet</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>
+    <span class="ruby-ivar">@worksheets</span>[<span class="ruby-identifier">idx</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-ivar">@worksheets</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sheet</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">idx</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write">
+            
+              <a name="method-i-write"></a><b>write</b>(io_path_or_writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write this <a href="Workbook.html">Workbook</a> to a File, IO Stream or <a
+href="Writer.html">Writer</a> Object. The latter will make more sense once
+there are more than just an Excel-<a href="Writer.html">Writer</a>
+available.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_source')" id="l_method-i-write_source">show</a>
+                
+              </p>
+              <div id="method-i-write_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write</span> <span class="ruby-identifier">io_path_or_writer</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">io_path_or_writer</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Writer</span>
+    <span class="ruby-identifier">io_path_or_writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">writer</span>(<span class="ruby-identifier">io_path_or_writer</span>).<span class="ruby-identifier">write</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-writer">
+            
+              <a name="method-i-writer"></a><b>writer</b>(io_or_path, type=Excel, version=self.version)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a new instance of the default <a href="Writer.html">Writer</a>
+class for this <a href="Workbook.html">Workbook</a> (can only be an <a
+href="Excel/Writer/Workbook.html">Excel::Writer::Workbook</a> at this time)</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-writer_source')" id="l_method-i-writer_source">show</a>
+                
+              </p>
+              <div id="method-i-writer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/workbook.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">writer</span> <span class="ruby-identifier">io_or_path</span>, <span class="ruby-identifier">type</span>=<span class="ruby-constant">Excel</span>, <span class="ruby-identifier">version</span>=<span class="ruby-keyword">self</span>.<span class="ruby-identifier">version</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Excel</span>
+    <span class="ruby-constant">Excel</span><span class="ruby-operator">::</span><span class="ruby-constant">Writer</span><span class="ruby-operator">::</span><span class="ruby-constant">Workbook</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">io_or_path</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-node">&quot;No Writer defined for #{type}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

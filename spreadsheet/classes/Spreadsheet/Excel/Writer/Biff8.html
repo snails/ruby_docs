@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Excel::Writer::Biff8</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Spreadsheet::Excel::Writer::Biff8 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/spreadsheet/lib/spreadsheet/excel/writer/biff8_rb.html">spreadsheet/lib/spreadsheet/excel/writer/biff8.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>This Module collects writer methods such as <a
+href="Biff8.html#method-i-unicode_string">#unicode_string</a> that are
+specific to <a href="Biff8.html">Biff8</a>. This Module is likely to be
+expanded as Support for older Versions of <a
+href="../../Excel.html">Excel</a> grows and methods get moved here for
+disambiguation.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-_unicode_string">_unicode_string</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-compress_unicode_string">compress_unicode_string</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-unicode_string">unicode_string</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../../Encodings.html">
+              Spreadsheet::Encodings
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-_unicode_string">
+            
+              <a name="method-i-_unicode_string"></a><b>_unicode_string</b>(string, count_length=1)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Encode <em>string</em> into a <a href="Biff8.html">Biff8</a> Unicode String
+Header and Body.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_unicode_string_source')" id="l_method-i-_unicode_string_source">show</a>
+                
+              </p>
+              <div id="method-i-_unicode_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/biff8.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_unicode_string</span> <span class="ruby-identifier">string</span>, <span class="ruby-identifier">count_length</span>=<span class="ruby-number">1</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">internal</span> <span class="ruby-identifier">string</span>
+  <span class="ruby-identifier">size</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">@@bytesize</span>) <span class="ruby-operator">/</span> <span class="ruby-number">2</span>
+  <span class="ruby-identifier">fmt</span> = <span class="ruby-identifier">count_length</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span> <span class="ruby-operator">?</span> <span class="ruby-string">'C2'</span> <span class="ruby-operator">:</span> <span class="ruby-string">'vC'</span>
+  <span class="ruby-identifier">data</span>, <span class="ruby-identifier">wide</span> = <span class="ruby-identifier">compress_unicode_string</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">wide</span>
+  <span class="ruby-identifier">header</span> = [
+    <span class="ruby-identifier">size</span>, <span class="ruby-comment"># Length of the string (character count, ln)</span>
+    <span class="ruby-identifier">opts</span>, <span class="ruby-comment"># Option flags:</span>
+          <span class="ruby-comment"># Bit  Mask  Contents</span>
+          <span class="ruby-comment">#   0  0x01  Character compression (ccompr):</span>
+          <span class="ruby-comment">#            0 = Compressed (8-bit characters)</span>
+          <span class="ruby-comment">#            1 = Uncompressed (16-bit characters)</span>
+          <span class="ruby-comment">#   2  0x04  Asian phonetic settings (phonetic):</span>
+          <span class="ruby-comment">#            0 = Does not contain Asian phonetic settings</span>
+          <span class="ruby-comment">#            1 = Contains Asian phonetic settings</span>
+          <span class="ruby-comment">#   3  0x08  Rich-Text settings (richtext):</span>
+          <span class="ruby-comment">#            0 = Does not contain Rich-Text settings</span>
+          <span class="ruby-comment">#            1 = Contains Rich-Text settings</span>
+    <span class="ruby-comment">#0x00,# (optional, only if richtext=1) Number of Rich-Text</span>
+          <span class="ruby-comment">#                                formatting runs (rt)</span>
+    <span class="ruby-comment">#0x00,# (optional, only if phonetic=1) Size of Asian phonetic</span>
+          <span class="ruby-comment">#                                settings block (in bytes, sz)</span>
+  ].<span class="ruby-identifier">pack</span> <span class="ruby-identifier">fmt</span>
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">''</span> <span class="ruby-comment"># (optional, only if richtext=1)</span>
+             <span class="ruby-comment"># List of rt formatting runs (➜ 3.2)</span>
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">''</span> <span class="ruby-comment"># (optional, only if phonetic=1)</span>
+             <span class="ruby-comment"># Asian Phonetic Settings Block (➜ 3.4.2)</span>
+  [<span class="ruby-identifier">header</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">wide</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-compress_unicode_string">
+            
+              <a name="method-i-compress_unicode_string"></a><b>compress_unicode_string</b>(data)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Check whether the string <em>data</em> can be compressed (i.e. every second
+byte is a Null-byte) and perform compression. Returns the data and
+compression_status (0/1)</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-compress_unicode_string_source')" id="l_method-i-compress_unicode_string_source">show</a>
+                
+              </p>
+              <div id="method-i-compress_unicode_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/biff8.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">compress_unicode_string</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-identifier">compressed</span> = <span class="ruby-string">''</span>
+  <span class="ruby-identifier">expect_null</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each_byte</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">byte</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">expect_null</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">byte</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+        <span class="ruby-keyword">return</span> [<span class="ruby-identifier">data</span>, <span class="ruby-number">1</span>] <span class="ruby-comment"># 1 =&gt; Data consists of wide Chars</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">expect_null</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">compressed</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">byte</span>
+      <span class="ruby-identifier">expect_null</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-identifier">compressed</span>, <span class="ruby-number">0</span>] <span class="ruby-comment"># 0 =&gt; Data consists of compressed Chars</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-unicode_string">
+            
+              <a name="method-i-unicode_string"></a><b>unicode_string</b>(string, count_length=1)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Encode <em>string</em> into a <a href="Biff8.html">Biff8</a> Unicode
+String. Header and body are encoded separately by #_unicode_string. This
+method simply combines the two.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-unicode_string_source')" id="l_method-i-unicode_string_source">show</a>
+                
+              </p>
+              <div id="method-i-unicode_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/biff8.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">unicode_string</span> <span class="ruby-identifier">string</span>, <span class="ruby-identifier">count_length</span>=<span class="ruby-number">1</span>
+  <span class="ruby-identifier">header</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">_unicode_string</span> <span class="ruby-identifier">string</span>, <span class="ruby-identifier">count_length</span>
+  <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Datatypes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Spreadsheet::Datatypes 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/spreadsheet/lib/spreadsheet/datatypes_rb.html">spreadsheet/lib/spreadsheet/datatypes.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>This module defines convenience-methods for the definition of <a
+href="../Spreadsheet.html">Spreadsheet</a> attributes (boolean, colors and
+enumerations)</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-append_features">append_features</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-boolean">boolean</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-colors">colors</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-enum">enum</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Compatibility.html">
+              Spreadsheet::Compatibility
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">COLORS</td>
+            <td>=</td>
+            <td class="attr-value">[ :builtin_black, :builtin_white, :builtin_red, :builtin_green,
+:builtin_blue, :builtin_yellow, :builtin_magenta, :builtin_cyan,
+:text, :border, :pattern_bg, :dialog_bg, :chart_text, :chart_bg,
+:chart_border, :tooltip_bg, :tooltip_text, :aqua,
+:black, :blue, :cyan, :brown, :fuchsia, :gray, :grey, :green,
+:lime, :magenta, :navy, :orange, :purple, :red, :silver, :white,
+:yellow ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Valid colors for color attributes.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-append_features">
+            
+              <a name="method-c-append_features"></a><b>append_features</b>(mod)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-append_features_source')" id="l_method-c-append_features_source">show</a>
+                
+              </p>
+              <div id="method-c-append_features_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/datatypes.rb, line 9</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">Datatypes</span>.<span class="ruby-identifier">append_features</span> <span class="ruby-identifier">mod</span>
+      <span class="ruby-keyword">super</span>
+      <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">module_eval</span> <span class="ruby-keyword">do</span>
+<span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword ruby-title">self</span>
+  <span class="ruby-comment">##</span>
+  <span class="ruby-comment"># Valid colors for color attributes.</span>
+  <span class="ruby-constant">COLORS</span> = [ <span class="ruby-value">:builtin_black</span>, <span class="ruby-value">:builtin_white</span>, <span class="ruby-value">:builtin_red</span>, <span class="ruby-value">:builtin_green</span>,
+             <span class="ruby-value">:builtin_blue</span>, <span class="ruby-value">:builtin_yellow</span>, <span class="ruby-value">:builtin_magenta</span>, <span class="ruby-value">:builtin_cyan</span>,
+             <span class="ruby-value">:text</span>, <span class="ruby-value">:border</span>, <span class="ruby-value">:pattern_bg</span>, <span class="ruby-value">:dialog_bg</span>, <span class="ruby-value">:chart_text</span>, <span class="ruby-value">:chart_bg</span>,
+             <span class="ruby-value">:chart_border</span>, <span class="ruby-value">:tooltip_bg</span>, <span class="ruby-value">:tooltip_text</span>, <span class="ruby-value">:aqua</span>,
+             <span class="ruby-value">:black</span>, <span class="ruby-value">:blue</span>, <span class="ruby-value">:cyan</span>, <span class="ruby-value">:brown</span>, <span class="ruby-value">:fuchsia</span>, <span class="ruby-value">:gray</span>, <span class="ruby-value">:grey</span>, <span class="ruby-value">:green</span>,
+             <span class="ruby-value">:lime</span>, <span class="ruby-value">:magenta</span>, <span class="ruby-value">:navy</span>, <span class="ruby-value">:orange</span>, <span class="ruby-value">:purple</span>, <span class="ruby-value">:red</span>, <span class="ruby-value">:silver</span>, <span class="ruby-value">:white</span>,
+             <span class="ruby-value">:yellow</span> ]
+  <span class="ruby-comment">##</span>
+  <span class="ruby-comment"># Define instance methods to read and write boolean attributes.</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">boolean</span> *<span class="ruby-identifier">args</span>
+    <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">define_method</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">name</span> = <span class="ruby-identifier">ivar_name</span> <span class="ruby-identifier">key</span>
+        <span class="ruby-operator">!</span><span class="ruby-operator">!</span>(<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>))
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}?&quot;</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">send</span> <span class="ruby-identifier">key</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}=&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">arg</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+        <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-identifier">ivar_name</span>(<span class="ruby-identifier">key</span>), <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">arg</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}!&quot;</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">send</span> <span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">##</span>
+  <span class="ruby-comment"># Define instance methods to read and write color attributes.</span>
+  <span class="ruby-comment"># For valid colors see COLORS</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">colors</span> *<span class="ruby-identifier">args</span>
+    <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">attr_reader</span> <span class="ruby-identifier">key</span>
+      <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}=&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">COLORS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+          <span class="ruby-identifier">instance_variable_set</span> <span class="ruby-identifier">ivar_name</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">name</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;unknown color '#{name}'&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">##</span>
+  <span class="ruby-comment"># Define instance methods to read and write enumeration attributes.</span>
+  <span class="ruby-comment"># * The first argument designates the attribute name.</span>
+  <span class="ruby-comment"># * The second argument designates the default value.</span>
+  <span class="ruby-comment"># * All subsequent attributes are possible values.</span>
+  <span class="ruby-comment"># * If the last attribute is a Hash, each value in the Hash designates</span>
+  <span class="ruby-comment">#   aliases for the corresponding key.</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">enum</span> <span class="ruby-identifier">key</span>, *<span class="ruby-identifier">values</span>
+    <span class="ruby-identifier">aliases</span> = {}
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span>
+      <span class="ruby-identifier">values</span>.<span class="ruby-identifier">pop</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span>, <span class="ruby-identifier">synonyms</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">synonyms</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+          <span class="ruby-identifier">synonyms</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">synonym</span><span class="ruby-operator">|</span> <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">synonym</span>, <span class="ruby-identifier">value</span> <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">synonyms</span>, <span class="ruby-identifier">value</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">define_method</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">name</span> = <span class="ruby-identifier">ivar_name</span> <span class="ruby-identifier">key</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-identifier">value</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}=&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>
+        <span class="ruby-identifier">arg</span> = <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">fetch</span> <span class="ruby-identifier">arg</span> <span class="ruby-keyword">do</span>
+          <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">fetch</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r[ \-]/</span>, <span class="ruby-string">'_'</span>).<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">arg</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">arg</span> <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-identifier">ivar_name</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">arg</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">valid</span> = <span class="ruby-identifier">values</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">inspect</span> <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span> <span class="ruby-string">', '</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+            <span class="ruby-node">&quot;Invalid value '#{arg.inspect}' for #{key}. Valid values are: #{valid}&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">instance_variable_set</span> <span class="ruby-identifier">ivar_name</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-boolean">
+            
+              <a name="method-c-boolean"></a><b>boolean</b>(*args)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Define instance methods to read and write boolean attributes.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-boolean_source')" id="l_method-c-boolean_source">show</a>
+                
+              </p>
+              <div id="method-c-boolean_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/datatypes.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">boolean</span> *<span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">define_method</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">name</span> = <span class="ruby-identifier">ivar_name</span> <span class="ruby-identifier">key</span>
+      <span class="ruby-operator">!</span><span class="ruby-operator">!</span>(<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}?&quot;</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">send</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}=&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">arg</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+      <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-identifier">ivar_name</span>(<span class="ruby-identifier">key</span>), <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">arg</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}!&quot;</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">send</span> <span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-colors">
+            
+              <a name="method-c-colors"></a><b>colors</b>(*args)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Define instance methods to read and write color attributes. For valid
+colors see <a href="Datatypes.html#COLORS">COLORS</a></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-colors_source')" id="l_method-c-colors_source">show</a>
+                
+              </p>
+              <div id="method-c-colors_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/datatypes.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">colors</span> *<span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">attr_reader</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}=&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">COLORS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+        <span class="ruby-identifier">instance_variable_set</span> <span class="ruby-identifier">ivar_name</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">name</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;unknown color '#{name}'&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-enum">
+            
+              <a name="method-c-enum"></a><b>enum</b>(key, *values)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Define instance methods to read and write enumeration attributes.</p>
+<ul><li>
+<p>The first argument designates the attribute name.</p>
+</li><li>
+<p>The second argument designates the default value.</p>
+</li><li>
+<p>All subsequent attributes are possible values.</p>
+</li><li>
+<p>If the last attribute is a Hash, each value in the Hash designates aliases
+for the corresponding key.</p>
+</li></ul>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-enum_source')" id="l_method-c-enum_source">show</a>
+                
+              </p>
+              <div id="method-c-enum_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/datatypes.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">enum</span> <span class="ruby-identifier">key</span>, *<span class="ruby-identifier">values</span>
+  <span class="ruby-identifier">aliases</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">values</span>.<span class="ruby-identifier">pop</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span>, <span class="ruby-identifier">synonyms</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">synonyms</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+        <span class="ruby-identifier">synonyms</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">synonym</span><span class="ruby-operator">|</span> <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">synonym</span>, <span class="ruby-identifier">value</span> <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">synonyms</span>, <span class="ruby-identifier">value</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">value</span>, <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">define_method</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-identifier">ivar_name</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">value</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{key}=&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>
+      <span class="ruby-identifier">arg</span> = <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">fetch</span> <span class="ruby-identifier">arg</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">fetch</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r[ \-]/</span>, <span class="ruby-string">'_'</span>).<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">arg</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">arg</span> <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-identifier">ivar_name</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">arg</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">valid</span> = <span class="ruby-identifier">values</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">inspect</span> <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span> <span class="ruby-string">', '</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+          <span class="ruby-node">&quot;Invalid value '#{arg.inspect}' for #{key}. Valid values are: #{valid}&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">instance_variable_set</span> <span class="ruby-identifier">ivar_name</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                        </div>
+    </div>
+  </body>
+</html>    

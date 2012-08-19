@@ -1,0 +1,2182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Excel::Writer::Workbook</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Spreadsheet::Excel::Writer::Workbook 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../../Writer.html">Spreadsheet::Writer</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/spreadsheet/lib/spreadsheet/excel/writer/workbook_rb.html">spreadsheet/lib/spreadsheet/excel/writer/workbook.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="../Writer.html">Writer</a> class for <a
+href="../../Excel.html">Excel</a> Workbooks. Most write_* method correspond
+to an Excel-Record/Opcode. Designed to be able to write several Workbooks
+in parallel (just because I can't imagine why you would want to do that
+doesn't mean it shouldn't be possible ;). You should not need to call any
+of its methods directly. If you think you do, look at <a
+href="Workbook.html#method-i-write_workbook">write_workbook</a></p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-_write_sst">_write_sst</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cleanup">cleanup</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-collect_formats">collect_formats</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-complete_sst_update-3F">complete_sst_update?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-font_index">font_index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-number_format_index">number_format_index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-sanitize_worksheets">sanitize_worksheets</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-sst_index">sst_index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-worksheets">worksheets</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_bof">write_bof</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_bookbool">write_bookbool</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_boundsheets">write_boundsheets</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_changes">write_changes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_datemode">write_datemode</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_dsf">write_dsf</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_encoding">write_encoding</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_eof">write_eof</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_extsst">write_extsst</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_font">write_font</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_fonts">write_fonts</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_formats">write_formats</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_from_scratch">write_from_scratch</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_op">write_op</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_password">write_password</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_placeholder">write_placeholder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_precision">write_precision</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_protect">write_protect</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_refreshall">write_refreshall</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_sst">write_sst</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_sst_changes">write_sst_changes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_string_part">write_string_part</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_styles">write_styles</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_tabid">write_tabid</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_window1">write_window1</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_workbook">write_workbook</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-write_xfs">write_xfs</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>X</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-xf_index">xf_index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Biff8.html">
+              Spreadsheet::Excel::Writer::Biff8
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../Internals.html">
+              Spreadsheet::Excel::Internals
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>date_base</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>fonts</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <a name="method-c-new"></a><b>new</b>(*args)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span> *<span class="ruby-identifier">args</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@biff_version</span> = <span class="ruby-number">0x0600</span>
+  <span class="ruby-ivar">@bof</span> = <span class="ruby-number">0x0809</span>
+  <span class="ruby-ivar">@build_id</span> = <span class="ruby-number">3515</span>
+  <span class="ruby-ivar">@build_year</span> = <span class="ruby-number">1996</span>
+  <span class="ruby-ivar">@bof_types</span> = {
+    <span class="ruby-value">:globals</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0005</span>,
+    <span class="ruby-value">:visual_basic</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0006</span>,
+    <span class="ruby-value">:worksheet</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0010</span>,
+    <span class="ruby-value">:chart</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0020</span>,
+    <span class="ruby-value">:macro_sheet</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0040</span>,
+    <span class="ruby-value">:workspace</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0x0100</span>,
+  }
+  <span class="ruby-ivar">@worksheets</span> = {}
+  <span class="ruby-ivar">@sst</span> = {}
+  <span class="ruby-ivar">@recordsize_limit</span> = <span class="ruby-number">8224</span>
+  <span class="ruby-ivar">@fonts</span> = {}
+  <span class="ruby-ivar">@formats</span> = {}
+  <span class="ruby-ivar">@number_formats</span> = {}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-_write_sst">
+            
+              <a name="method-i-_write_sst"></a><b>_write_sst</b>(workbook, writer, offset, total, strings)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-_write_sst_source')" id="l_method-i-_write_sst_source">show</a>
+                
+              </p>
+              <div id="method-i-_write_sst_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 491</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">_write_sst</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">total</span>, <span class="ruby-identifier">strings</span>
+  <span class="ruby-identifier">sst</span> = {}
+  <span class="ruby-identifier">worksheets</span>(<span class="ruby-identifier">workbook</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worksheet</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">offset</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">boundsheet_size</span>
+    <span class="ruby-ivar">@sst</span>[<span class="ruby-identifier">worksheet</span>] = <span class="ruby-identifier">sst</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">sst_size</span> = <span class="ruby-identifier">strings</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">data</span> = [<span class="ruby-identifier">total</span>, <span class="ruby-identifier">sst_size</span>].<span class="ruby-identifier">pack</span> <span class="ruby-string">'V2'</span>
+  <span class="ruby-identifier">op</span> = <span class="ruby-number">0x00fc</span>
+  <span class="ruby-identifier">wide</span> = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">offsets</span> = []
+  <span class="ruby-identifier">strings</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">string</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">sst</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">string</span>, <span class="ruby-identifier">idx</span>
+    <span class="ruby-identifier">op_offset</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-number">4</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">%</span> <span class="ruby-constant">SST_CHUNKSIZE</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+      <span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">push</span> [<span class="ruby-identifier">offset</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">pos</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">op_offset</span>, <span class="ruby-identifier">op_offset</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">header</span>, <span class="ruby-identifier">packed</span>, <span class="ruby-identifier">next_wide</span> = <span class="ruby-identifier">_unicode_string</span> <span class="ruby-identifier">string</span>, <span class="ruby-number">2</span>
+    <span class="ruby-comment"># the first few bytes (header + first character) must not be split</span>
+    <span class="ruby-identifier">must_fit</span> = <span class="ruby-identifier">header</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">wide</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">must_fit</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@recordsize_limit</span>
+      <span class="ruby-identifier">op</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">wide</span> = <span class="ruby-identifier">write_string_part</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">wide</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">wide</span> = <span class="ruby-identifier">next_wide</span>
+    <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">header</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">packed</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">op</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">wide</span> = <span class="ruby-identifier">write_string_part</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">wide</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">write_extsst</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">offsets</span>, <span class="ruby-identifier">writer</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cleanup">
+            
+              <a name="method-i-cleanup"></a><b>cleanup</b>(workbook)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cleanup_source')" id="l_method-i-cleanup_source">show</a>
+                
+              </p>
+              <div id="method-i-cleanup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cleanup</span> <span class="ruby-identifier">workbook</span>
+  <span class="ruby-identifier">worksheets</span>(<span class="ruby-identifier">workbook</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worksheet</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@sst</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">worksheet</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@fonts</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">workbook</span>
+  <span class="ruby-ivar">@formats</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">workbook</span>
+  <span class="ruby-ivar">@number_formats</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">workbook</span>
+  <span class="ruby-ivar">@worksheets</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">workbook</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-collect_formats">
+            
+              <a name="method-i-collect_formats"></a><b>collect_formats</b>(workbook, opts={})
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-collect_formats_source')" id="l_method-i-collect_formats_source">show</a>
+                
+              </p>
+              <div id="method-i-collect_formats_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">collect_formats</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">opts</span>={}
+  <span class="ruby-comment"># The default cell format is always present in an Excel file, described by</span>
+  <span class="ruby-comment"># the XF record with the fixed index 15 (0-based). By default, it uses the</span>
+  <span class="ruby-comment"># worksheet/workbook default cell style, described by the very first XF</span>
+  <span class="ruby-comment"># record (index 0).</span>
+  <span class="ruby-identifier">formats</span> = []
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:existing_document</span>]
+    <span class="ruby-number">15</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Format</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">default_format</span>,
+                              <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:style</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Format</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">workbook</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">formats</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fmt</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Format</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">fmt</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fmt</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">xf_index</span> = <span class="ruby-identifier">idx</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@formats</span>[<span class="ruby-identifier">workbook</span>] = <span class="ruby-identifier">formats</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-complete_sst_update-3F">
+            
+              <a name="method-i-complete_sst_update-3F"></a><b>complete_sst_update?</b>(workbook)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-complete_sst_update-3F_source')" id="l_method-i-complete_sst_update-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-complete_sst_update-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">complete_sst_update?</span> <span class="ruby-identifier">workbook</span>
+  <span class="ruby-identifier">stored</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">sst</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">content</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">current</span> = <span class="ruby-identifier">worksheets</span>(<span class="ruby-identifier">workbook</span>).<span class="ruby-identifier">inject</span> [] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">worksheet</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">strings</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">total</span> = <span class="ruby-identifier">current</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">current</span>.<span class="ruby-identifier">uniq!</span>
+  <span class="ruby-identifier">current</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">''</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">stored</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">current</span>).<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">stored</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-comment">## if all previously stored strings are still needed, we don't have to</span>
+    <span class="ruby-comment">#  rewrite all cells because the sst-index of such string does not change.</span>
+    <span class="ruby-identifier">additions</span> = <span class="ruby-identifier">current</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">stored</span>
+    [<span class="ruby-value">:partial_update</span>, <span class="ruby-identifier">total</span>, <span class="ruby-identifier">stored</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">additions</span>]
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-value">:complete_update</span>, <span class="ruby-identifier">total</span>, <span class="ruby-identifier">current</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-font_index">
+            
+              <a name="method-i-font_index"></a><b>font_index</b>(workbook, font_key)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-font_index_source')" id="l_method-i-font_index_source">show</a>
+                
+              </p>
+              <div id="method-i-font_index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">font_index</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">font_key</span>
+  <span class="ruby-identifier">idx</span> = <span class="ruby-ivar">@fonts</span>[<span class="ruby-identifier">workbook</span>][<span class="ruby-identifier">font_key</span>] <span class="ruby-operator">||</span> <span class="ruby-number">0</span>
+  <span class="ruby-comment">## this appears to be undocumented: the first 4 fonts seem to be accessed</span>
+  <span class="ruby-comment">#  with a 0-based index, but all subsequent font indices are 1-based.</span>
+  <span class="ruby-identifier">idx</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">3</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">idx</span>.<span class="ruby-identifier">next</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">idx</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-number_format_index">
+            
+              <a name="method-i-number_format_index"></a><b>number_format_index</b>(workbook, format)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-number_format_index_source')" id="l_method-i-number_format_index_source">show</a>
+                
+              </p>
+              <div id="method-i-number_format_index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">number_format_index</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-ivar">@number_formats</span>[<span class="ruby-identifier">workbook</span>][<span class="ruby-identifier">format</span>] <span class="ruby-operator">||</span> <span class="ruby-number">0</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sanitize_worksheets">
+            
+              <a name="method-i-sanitize_worksheets"></a><b>sanitize_worksheets</b>(sheets)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-sanitize_worksheets_source')" id="l_method-i-sanitize_worksheets_source">show</a>
+                
+              </p>
+              <div id="method-i-sanitize_worksheets_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sanitize_worksheets</span> <span class="ruby-identifier">sheets</span>
+  <span class="ruby-identifier">found_selected</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">sheets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sheet</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">found_selected</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">selected</span>
+    <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">format_dates!</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">found_selected</span>
+    <span class="ruby-identifier">sheets</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">selected</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">sheets</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sst_index">
+            
+              <a name="method-i-sst_index"></a><b>sst_index</b>(worksheet, str)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-sst_index_source')" id="l_method-i-sst_index_source">show</a>
+                
+              </p>
+              <div id="method-i-sst_index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 639</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sst_index</span> <span class="ruby-identifier">worksheet</span>, <span class="ruby-identifier">str</span>
+  <span class="ruby-ivar">@sst</span>[<span class="ruby-identifier">worksheet</span>][<span class="ruby-identifier">str</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-worksheets">
+            
+              <a name="method-i-worksheets"></a><b>worksheets</b>(workbook)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-worksheets_source')" id="l_method-i-worksheets_source">show</a>
+                
+              </p>
+              <div id="method-i-worksheets_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">worksheets</span> <span class="ruby-identifier">workbook</span>
+  <span class="ruby-ivar">@worksheets</span>[<span class="ruby-identifier">workbook</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">worksheets</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worksheet</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Excel</span><span class="ruby-operator">::</span><span class="ruby-constant">Writer</span><span class="ruby-operator">::</span><span class="ruby-constant">Worksheet</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">worksheet</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_bof">
+            
+              <a name="method-i-write_bof"></a><b>write_bof</b>(workbook, writer, type)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_bof_source')" id="l_method-i-write_bof_source">show</a>
+                
+              </p>
+              <div id="method-i-write_bof_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_bof</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">type</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-ivar">@biff_version</span>,    <span class="ruby-comment"># BIFF version (always 0x0600 for BIFF8)</span>
+    <span class="ruby-ivar">@bof_types</span>[<span class="ruby-identifier">type</span>], <span class="ruby-comment"># Type of the following data:</span>
+                      <span class="ruby-comment"># 0x0005 = Workbook globals</span>
+                      <span class="ruby-comment"># 0x0006 = Visual Basic module</span>
+                      <span class="ruby-comment"># 0x0010 = Worksheet</span>
+                      <span class="ruby-comment"># 0x0020 = Chart</span>
+                      <span class="ruby-comment"># 0x0040 = Macro sheet</span>
+                      <span class="ruby-comment"># 0x0100 = Workspace file</span>
+    <span class="ruby-ivar">@build_id</span>,        <span class="ruby-comment"># Build identifier</span>
+    <span class="ruby-ivar">@build_year</span>,      <span class="ruby-comment"># Build year</span>
+    <span class="ruby-number">0x000</span>,            <span class="ruby-comment"># File history flags</span>
+    <span class="ruby-number">0x006</span>,            <span class="ruby-comment"># Lowest Excel version that can read</span>
+                      <span class="ruby-comment"># all records in this file</span>
+  ]
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-ivar">@bof</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;v4V2&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_bookbool">
+            
+              <a name="method-i-write_bookbool"></a><b>write_bookbool</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_bookbool_source')" id="l_method-i-write_bookbool_source">show</a>
+                
+              </p>
+              <div id="method-i-write_bookbool_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_bookbool</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">write_placeholder</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x00da</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_boundsheets">
+            
+              <a name="method-i-write_boundsheets"></a><b>write_boundsheets</b>(workbook, writer, offset)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_boundsheets_source')" id="l_method-i-write_boundsheets_source">show</a>
+                
+              </p>
+              <div id="method-i-write_boundsheets_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_boundsheets</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">offset</span>
+  <span class="ruby-identifier">worksheets</span> = <span class="ruby-identifier">worksheets</span>(<span class="ruby-identifier">workbook</span>)
+  <span class="ruby-identifier">worksheets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worksheet</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># account for boundsheet-entry</span>
+    <span class="ruby-identifier">offset</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">boundsheet_size</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">worksheets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worksheet</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">data</span> = [
+      <span class="ruby-identifier">offset</span>,   <span class="ruby-comment"># Absolute stream position of the BOF record of the sheet</span>
+                <span class="ruby-comment"># represented by this record. This field is never encrypted</span>
+                <span class="ruby-comment"># in protected files.</span>
+      <span class="ruby-number">0x00</span>,     <span class="ruby-comment"># Visibility: 0x00 = Visible</span>
+                <span class="ruby-comment">#             0x01 = Hidden</span>
+                <span class="ruby-comment">#             0x02 = Strong hidden (see below)</span>
+      <span class="ruby-number">0x00</span>,     <span class="ruby-comment"># Sheet type: 0x00 = Worksheet</span>
+                <span class="ruby-comment">#             0x02 = Chart</span>
+                <span class="ruby-comment">#             0x06 = Visual Basic module</span>
+    ]
+    <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x0085</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;VC2&quot;</span>), <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">offset</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_changes">
+            
+              <a name="method-i-write_changes"></a><b>write_changes</b>(workbook, io)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Copy unchanged data verbatim, adjust offsets and write new records for
+changed data.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_changes_source')" id="l_method-i-write_changes_source">show</a>
+                
+              </p>
+              <div id="method-i-write_changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_changes</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">io</span>
+  <span class="ruby-identifier">sanitize_worksheets</span> <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">worksheets</span>
+  <span class="ruby-identifier">collect_formats</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-value">:existing_document</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">reader</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">ole</span>
+  <span class="ruby-identifier">sheet_data</span> = {}
+  <span class="ruby-identifier">sst_status</span>, <span class="ruby-identifier">sst_total</span>, <span class="ruby-identifier">sst_strings</span> = <span class="ruby-identifier">complete_sst_update?</span> <span class="ruby-identifier">workbook</span>
+  <span class="ruby-identifier">sst</span> = {}
+  <span class="ruby-identifier">sst_strings</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">str</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sst</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">idx</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">sheets</span> = <span class="ruby-identifier">worksheets</span>(<span class="ruby-identifier">workbook</span>)
+  <span class="ruby-identifier">positions</span> = []
+  <span class="ruby-identifier">newsheets</span> = []
+  <span class="ruby-identifier">sheets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sheet</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@sst</span>[<span class="ruby-identifier">sheet</span>] = <span class="ruby-identifier">sst</span>
+    <span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">offsets</span>[<span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">worksheet</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">pos</span>
+      <span class="ruby-identifier">positions</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">pos</span>
+      <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">write_changes</span> <span class="ruby-identifier">reader</span>, <span class="ruby-identifier">pos</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">len</span>, <span class="ruby-identifier">sst_status</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">newsheets</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">sheet</span>
+      <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">write_from_scratch</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">sheet_data</span>[<span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">worksheet</span>] = <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Ole</span><span class="ruby-operator">::</span><span class="ruby-constant">Storage</span>.<span class="ruby-identifier">open</span> <span class="ruby-identifier">io</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ole</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">ole</span>.<span class="ruby-identifier">file</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">'Workbook'</span>, <span class="ruby-string">'w'</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">writer</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">seek</span> <span class="ruby-identifier">lastpos</span> = <span class="ruby-number">0</span>
+      <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">pair</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">changes</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">key</span>
+      <span class="ruby-keyword">end</span>.<span class="ruby-identifier">sort_by</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, (<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>)<span class="ruby-operator">|</span>
+        <span class="ruby-identifier">pos</span>
+      <span class="ruby-keyword">end</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, (<span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span>)<span class="ruby-operator">|</span>
+        <span class="ruby-identifier">data</span> = <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">pos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">lastpos</span>)
+        <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-constant">Spreadsheet</span><span class="ruby-operator">::</span><span class="ruby-constant">Worksheet</span>
+          <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">sheet_data</span>[<span class="ruby-identifier">key</span>]
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:boundsheets</span>
+          <span class="ruby-comment">## boundsheets are hard to calculate. The offset below is only</span>
+          <span class="ruby-comment">#  correct if there are no more changes in the workbook globals</span>
+          <span class="ruby-comment">#  string after this.</span>
+          <span class="ruby-identifier">oldoffset</span> = <span class="ruby-identifier">positions</span>.<span class="ruby-identifier">min</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">len</span>
+          <span class="ruby-identifier">lastpos</span> = <span class="ruby-identifier">pos</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">len</span>
+          <span class="ruby-identifier">bytechange</span> = <span class="ruby-number">0</span>
+          <span class="ruby-identifier">buffer</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">''</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">tuple</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">offsets</span>[<span class="ruby-value">:sst</span>]
+            <span class="ruby-identifier">write_sst_changes</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer</span>, <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">pos</span>,
+                              <span class="ruby-identifier">sst_total</span>, <span class="ruby-identifier">sst_strings</span>
+            <span class="ruby-identifier">pos</span>, <span class="ruby-identifier">len</span> = <span class="ruby-identifier">tuple</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">offsets</span>[<span class="ruby-value">:extsst</span>]
+              <span class="ruby-identifier">len</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">offset</span>[<span class="ruby-number">1</span>].<span class="ruby-identifier">to_i</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">bytechange</span> = <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">len</span>
+            <span class="ruby-identifier">write_boundsheets</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">oldoffset</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">bytechange</span>
+            <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">seek</span> <span class="ruby-identifier">lastpos</span>
+            <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">pos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">lastpos</span>)
+            <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">rewind</span>
+            <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">read</span>
+          <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">sst</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">biff_version</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">8</span>
+            <span class="ruby-identifier">write_boundsheets</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">oldoffset</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">bytechange</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">write_sst</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer</span>, <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">pos</span>
+            <span class="ruby-identifier">write_boundsheets</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">oldoffset</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">size</span>
+            <span class="ruby-identifier">pos</span> = <span class="ruby-identifier">lastpos</span>
+            <span class="ruby-identifier">len</span> = <span class="ruby-identifier">positions</span>.<span class="ruby-identifier">min</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">lastpos</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">OPCODE_SIZE</span>
+              <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">seek</span> <span class="ruby-identifier">pos</span>
+              <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">len</span> <span class="ruby-operator">-</span> <span class="ruby-constant">OPCODE_SIZE</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">rewind</span>
+            <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">read</span>
+            <span class="ruby-identifier">write_eof</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">send</span> <span class="ruby-node">&quot;write_#{key}&quot;</span>, <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">lastpos</span> = [<span class="ruby-identifier">pos</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">len</span>, <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>].<span class="ruby-identifier">min</span>
+        <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">seek</span> <span class="ruby-identifier">lastpos</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">read</span>
+      <span class="ruby-identifier">newsheets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sheet</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">data</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_datemode">
+            
+              <a name="method-i-write_datemode"></a><b>write_datemode</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_datemode_source')" id="l_method-i-write_datemode_source">show</a>
+                
+              </p>
+              <div id="method-i-write_datemode_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_datemode</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">mode</span> = <span class="ruby-ivar">@date_base</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">==</span> <span class="ruby-number">1899</span> <span class="ruby-operator">?</span> <span class="ruby-number">0x00</span> <span class="ruby-operator">:</span> <span class="ruby-number">0x01</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-identifier">mode</span>, <span class="ruby-comment"># 0 = Base date is 1899-Dec-31</span>
+          <span class="ruby-comment">#     (the cell value 1 represents 1900-Jan-01)</span>
+          <span class="ruby-comment"># 1 = Base date is 1904-Jan-01</span>
+          <span class="ruby-comment">#     (the cell value 1 represents 1904-Jan-02)</span>
+  ]
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x0022</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_dsf">
+            
+              <a name="method-i-write_dsf"></a><b>write_dsf</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_dsf_source')" id="l_method-i-write_dsf_source">show</a>
+                
+              </p>
+              <div id="method-i-write_dsf_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_dsf</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-number">0x00</span>, <span class="ruby-comment"># 0 = Only the BIFF8 “Workbook” stream is present</span>
+          <span class="ruby-comment"># 1 = Additional BIFF5/BIFF7 “Book” stream is in the file</span>
+  ]
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x0161</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_encoding">
+            
+              <a name="method-i-write_encoding"></a><b>write_encoding</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_encoding_source')" id="l_method-i-write_encoding_source">show</a>
+                
+              </p>
+              <div id="method-i-write_encoding_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_encoding</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">enc</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">||</span> <span class="ruby-string">'UTF-16LE'</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-string">'1.9'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">enc</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Encoding</span>)
+    <span class="ruby-identifier">enc</span> = <span class="ruby-identifier">enc</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">upcase</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">cp</span> = <span class="ruby-constant">SEGAPEDOC</span>[<span class="ruby-identifier">enc</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid or Unknown Codepage '#{enc}'&quot;</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x0042</span>, [<span class="ruby-identifier">cp</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_eof">
+            
+              <a name="method-i-write_eof"></a><b>write_eof</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_eof_source')" id="l_method-i-write_eof_source">show</a>
+                
+              </p>
+              <div id="method-i-write_eof_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_eof</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x000a</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_extsst">
+            
+              <a name="method-i-write_extsst"></a><b>write_extsst</b>(workbook, offsets, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_extsst_source')" id="l_method-i-write_extsst_source">show</a>
+                
+              </p>
+              <div id="method-i-write_extsst_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_extsst</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">offsets</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">header</span> = [<span class="ruby-constant">SST_CHUNKSIZE</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pair</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pair</span>.<span class="ruby-identifier">push</span>(<span class="ruby-number">0</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-string">'Vv2'</span>) <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x00ff</span>, <span class="ruby-identifier">header</span>, <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_font">
+            
+              <a name="method-i-write_font"></a><b>write_font</b>(workbook, writer, font)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_font_source')" id="l_method-i-write_font_source">show</a>
+                
+              </p>
+              <div id="method-i-write_font_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_font</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">font</span>
+  <span class="ruby-comment"># TODO: Colors/Palette index</span>
+  <span class="ruby-identifier">size</span>      = <span class="ruby-identifier">font</span>.<span class="ruby-identifier">size</span> * <span class="ruby-constant">TWIPS</span>
+  <span class="ruby-identifier">color</span>     = <span class="ruby-constant">SEDOC_ROLOC</span>[<span class="ruby-identifier">font</span>.<span class="ruby-identifier">color</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">SEDOC_ROLOC</span>[<span class="ruby-value">:text</span>]
+  <span class="ruby-identifier">weight</span>    = <span class="ruby-constant">FONT_WEIGHTS</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">font</span>.<span class="ruby-identifier">weight</span>, <span class="ruby-identifier">font</span>.<span class="ruby-identifier">weight</span>)
+  <span class="ruby-identifier">weight</span>    = [[<span class="ruby-identifier">weight</span>, <span class="ruby-number">1000</span>].<span class="ruby-identifier">min</span>, <span class="ruby-number">100</span>].<span class="ruby-identifier">max</span>
+  <span class="ruby-identifier">esc</span>       = <span class="ruby-constant">SEPYT_TNEMEPACSE</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">font</span>.<span class="ruby-identifier">escapement</span>, <span class="ruby-number">0</span>)
+  <span class="ruby-identifier">underline</span> = <span class="ruby-constant">SEPYT_ENILREDNU</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">font</span>.<span class="ruby-identifier">underline</span>, <span class="ruby-number">0</span>)
+  <span class="ruby-identifier">family</span>    = <span class="ruby-constant">SEILIMAF_TNOF</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">font</span>.<span class="ruby-identifier">family</span>, <span class="ruby-number">0</span>)
+  <span class="ruby-identifier">encoding</span>  = <span class="ruby-constant">SGNIDOCNE_TNOF</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">font</span>.<span class="ruby-identifier">encoding</span>, <span class="ruby-number">0</span>)
+  <span class="ruby-identifier">options</span>   = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">options</span>  <span class="ruby-operator">|=</span> <span class="ruby-number">0x0001</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">weight</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">600</span>
+  <span class="ruby-identifier">options</span>  <span class="ruby-operator">|=</span> <span class="ruby-number">0x0002</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">font</span>.<span class="ruby-identifier">italic?</span>
+  <span class="ruby-identifier">options</span>  <span class="ruby-operator">|=</span> <span class="ruby-number">0x0004</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">underline</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+  <span class="ruby-identifier">options</span>  <span class="ruby-operator">|=</span> <span class="ruby-number">0x0008</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">font</span>.<span class="ruby-identifier">strikeout?</span>
+  <span class="ruby-identifier">options</span>  <span class="ruby-operator">|=</span> <span class="ruby-number">0x0010</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">font</span>.<span class="ruby-identifier">outline?</span>
+  <span class="ruby-identifier">options</span>  <span class="ruby-operator">|=</span> <span class="ruby-number">0x0020</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">font</span>.<span class="ruby-identifier">shadow?</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-identifier">size</span>,     <span class="ruby-comment"># Height of the font (in twips = 1/20 of a point)</span>
+    <span class="ruby-identifier">options</span>,  <span class="ruby-comment"># Option flags:</span>
+              <span class="ruby-comment"># Bit  Mask    Contents</span>
+              <span class="ruby-comment">#   0  0x0001  1 = Characters are bold (redundant, see below)</span>
+              <span class="ruby-comment">#   1  0x0002  1 = Characters are italic</span>
+              <span class="ruby-comment">#   2  0x0004  1 = Characters are underlined (redundant)</span>
+              <span class="ruby-comment">#   3  0x0008  1 = Characters are struck out</span>
+              <span class="ruby-comment">#   4  0x0010  1 = Characters are outlined (djberger)</span>
+              <span class="ruby-comment">#   5  0x0020  1 = Characters are shadowed (djberger)</span>
+    <span class="ruby-identifier">color</span>,    <span class="ruby-comment"># Palette index (➜ 6.70)</span>
+    <span class="ruby-identifier">weight</span>,   <span class="ruby-comment"># Font weight (100-1000). Standard values are</span>
+              <span class="ruby-comment">#      0x0190 (400) for normal text and</span>
+              <span class="ruby-comment">#      0x02bc (700) for bold text.</span>
+    <span class="ruby-identifier">esc</span>,      <span class="ruby-comment"># Escapement type: 0x0000 = None</span>
+              <span class="ruby-comment">#                  0x0001 = Superscript</span>
+              <span class="ruby-comment">#                  0x0002 = Subscript</span>
+    <span class="ruby-identifier">underline</span>,<span class="ruby-comment"># Underline type:  0x00 = None</span>
+              <span class="ruby-comment">#                  0x01 = Single</span>
+              <span class="ruby-comment">#                  0x02 = Double</span>
+              <span class="ruby-comment">#                  0x21 = Single accounting</span>
+              <span class="ruby-comment">#                  0x22 = Double accounting</span>
+    <span class="ruby-identifier">family</span>,   <span class="ruby-comment"># Font family:     0x00 = None (unknown or don't care)</span>
+              <span class="ruby-comment">#                  0x01 = Roman (variable width, serifed)</span>
+              <span class="ruby-comment">#                  0x02 = Swiss (variable width, sans-serifed)</span>
+              <span class="ruby-comment">#                  0x03 = Modern (fixed width,</span>
+              <span class="ruby-comment">#                                 serifed or sans-serifed)</span>
+              <span class="ruby-comment">#                  0x04 = Script (cursive)</span>
+              <span class="ruby-comment">#                  0x05 = Decorative (specialised,</span>
+              <span class="ruby-comment">#                                       e.g. Old English, Fraktur)</span>
+    <span class="ruby-identifier">encoding</span>, <span class="ruby-comment"># Character set: 0x00 =   0 = ANSI Latin</span>
+              <span class="ruby-comment">#                0x01 =   1 = System default</span>
+              <span class="ruby-comment">#                0x02 =   2 = Symbol</span>
+              <span class="ruby-comment">#                0x4d =  77 = Apple Roman</span>
+              <span class="ruby-comment">#                0x80 = 128 = ANSI Japanese Shift-JIS</span>
+              <span class="ruby-comment">#                0x81 = 129 = ANSI Korean (Hangul)</span>
+              <span class="ruby-comment">#                0x82 = 130 = ANSI Korean (Johab)</span>
+              <span class="ruby-comment">#                0x86 = 134 = ANSI Chinese Simplified GBK</span>
+              <span class="ruby-comment">#                0x88 = 136 = ANSI Chinese Traditional BIG5</span>
+              <span class="ruby-comment">#                0xa1 = 161 = ANSI Greek</span>
+              <span class="ruby-comment">#                0xa2 = 162 = ANSI Turkish</span>
+              <span class="ruby-comment">#                0xa3 = 163 = ANSI Vietnamese</span>
+              <span class="ruby-comment">#                0xb1 = 177 = ANSI Hebrew</span>
+              <span class="ruby-comment">#                0xb2 = 178 = ANSI Arabic</span>
+              <span class="ruby-comment">#                0xba = 186 = ANSI Baltic</span>
+              <span class="ruby-comment">#                0xcc = 204 = ANSI Cyrillic</span>
+              <span class="ruby-comment">#                0xde = 222 = ANSI Thai</span>
+              <span class="ruby-comment">#                0xee = 238 = ANSI Latin II (Central European)</span>
+              <span class="ruby-comment">#                0xff = 255 = OEM Latin I</span>
+  ]
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">unicode_string</span> <span class="ruby-identifier">font</span>.<span class="ruby-identifier">name</span> <span class="ruby-comment"># Font name: Unicode string,</span>
+                                  <span class="ruby-comment"># 8-bit string length (➜ 3.4)</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:font</span>), <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-identifier">binfmt</span>(<span class="ruby-value">:font</span>)), <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_fonts">
+            
+              <a name="method-i-write_fonts"></a><b>write_fonts</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_fonts_source')" id="l_method-i-write_fonts_source">show</a>
+                
+              </p>
+              <div id="method-i-write_fonts_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 349</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_fonts</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">fonts</span> = <span class="ruby-ivar">@fonts</span>[<span class="ruby-identifier">workbook</span>] = {}
+  <span class="ruby-ivar">@formats</span>[<span class="ruby-identifier">workbook</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">font</span> = <span class="ruby-identifier">format</span>.<span class="ruby-identifier">font</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">fonts</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">font</span>.<span class="ruby-identifier">key</span>)
+      <span class="ruby-identifier">fonts</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">font</span>.<span class="ruby-identifier">key</span>, <span class="ruby-identifier">fonts</span>.<span class="ruby-identifier">size</span>
+      <span class="ruby-identifier">write_font</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">font</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_formats">
+            
+              <a name="method-i-write_formats"></a><b>write_formats</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_formats_source')" id="l_method-i-write_formats_source">show</a>
+                
+              </p>
+              <div id="method-i-write_formats_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_formats</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-comment"># From BIFF5 on, the built-in number formats will be omitted. The built-in</span>
+  <span class="ruby-comment"># formats are dependent on the current regional settings of the operating</span>
+  <span class="ruby-comment"># system. BUILTIN_FORMATS shows which number formats are used by</span>
+  <span class="ruby-comment"># default in a US-English environment. All indexes from 0 to 163 are</span>
+  <span class="ruby-comment"># reserved for built-in formats.</span>
+  <span class="ruby-comment"># The first user-defined format starts at 164 (0xa4).</span>
+  <span class="ruby-identifier">formats</span> = <span class="ruby-ivar">@number_formats</span>[<span class="ruby-identifier">workbook</span>] = {}
+  <span class="ruby-constant">BUILTIN_FORMATS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">idx</span>, <span class="ruby-identifier">str</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">client</span>(<span class="ruby-identifier">str</span>, <span class="ruby-string">'UTF-8'</span>), <span class="ruby-identifier">idx</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">## Ensure at least a 'GENERAL' format is written</span>
+  <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">client</span>(<span class="ruby-string">'GENERAL'</span>, <span class="ruby-string">'UTF-8'</span>)
+  <span class="ruby-identifier">idx</span> = <span class="ruby-number">0xa4</span>
+  <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">formats</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fmt</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">number_format</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">formats</span>[<span class="ruby-identifier">str</span>]
+      <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">idx</span>
+      <span class="ruby-comment"># Number format string (Unicode string, 16-bit string length, ➜ 3.4)</span>
+      <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">opcode</span>(<span class="ruby-value">:format</span>), [<span class="ruby-identifier">idx</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>), <span class="ruby-identifier">unicode_string</span>(<span class="ruby-identifier">str</span>, <span class="ruby-number">2</span>)
+      <span class="ruby-identifier">idx</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_from_scratch">
+            
+              <a name="method-i-write_from_scratch"></a><b>write_from_scratch</b>(workbook, io)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Write a new <a href="../../Excel.html">Excel</a> file.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_from_scratch_source')" id="l_method-i-write_from_scratch_source">show</a>
+                
+              </p>
+              <div id="method-i-write_from_scratch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 384</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_from_scratch</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">io</span>
+  <span class="ruby-identifier">sanitize_worksheets</span> <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">worksheets</span>
+  <span class="ruby-identifier">collect_formats</span> <span class="ruby-identifier">workbook</span>
+  <span class="ruby-identifier">sheets</span> = <span class="ruby-identifier">worksheets</span> <span class="ruby-identifier">workbook</span>
+  <span class="ruby-identifier">buffer1</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">''</span>
+  <span class="ruby-comment"># ●  BOF Type = workbook globals (➜ 6.8)</span>
+  <span class="ruby-identifier">write_bof</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>, <span class="ruby-value">:globals</span>
+  <span class="ruby-comment"># ○  File Protection Block ➜ 4.19</span>
+  <span class="ruby-comment"># ○  WRITEACCESS User name (BIFF3-BIFF8, ➜ 5.112)</span>
+  <span class="ruby-comment"># ○  FILESHARING File sharing options (BIFF3-BIFF8, ➜ 5.44)</span>
+  <span class="ruby-comment"># ○  CODEPAGE ➜ 6.17</span>
+  <span class="ruby-identifier">write_encoding</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  DSF ➜ 6.32</span>
+  <span class="ruby-identifier">write_dsf</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  TABID</span>
+  <span class="ruby-identifier">write_tabid</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  FNGROUPCOUNT</span>
+  <span class="ruby-comment"># ○  Workbook Protection Block ➜ 4.18</span>
+  <span class="ruby-comment"># ○  WINDOWPROTECT Window settings: 1 = protected (➜ 5.111)</span>
+  <span class="ruby-comment"># ○  PROTECT Cell contents: 1 = protected (➜ 5.82)</span>
+  <span class="ruby-identifier">write_protect</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  OBJECTPROTECT Embedded objects: 1 = protected (➜ 5.72)</span>
+  <span class="ruby-comment"># ○  PASSWORD Hash value of the password; 0 = No password (➜ 5.76)</span>
+  <span class="ruby-identifier">write_password</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  BACKUP ➜ 5.5</span>
+  <span class="ruby-comment"># ○  HIDEOBJ ➜ 5.56</span>
+  <span class="ruby-comment"># ●  WINDOW1 ➜ 5.109</span>
+  <span class="ruby-identifier">write_window1</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  DATEMODE ➜ 5.28</span>
+  <span class="ruby-identifier">write_datemode</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  PRECISION ➜ 5.79</span>
+  <span class="ruby-identifier">write_precision</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  REFRESHALL</span>
+  <span class="ruby-identifier">write_refreshall</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  BOOKBOOL ➜ 5.9</span>
+  <span class="ruby-identifier">write_bookbool</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ●● FONT ➜ 5.45</span>
+  <span class="ruby-identifier">write_fonts</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○○ FORMAT ➜ 5.49</span>
+  <span class="ruby-identifier">write_formats</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ●● XF ➜ 5.115</span>
+  <span class="ruby-identifier">write_xfs</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ●● STYLE ➜ 5.103</span>
+  <span class="ruby-identifier">write_styles</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer1</span>
+  <span class="ruby-comment"># ○  PALETTE ➜ 5.74</span>
+  <span class="ruby-comment"># ○  USESELFS ➜ 5.106</span>
+  <span class="ruby-identifier">buffer1</span>.<span class="ruby-identifier">rewind</span>
+  <span class="ruby-comment"># ●● BOUNDSHEET ➜ 5.95</span>
+  <span class="ruby-identifier">buffer2</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">''</span>
+  <span class="ruby-comment"># ○  COUNTRY ➜ 5.22</span>
+  <span class="ruby-comment"># ○  Link Table ➜ 4.10.3</span>
+  <span class="ruby-comment"># ○○ NAME ➜ 6.66</span>
+  <span class="ruby-comment"># ○  Shared String Table ➜ 4.11</span>
+  <span class="ruby-comment"># ●  SST ➜ 5.100</span>
+  <span class="ruby-comment"># ●  EXTSST ➜ 5.42</span>
+  <span class="ruby-identifier">write_sst</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer2</span>, <span class="ruby-identifier">buffer1</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-comment"># ●  EOF ➜ 5.37</span>
+  <span class="ruby-identifier">write_eof</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">buffer2</span>
+  <span class="ruby-identifier">buffer2</span>.<span class="ruby-identifier">rewind</span>
+  <span class="ruby-comment"># worksheet data can only be assembled after write_sst</span>
+  <span class="ruby-identifier">sheets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worksheet</span><span class="ruby-operator">|</span> <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">write_from_scratch</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Ole</span><span class="ruby-operator">::</span><span class="ruby-constant">Storage</span>.<span class="ruby-identifier">open</span> <span class="ruby-identifier">io</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ole</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">ole</span>.<span class="ruby-identifier">file</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">'Workbook'</span>, <span class="ruby-string">'w'</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">writer</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">buffer1</span>.<span class="ruby-identifier">read</span>
+      <span class="ruby-identifier">write_boundsheets</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">buffer1</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">buffer2</span>.<span class="ruby-identifier">size</span>
+      <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">buffer2</span>.<span class="ruby-identifier">read</span>
+      <span class="ruby-identifier">sheets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worksheet</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">data</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_op">
+            
+              <a name="method-i-write_op"></a><b>write_op</b>(writer, op, *args)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_op_source')" id="l_method-i-write_op_source">show</a>
+                
+              </p>
+              <div id="method-i-write_op_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 456</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">op</span>, *<span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">join</span>
+  <span class="ruby-identifier">limited</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-number">0</span><span class="ruby-operator">...</span><span class="ruby-ivar">@recordsize_limit</span>)
+  <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> [<span class="ruby-identifier">op</span>,<span class="ruby-identifier">limited</span>.<span class="ruby-identifier">size</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;v2&quot;</span>)
+  <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">limited</span>
+  <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_password">
+            
+              <a name="method-i-write_password"></a><b>write_password</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_password_source')" id="l_method-i-write_password_source">show</a>
+                
+              </p>
+              <div id="method-i-write_password_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 463</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_password</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">write_placeholder</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x0013</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_placeholder">
+            
+              <a name="method-i-write_placeholder"></a><b>write_placeholder</b>(writer, op, value=0x0000, fmt='v')
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_placeholder_source')" id="l_method-i-write_placeholder_source">show</a>
+                
+              </p>
+              <div id="method-i-write_placeholder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 466</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_placeholder</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">value</span>=<span class="ruby-number">0x0000</span>, <span class="ruby-identifier">fmt</span>=<span class="ruby-string">'v'</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">op</span>, [<span class="ruby-identifier">value</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-identifier">fmt</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_precision">
+            
+              <a name="method-i-write_precision"></a><b>write_precision</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_precision_source')" id="l_method-i-write_precision_source">show</a>
+                
+              </p>
+              <div id="method-i-write_precision_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 469</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_precision</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-comment"># 0 = Use displayed values; 1 = Use real cell values</span>
+  <span class="ruby-identifier">write_placeholder</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x000e</span>, <span class="ruby-number">0x0001</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_protect">
+            
+              <a name="method-i-write_protect"></a><b>write_protect</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_protect_source')" id="l_method-i-write_protect_source">show</a>
+                
+              </p>
+              <div id="method-i-write_protect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_protect</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">write_placeholder</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x0012</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_refreshall">
+            
+              <a name="method-i-write_refreshall"></a><b>write_refreshall</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_refreshall_source')" id="l_method-i-write_refreshall_source">show</a>
+                
+              </p>
+              <div id="method-i-write_refreshall_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 476</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_refreshall</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">write_placeholder</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x01b7</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_sst">
+            
+              <a name="method-i-write_sst"></a><b>write_sst</b>(workbook, writer, offset)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_sst_source')" id="l_method-i-write_sst_source">show</a>
+                
+              </p>
+              <div id="method-i-write_sst_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_sst</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">offset</span>
+  <span class="ruby-comment"># Offset  Size  Contents</span>
+  <span class="ruby-comment">#      0     4  Total number of strings in the workbook (see below)</span>
+  <span class="ruby-comment">#      4     4  Number of following strings (nm)</span>
+  <span class="ruby-comment">#      8  var.  List of nm Unicode strings, 16-bit string length (➜ 3.4)</span>
+  <span class="ruby-identifier">strings</span> = <span class="ruby-identifier">worksheets</span>(<span class="ruby-identifier">workbook</span>).<span class="ruby-identifier">inject</span> [] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">worksheet</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">strings</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">total</span> = <span class="ruby-identifier">strings</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">strings</span>.<span class="ruby-identifier">uniq!</span>
+  <span class="ruby-identifier">_write_sst</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">total</span>, <span class="ruby-identifier">strings</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_sst_changes">
+            
+              <a name="method-i-write_sst_changes"></a><b>write_sst_changes</b>(workbook, writer, offset, total, strings)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_sst_changes_source')" id="l_method-i-write_sst_changes_source">show</a>
+                
+              </p>
+              <div id="method-i-write_sst_changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 522</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_sst_changes</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">total</span>, <span class="ruby-identifier">strings</span>
+  <span class="ruby-identifier">_write_sst</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">total</span>, <span class="ruby-identifier">strings</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_string_part">
+            
+              <a name="method-i-write_string_part"></a><b>write_string_part</b>(writer, op, data, wide)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_string_part_source')" id="l_method-i-write_string_part_source">show</a>
+                
+              </p>
+              <div id="method-i-write_string_part_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 525</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_string_part</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">wide</span>
+  <span class="ruby-identifier">bef</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-comment">## if we're writing wide characters, we need to make sure we don't cut</span>
+  <span class="ruby-comment">#  characters in half</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">wide</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@recordsize_limit</span>
+    <span class="ruby-identifier">remove</span> = <span class="ruby-ivar">@recordsize_limit</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">remove</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">remove</span> <span class="ruby-operator">%</span> <span class="ruby-number">2</span>
+    <span class="ruby-identifier">rest</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-identifier">remove</span><span class="ruby-operator">..</span><span class="ruby-number">-1</span>)
+    <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">data</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-identifier">rest</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">op</span> = <span class="ruby-number">0x003c</span>
+  <span class="ruby-comment"># Unicode strings are split in a special way. At the beginning of each</span>
+  <span class="ruby-comment"># CONTINUE record the option flags byte is repeated. Only the</span>
+  <span class="ruby-comment"># character size flag will be set in this flags byte, the Rich-Text</span>
+  <span class="ruby-comment"># flag and the Far-East flag are set to zero.</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">wide</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span>
+      <span class="ruby-comment"># check if we can compress the rest of the string</span>
+      <span class="ruby-identifier">data</span>, <span class="ruby-identifier">wide</span> = <span class="ruby-identifier">compress_unicode_string</span> <span class="ruby-identifier">data</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">data</span> = [<span class="ruby-identifier">wide</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'C'</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-identifier">op</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">wide</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_styles">
+            
+              <a name="method-i-write_styles"></a><b>write_styles</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_styles_source')" id="l_method-i-write_styles_source">show</a>
+                
+              </p>
+              <div id="method-i-write_styles_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 552</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_styles</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-comment"># TODO: Style implementation. The following is simply a standard builtin</span>
+  <span class="ruby-comment">#       style.</span>
+  <span class="ruby-comment"># TODO: User defined styles</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-number">0x8000</span>, <span class="ruby-comment">#   Bit  Mask    Contents</span>
+            <span class="ruby-comment"># 11- 0  0x0fff  Index to style XF record (➜ 6.115)</span>
+            <span class="ruby-comment">#    15  0x8000  Always 1 for built-in styles</span>
+    <span class="ruby-number">0x00</span>,   <span class="ruby-comment"># Identifier of the built-in cell style:</span>
+            <span class="ruby-comment"># 0x00 = Normal</span>
+            <span class="ruby-comment"># 0x01 = RowLevel_lv (see next field)</span>
+            <span class="ruby-comment"># 0x02 = ColLevel_lv (see next field)</span>
+            <span class="ruby-comment"># 0x03 = Comma</span>
+            <span class="ruby-comment"># 0x04 = Currency</span>
+            <span class="ruby-comment"># 0x05 = Percent</span>
+            <span class="ruby-comment"># 0x06 = Comma [0] (BIFF4-BIFF8)</span>
+            <span class="ruby-comment"># 0x07 = Currency [0] (BIFF4-BIFF8)</span>
+            <span class="ruby-comment"># 0x08 = Hyperlink (BIFF8)</span>
+            <span class="ruby-comment"># 0x09 = Followed Hyperlink (BIFF8)</span>
+    <span class="ruby-number">0xff</span>,   <span class="ruby-comment"># Level for RowLevel or ColLevel style (zero-based, lv),</span>
+            <span class="ruby-comment"># 0xff otherwise</span>
+            <span class="ruby-comment"># The RowLevel and ColLevel styles specify the formatting of</span>
+            <span class="ruby-comment"># subtotal cells in a specific outline level. The level is</span>
+            <span class="ruby-comment"># specified by the last field in the STYLE record. Valid values</span>
+            <span class="ruby-comment"># are 0…6 for the outline levels 1…7.</span>
+  ]
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x0293</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">'vC2'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_tabid">
+            
+              <a name="method-i-write_tabid"></a><b>write_tabid</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_tabid_source')" id="l_method-i-write_tabid_source">show</a>
+                
+              </p>
+              <div id="method-i-write_tabid_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 580</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_tabid</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x013d</span>, [<span class="ruby-number">1</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_window1">
+            
+              <a name="method-i-write_window1"></a><b>write_window1</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_window1_source')" id="l_method-i-write_window1_source">show</a>
+                
+              </p>
+              <div id="method-i-write_window1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 583</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_window1</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-identifier">selected</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">worksheets</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sheet</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">selected</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">actidx</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">worksheets</span>.<span class="ruby-identifier">index</span> <span class="ruby-identifier">selected</span>
+  <span class="ruby-identifier">data</span> = [
+    <span class="ruby-number">0x0000</span>, <span class="ruby-comment"># Horizontal position of the document window</span>
+            <span class="ruby-comment"># (in twips = 1/20 of a point)</span>
+    <span class="ruby-number">0x0000</span>, <span class="ruby-comment"># Vertical position of the document window</span>
+            <span class="ruby-comment"># (in twips = 1/20 of a point)</span>
+    <span class="ruby-number">0x4000</span>, <span class="ruby-comment"># Width of the document window (in twips = 1/20 of a point)</span>
+    <span class="ruby-number">0x2000</span>, <span class="ruby-comment"># Height of the document window (in twips = 1/20 of a point)</span>
+    <span class="ruby-number">0x0038</span>, <span class="ruby-comment"># Option flags:</span>
+            <span class="ruby-comment"># Bit  Mask    Contents</span>
+            <span class="ruby-comment">#   0  0x0001  0 = Window is visible</span>
+            <span class="ruby-comment">#              1 = Window is hidden</span>
+            <span class="ruby-comment">#   1  0x0002  0 = Window is open</span>
+            <span class="ruby-comment">#              1 = Window is minimised</span>
+            <span class="ruby-comment">#   3  0x0008  0 = Horizontal scroll bar hidden</span>
+            <span class="ruby-comment">#              1 = Horizontal scroll bar visible</span>
+            <span class="ruby-comment">#   4  0x0010  0 = Vertical scroll bar hidden</span>
+            <span class="ruby-comment">#              1 = Vertical scroll bar visible</span>
+            <span class="ruby-comment">#   5  0x0020  0 = Worksheet tab bar hidden</span>
+            <span class="ruby-comment">#              1 = Worksheet tab bar visible</span>
+    <span class="ruby-identifier">actidx</span>, <span class="ruby-comment"># Index to active (displayed) worksheet</span>
+    <span class="ruby-number">0x0000</span>, <span class="ruby-comment"># Index of first visible tab in the worksheet tab bar</span>
+    <span class="ruby-number">0x0001</span>, <span class="ruby-comment"># Number of selected worksheets</span>
+            <span class="ruby-comment"># (highlighted in the worksheet tab bar)</span>
+    <span class="ruby-number">0x00e5</span>, <span class="ruby-comment"># Width of worksheet tab bar (in 1/1000 of window width).</span>
+            <span class="ruby-comment"># The remaining space is used by the horizontal scrollbar.</span>
+  ]
+  <span class="ruby-identifier">write_op</span> <span class="ruby-identifier">writer</span>, <span class="ruby-number">0x003d</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">'v*'</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_workbook">
+            
+              <a name="method-i-write_workbook"></a><b>write_workbook</b>(workbook, io)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The main writer method. Calls <a
+href="Workbook.html#method-i-write_from_scratch">write_from_scratch</a> or
+<a href="Workbook.html#method-i-write_changes">write_changes</a> depending
+on the class and state of <em>workbook</em>.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_workbook_source')" id="l_method-i-write_workbook_source">show</a>
+                
+              </p>
+              <div id="method-i-write_workbook_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 617</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_workbook</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">io</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Excel</span><span class="ruby-operator">::</span><span class="ruby-constant">Workbook</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">io</span>
+    <span class="ruby-ivar">@date_base</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span> <span class="ruby-number">1899</span>, <span class="ruby-number">12</span>, <span class="ruby-number">31</span>
+    <span class="ruby-identifier">write_from_scratch</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">io</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@date_base</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">date_base</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">workbook</span>.<span class="ruby-identifier">changes</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword">super</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">write_changes</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">io</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">cleanup</span> <span class="ruby-identifier">workbook</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-write_xfs">
+            
+              <a name="method-i-write_xfs"></a><b>write_xfs</b>(workbook, writer)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-write_xfs_source')" id="l_method-i-write_xfs_source">show</a>
+                
+              </p>
+              <div id="method-i-write_xfs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 632</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">write_xfs</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">writer</span>
+  <span class="ruby-comment"># The default cell format is always present in an Excel file, described by</span>
+  <span class="ruby-comment"># the XF record with the fixed index 15 (0-based). By default, it uses the</span>
+  <span class="ruby-comment"># worksheet/workbook default cell style, described by the very first XF</span>
+  <span class="ruby-comment"># record (index 0).</span>
+  <span class="ruby-ivar">@formats</span>[<span class="ruby-identifier">workbook</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fmt</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">write_xf</span> <span class="ruby-identifier">writer</span> <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-xf_index">
+            
+              <a name="method-i-xf_index"></a><b>xf_index</b>(workbook, format)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-xf_index_source')" id="l_method-i-xf_index_source">show</a>
+                
+              </p>
+              <div id="method-i-xf_index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/writer/workbook.rb, line 642</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">xf_index</span> <span class="ruby-identifier">workbook</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">fmt</span> = <span class="ruby-ivar">@formats</span>[<span class="ruby-identifier">workbook</span>].<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fm</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fm</span>.<span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">format</span> <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">xf_index</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-number">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

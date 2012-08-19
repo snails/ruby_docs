@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Font</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Spreadsheet::Font 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/spreadsheet/lib/spreadsheet/font_rb.html">spreadsheet/lib/spreadsheet/font.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="Font.html">Font</a> formatting data</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-bold-3D">bold=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-italic">italic</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-weight">weight</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Datatypes.html">
+              Spreadsheet::Datatypes
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="Encodings.html">
+              Spreadsheet::Encodings
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>name</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <a name="method-c-new"></a><b>new</b>(name, opts={})
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/font.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">opts</span>={}
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>
+  <span class="ruby-ivar">@color</span> = <span class="ruby-value">:text</span>
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span> <span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">val</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-bold-3D">
+            
+              <a name="method-i-bold-3D"></a><b>bold=</b>(bool)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets <a href="Font.html#method-i-weight">weight</a> to :bold
+if(<em>bool</em>), :normal otherwise.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-bold-3D_source')" id="l_method-i-bold-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-bold-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/font.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">bold=</span> <span class="ruby-identifier">bool</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">weight</span> = <span class="ruby-identifier">bool</span> <span class="ruby-operator">?</span> <span class="ruby-value">:bold</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-italic">
+            
+              <a name="method-i-italic"></a><b>italic</b>
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>You can set the following boolean <a href="Font.html">Font</a> attributes</p>
+<ul><li>
+<p><a href="Font.html#method-i-italic">italic</a></p>
+</li><li>
+<p>strikeout</p>
+</li><li>
+<p>outline</p>
+</li><li>
+<p>shadow</p>
+</li></ul>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-italic_source')" id="l_method-i-italic_source">show</a>
+                
+              </p>
+              <div id="method-i-italic_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/font.rb, line 17</span>
+<span class="ruby-identifier">boolean</span> <span class="ruby-value">:italic</span>, <span class="ruby-value">:strikeout</span>, <span class="ruby-value">:outline</span>, <span class="ruby-value">:shadow</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-weight">
+            
+              <a name="method-i-weight"></a><b>weight</b>
+            
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="Font.html">Font</a> weight Valid values: :normal, :bold or any
+positive Integer. In Excel:</p>
+
+<pre class="ruby"><span class="ruby-value">100</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">weight</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1000</span>
+:<span class="ruby-identifier">bold</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-value">700</span>
+:<span class="ruby-identifier">normal</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">400</span>
+</pre>
+
+<p>Default:      :normal</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-weight_source')" id="l_method-i-weight_source">show</a>
+                
+              </p>
+              <div id="method-i-weight_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/font.rb, line 29</span>
+<span class="ruby-identifier">enum</span> <span class="ruby-value">:weight</span>, <span class="ruby-value">:normal</span>, <span class="ruby-value">:bold</span>, <span class="ruby-constant">Integer</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:b</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

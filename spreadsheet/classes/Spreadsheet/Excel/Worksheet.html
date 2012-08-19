@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Excel::Worksheet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Spreadsheet::Excel::Worksheet 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Worksheet.html">Spreadsheet::Worksheet</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/spreadsheet/lib/spreadsheet/excel/worksheet_rb.html">spreadsheet/lib/spreadsheet/excel/worksheet.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Excel-specific <a href="Worksheet.html">Worksheet</a> methods. These are
+mostly pertinent to the <a href="../Excel.html">Excel</a> reader, and to
+recording changes to the <a href="Worksheet.html">Worksheet</a>. You should
+have no reason to use any of these.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_link">add_link</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-column">column</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-date_base">date_base</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-each">each</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ensure_rows_read">ensure_rows_read</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-row">row</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-row_updated">row_updated</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-set_row_address">set_row_address</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-shared_string">shared_string</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Offset.html">
+              Spreadsheet::Excel::Offset
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>links</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>offset</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>ole</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <a name="method-c-new"></a><b>new</b>(opts = {})
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span> <span class="ruby-identifier">opts</span> = {}
+  <span class="ruby-ivar">@row_addresses</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@offset</span>, <span class="ruby-ivar">@ole</span>, <span class="ruby-ivar">@reader</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:offset</span>], <span class="ruby-identifier">opts</span>[<span class="ruby-value">:ole</span>], <span class="ruby-identifier">opts</span>[<span class="ruby-value">:reader</span>]
+  <span class="ruby-ivar">@dimensions</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@links</span> = {}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_link">
+            
+              <a name="method-i-add_link"></a><b>add_link</b>(row, column, link)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_link_source')" id="l_method-i-add_link_source">show</a>
+                
+              </p>
+              <div id="method-i-add_link_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_link</span> <span class="ruby-identifier">row</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">link</span>
+  <span class="ruby-ivar">@links</span>.<span class="ruby-identifier">store</span> [<span class="ruby-identifier">row</span>, <span class="ruby-identifier">column</span>], <span class="ruby-identifier">link</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column">
+            
+              <a name="method-i-column"></a><b>column</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_source')" id="l_method-i-column_source">show</a>
+                
+              </p>
+              <div id="method-i-column_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-identifier">ensure_rows_read</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-date_base">
+            
+              <a name="method-i-date_base"></a><b>date_base</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-date_base_source')" id="l_method-i-date_base_source">show</a>
+                
+              </p>
+              <div id="method-i-date_base_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">date_base</span>
+  <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">date_base</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-each">
+            
+              <a name="method-i-each"></a><b>each</b>(*args)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-each_source')" id="l_method-i-each_source">show</a>
+                
+              </p>
+              <div id="method-i-each_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">each</span> *<span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">ensure_rows_read</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ensure_rows_read">
+            
+              <a name="method-i-ensure_rows_read"></a><b>ensure_rows_read</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ensure_rows_read_source')" id="l_method-i-ensure_rows_read_source">show</a>
+                
+              </p>
+              <div id="method-i-ensure_rows_read_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ensure_rows_read</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@row_addresses</span>
+  <span class="ruby-ivar">@dimensions</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@row_addresses</span> = []
+  <span class="ruby-ivar">@reader</span>.<span class="ruby-identifier">read_worksheet</span> <span class="ruby-keyword">self</span>, <span class="ruby-ivar">@offset</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@reader</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row">
+            
+              <a name="method-i-row"></a><b>row</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_source')" id="l_method-i-row_source">show</a>
+                
+              </p>
+              <div id="method-i-row_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-ivar">@rows</span>[<span class="ruby-identifier">idx</span>] <span class="ruby-keyword">or</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">ensure_rows_read</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">addr</span> = <span class="ruby-ivar">@row_addresses</span>[<span class="ruby-identifier">idx</span>]
+      <span class="ruby-identifier">row</span> = <span class="ruby-ivar">@reader</span>.<span class="ruby-identifier">read_row</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">addr</span>
+      [<span class="ruby-value">:default_format</span>, <span class="ruby-value">:height</span>, <span class="ruby-value">:outline_level</span>, <span class="ruby-value">:hidden</span>, ].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">row</span>.<span class="ruby-identifier">send</span> <span class="ruby-node">&quot;unupdated_#{key}=&quot;</span>, <span class="ruby-identifier">addr</span>[<span class="ruby-identifier">key</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">row</span>.<span class="ruby-identifier">worksheet</span> = <span class="ruby-keyword">self</span>
+      <span class="ruby-identifier">row</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Row</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">idx</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-row_updated">
+            
+              <a name="method-i-row_updated"></a><b>row_updated</b>(idx, row)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-row_updated_source')" id="l_method-i-row_updated_source">show</a>
+                
+              </p>
+              <div id="method-i-row_updated_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">row_updated</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">row</span>
+  <span class="ruby-identifier">res</span> = <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">changes</span>.<span class="ruby-identifier">store</span> <span class="ruby-keyword">self</span>, <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">changes</span>.<span class="ruby-identifier">store</span> <span class="ruby-value">:boundsheets</span>, <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@changes</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">idx</span>, <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@changes</span>.<span class="ruby-identifier">store</span> <span class="ruby-value">:dimensions</span>, <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set_row_address">
+            
+              <a name="method-i-set_row_address"></a><b>set_row_address</b>(idx, opts)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-set_row_address_source')" id="l_method-i-set_row_address_source">show</a>
+                
+              </p>
+              <div id="method-i-set_row_address_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">set_row_address</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">opts</span>
+  <span class="ruby-ivar">@offsets</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">idx</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-value">:row_block</span>]
+  <span class="ruby-ivar">@row_addresses</span>[<span class="ruby-identifier">idx</span>] = <span class="ruby-identifier">opts</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-shared_string">
+            
+              <a name="method-i-shared_string"></a><b>shared_string</b>(idx)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-shared_string_source')" id="l_method-i-shared_string_source">show</a>
+                
+              </p>
+              <div id="method-i-shared_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/excel/worksheet.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">shared_string</span> <span class="ruby-identifier">idx</span>
+  <span class="ruby-ivar">@workbook</span>.<span class="ruby-identifier">shared_string</span> <span class="ruby-identifier">idx</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

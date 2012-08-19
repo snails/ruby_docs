@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Spreadsheet::Format</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Spreadsheet::Format 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/spreadsheet/lib/spreadsheet/format_rb.html">spreadsheet/lib/spreadsheet/format.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Formatting data</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-align-3D">align=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-border">border</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-border-3D">border=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-border_color">border_color</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-border_color-3D">border_color=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-center_across-21">center_across!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cross_down">cross_down</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-date-3F">date?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-date_or_time-3F">date_or_time?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-datetime-3F">datetime?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-horizontal_align">horizontal_align</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-indent">indent</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-indent_level">indent_level</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-merge-21">merge!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reading_order">reading_order</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-rotation-3D">rotation=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-text_direction">text_direction</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-time-3F">time?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Datatypes.html">
+              Spreadsheet::Datatypes
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="Encodings.html">
+              Spreadsheet::Encodings
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>font</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>name</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>number_format</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>pattern</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>rotation</td>
+            <td class='attr-desc'><p>Text rotation</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>used_merge</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <a name="method-c-new"></a><b>new</b>(opts={})
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span> <span class="ruby-identifier">opts</span>={}
+  <span class="ruby-ivar">@font</span>             = <span class="ruby-constant">Font</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">client</span>(<span class="ruby-string">&quot;Arial&quot;</span>, <span class="ruby-string">'UTF-8'</span>), <span class="ruby-value">:family</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:swiss</span>
+  <span class="ruby-ivar">@number_format</span>    = <span class="ruby-identifier">client</span> <span class="ruby-string">'GENERAL'</span>, <span class="ruby-string">'UTF-8'</span>
+  <span class="ruby-ivar">@rotation</span>         = <span class="ruby-number">0</span>
+  <span class="ruby-ivar">@pattern</span>          = <span class="ruby-number">0</span>
+  <span class="ruby-ivar">@bottom_color</span>     = <span class="ruby-value">:builtin_black</span>
+  <span class="ruby-ivar">@top_color</span>        = <span class="ruby-value">:builtin_black</span>
+  <span class="ruby-ivar">@left_color</span>       = <span class="ruby-value">:builtin_black</span>
+  <span class="ruby-ivar">@right_color</span>      = <span class="ruby-value">:builtin_black</span>
+  <span class="ruby-ivar">@diagonal_color</span>   = <span class="ruby-value">:builtin_black</span>
+  <span class="ruby-ivar">@pattern_fg_color</span> = <span class="ruby-value">:border</span>
+  <span class="ruby-ivar">@pattern_bg_color</span> = <span class="ruby-value">:pattern_bg</span>
+  <span class="ruby-comment"># Temp code to prevent merged formats in non-merged cells.</span>
+  <span class="ruby-ivar">@used_merge</span>    = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">writer</span> = <span class="ruby-node">&quot;#{key}=&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">writer</span>
+      <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">send</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-align-3D">
+            
+              <a name="method-i-align-3D"></a><b>align=</b>(location)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Combined method for both horizontal and vertical alignment. Sets the first
+valid value (e.g. Format#align = :justify only sets the horizontal
+alignment. Use one of the aliases prefixed with :v if you need to
+disambiguate.)</p>
+
+<p>This is essentially a backward-compatibility method and may be removed at
+some point in the future.</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-align-3D_source')" id="l_method-i-align-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-align-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">align=</span> <span class="ruby-identifier">location</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">horizontal_align</span> = <span class="ruby-identifier">location</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">vertical_align</span> = <span class="ruby-identifier">location</span> <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-border">
+            
+              <a name="method-i-border"></a><b>border</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an <a href="../Array.html">Array</a> containing the status of the
+four borders: bottom, top, right, left</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-border_source')" id="l_method-i-border_source">show</a>
+                
+              </p>
+              <div id="method-i-border_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">border</span>
+  [<span class="ruby-identifier">bottom</span>,<span class="ruby-identifier">top</span>,<span class="ruby-identifier">right</span>,<span class="ruby-identifier">left</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-border-3D">
+            
+              <a name="method-i-border-3D"></a><b>border=</b>(boolean)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Activate or deactivate all four borders (left, right, top, bottom)</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-border-3D_source')" id="l_method-i-border-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-border-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">border=</span>(<span class="ruby-identifier">boolean</span>)
+  [<span class="ruby-value">:bottom=</span>, <span class="ruby-value">:top=</span>, <span class="ruby-value">:right=</span>, <span class="ruby-value">:left=</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">writer</span><span class="ruby-operator">|</span> <span class="ruby-identifier">send</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">boolean</span> <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-border_color">
+            
+              <a name="method-i-border_color"></a><b>border_color</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns an <a href="../Array.html">Array</a> containing the colors of the
+four borders: bottom, top, right, left</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-border_color_source')" id="l_method-i-border_color_source">show</a>
+                
+              </p>
+              <div id="method-i-border_color_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">border_color</span>
+  [<span class="ruby-ivar">@bottom_color</span>,<span class="ruby-ivar">@top_color</span>,<span class="ruby-ivar">@left_color</span>,<span class="ruby-ivar">@right_color</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-border_color-3D">
+            
+              <a name="method-i-border_color-3D"></a><b>border_color=</b>(color)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Set all four border colors to <em>color</em> (left, right, top, bottom)</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-border_color-3D_source')" id="l_method-i-border_color-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-border_color-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">border_color=</span>(<span class="ruby-identifier">color</span>)
+  [<span class="ruby-value">:bottom_color=</span>, <span class="ruby-value">:top_color=</span>, <span class="ruby-value">:right_color=</span>, <span class="ruby-value">:left_color=</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">writer</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">send</span> <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">color</span> <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-center_across-21">
+            
+              <a name="method-i-center_across-21"></a><b>center_across!</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Backward compatibility method. May disappear at some point in the future.</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Format.html#method-i-merge-21">merge!</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-center_across-21_source')" id="l_method-i-center_across-21_source">show</a>
+                
+              </p>
+              <div id="method-i-center_across-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">center_across!</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">horizontal_align</span> = <span class="ruby-value">:merge</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cross_down">
+            
+              <a name="method-i-cross_down"></a><b>cross_down</b>
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>You can set the following boolean attributes:</p>
+<dl class="rdoc-list note-list"><dt><a href="Format.html#method-i-cross_down">cross_down</a>
+<dd>
+<p>Draws a Line from the top-left to the bottom-right corner of a cell.</p>
+</dd><dt>cross_up
+<dd>
+<p>Draws a Line from the bottom-left to the top-right corner of a cell.</p>
+</dd><dt>hidden
+<dd>
+<p>The cell is hidden.</p>
+</dd><dt>locked
+<dd>
+<p>The cell is locked.</p>
+</dd><dt>merge_range
+<dd>
+<p>The cell is in a merged range.</p>
+</dd><dt>shrink
+<dd>
+<p>Shrink the contents to fit the cell.</p>
+</dd><dt>text_justlast
+<dd>
+<p>Force the last line of a cell to be justified. This probably makes sense if
+<a href="Format.html#method-i-horizontal_align">#horizontal_align</a> =
+:justify</p>
+</dd><dt>left
+<dd>
+<p>Draw a border to the left of the cell.</p>
+</dd><dt>right
+<dd>
+<p>Draw a border to the right of the cell.</p>
+</dd><dt>top
+<dd>
+<p>Draw a border at the top of the cell.</p>
+</dd><dt>bottom
+<dd>
+<p>Draw a border at the bottom of the cell.</p>
+</dd><dt>rotation_stacked
+<dd>
+<p>Characters in the cell are stacked on top of each other. <a
+href="Excel.html">Excel</a> will ignore other rotation values if this is
+set.</p>
+</dd></dl>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cross_down_source')" id="l_method-i-cross_down_source">show</a>
+                
+              </p>
+              <div id="method-i-cross_down_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 30</span>
+<span class="ruby-identifier">boolean</span> <span class="ruby-value">:cross_down</span>, <span class="ruby-value">:cross_up</span>, <span class="ruby-value">:hidden</span>, <span class="ruby-value">:locked</span>,
+        <span class="ruby-value">:merge_range</span>, <span class="ruby-value">:shrink</span>, <span class="ruby-value">:text_justlast</span>, <span class="ruby-value">:text_wrap</span>, <span class="ruby-value">:left</span>, <span class="ruby-value">:right</span>,
+        <span class="ruby-value">:top</span>, <span class="ruby-value">:bottom</span>, <span class="ruby-value">:rotation_stacked</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-date-3F">
+            
+              <a name="method-i-date-3F"></a><b>date?</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Is the cell formatted as a Date?</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-date-3F_source')" id="l_method-i-date-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-date-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">date?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">client</span>(<span class="ruby-string">&quot;[YMD]&quot;</span>, <span class="ruby-string">'UTF-8'</span>)).<span class="ruby-identifier">match</span>(<span class="ruby-ivar">@number_format</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-date_or_time-3F">
+            
+              <a name="method-i-date_or_time-3F"></a><b>date_or_time?</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Is the cell formatted as a Date or Time?</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-date_or_time-3F_source')" id="l_method-i-date_or_time-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-date_or_time-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">date_or_time?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">client</span>(<span class="ruby-string">&quot;[hmsYMD]&quot;</span>, <span class="ruby-string">'UTF-8'</span>)).<span class="ruby-identifier">match</span>(<span class="ruby-ivar">@number_format</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-datetime-3F">
+            
+              <a name="method-i-datetime-3F"></a><b>datetime?</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Is the cell formatted as a DateTime?</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-datetime-3F_source')" id="l_method-i-datetime-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-datetime-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">datetime?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">client</span>(<span class="ruby-string">&quot;([YMD].*[HS])|([HS].*[YMD])&quot;</span>, <span class="ruby-string">'UTF-8'</span>)).<span class="ruby-identifier">match</span>(<span class="ruby-ivar">@number_format</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-horizontal_align">
+            
+              <a name="method-i-horizontal_align"></a><b>horizontal_align</b>
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Horizontal alignment Valid values: :default, :left, :center, :right, :fill,
+:justify, :merge,</p>
+
+<pre>:distributed</pre>
+
+<p>Default:      :default</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-horizontal_align_source')" id="l_method-i-horizontal_align_source">show</a>
+                
+              </p>
+              <div id="method-i-horizontal_align_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 57</span>
+<span class="ruby-identifier">enum</span> <span class="ruby-value">:horizontal_align</span>, <span class="ruby-value">:default</span>, <span class="ruby-value">:left</span>, <span class="ruby-value">:center</span>, <span class="ruby-value">:right</span>, <span class="ruby-value">:fill</span>, <span class="ruby-value">:justify</span>,
+                        <span class="ruby-value">:merge</span>, <span class="ruby-value">:distributed</span>,
+     <span class="ruby-value">:center</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:centre</span>,
+     <span class="ruby-value">:merge</span>       =<span class="ruby-operator">&gt;</span> [ <span class="ruby-value">:center_across</span>, <span class="ruby-value">:centre_across</span> ],
+     <span class="ruby-value">:distributed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:equal_space</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-indent">
+            
+              <a name="method-i-indent"></a><b>indent</b>
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-indent_level">
+            
+              <a name="method-i-indent_level"></a><b>indent_level</b>
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Indentation level</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Format.html#method-i-indent">indent</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-indent_level_source')" id="l_method-i-indent_level_source">show</a>
+                
+              </p>
+              <div id="method-i-indent_level_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 49</span>
+<span class="ruby-identifier">enum</span> <span class="ruby-value">:indent_level</span>, <span class="ruby-number">0</span>, <span class="ruby-constant">Integer</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-merge-21">
+            
+              <a name="method-i-merge-21"></a><b>merge!</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reading_order">
+            
+              <a name="method-i-reading_order"></a><b>reading_order</b>
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rotation-3D">
+            
+              <a name="method-i-rotation-3D"></a><b>rotation=</b>(rot)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Set the Text rotation Valid values: Integers from -90 to 90, or :stacked
+(sets rotation_stacked to true)</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-rotation-3D_source')" id="l_method-i-rotation-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-rotation-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">rotation=</span>(<span class="ruby-identifier">rot</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">rot</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">'stacked'</span>
+    <span class="ruby-ivar">@rotation_stacked</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@rotation</span> = <span class="ruby-number">0</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">rot</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+    <span class="ruby-ivar">@rotation_stacked</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-ivar">@rotation</span> = <span class="ruby-identifier">rot</span> <span class="ruby-operator">%</span> <span class="ruby-number">360</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;rotation value must be an Integer or the String 'stacked'&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-text_direction">
+            
+              <a name="method-i-text_direction"></a><b>text_direction</b>
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Text direction Valid values: :context, :left_to_right, :right_to_left
+Default:      :context</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Format.html#method-i-reading_order">reading_order</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-text_direction_source')" id="l_method-i-text_direction_source">show</a>
+                
+              </p>
+              <div id="method-i-text_direction_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 42</span>
+<span class="ruby-identifier">enum</span> <span class="ruby-value">:text_direction</span>, <span class="ruby-value">:context</span>, <span class="ruby-value">:left_to_right</span>, <span class="ruby-value">:right_to_left</span>,
+     <span class="ruby-value">:left_to_right</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:ltr</span>, <span class="ruby-value">:l2r</span>],
+     <span class="ruby-value">:right_to_left</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:rtl</span>, <span class="ruby-value">:r2l</span>]
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-time-3F">
+            
+              <a name="method-i-time-3F"></a><b>time?</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Is the cell formatted as a Time?</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-time-3F_source')" id="l_method-i-time-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-time-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File spreadsheet/lib/spreadsheet/format.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">time?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">client</span>(<span class="ruby-string">&quot;[hms]&quot;</span>, <span class="ruby-string">'UTF-8'</span>)).<span class="ruby-identifier">match</span>(<span class="ruby-ivar">@number_format</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    
